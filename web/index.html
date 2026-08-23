@@ -1564,19 +1564,29 @@ Object.keys(secToCh).forEach(function(id){
   var el=document.getElementById(id); if(el) spy.observe(el);
 });
 
-/* ---------------- theme toggle ---------------- */
+/* ---------------- theme: manual toggle + follow system by default ---------------- */
 (function(){
   var KEY='abc2026-theme', mt=document.getElementById('metaTheme');
-  function apply(t){
+  var mq=matchMedia('(prefers-color-scheme: light)');
+  function sysT(){ return mq.matches ? 'day' : 'night'; }
+  function paint(t){
     document.documentElement.setAttribute('data-theme',t);
     if(mt) mt.setAttribute('content', t==='day' ? '#F5F1E8' : '#000000');
-    try{ localStorage.setItem(KEY,t); }catch(e){}
+    try{ dispatchEvent(new CustomEvent('abc-theme',{detail:t})); }catch(e){}
   }
+  function apply(t){ paint(t); try{ localStorage.setItem(KEY,t); }catch(e){} }
   function flip(){ apply(document.documentElement.getAttribute('data-theme')==='day' ? 'night' : 'day'); }
   ['themeTgl','themeTglM'].forEach(function(id){
     var b=document.getElementById(id); if(b) b.addEventListener('click',flip);
   });
-  apply(document.documentElement.getAttribute('data-theme')||'night');
+  var stored=null; try{ stored=localStorage.getItem(KEY); }catch(e){}
+  paint(stored || sysT());
+  try{
+    mq.addEventListener('change',function(){
+      var s=null; try{ s=localStorage.getItem(KEY); }catch(e){}
+      if(!s) paint(sysT());
+    });
+  }catch(e){}
 })();
 
 /* ---------------- reading progress ---------------- */
@@ -2016,20 +2026,30 @@ setVersion('E');
   var rz; addEventListener('resize',function(){ clearTimeout(rz); rz=setTimeout(size,180); });
   if(!reduced) setInterval(function(){ if(Math.random()<0.55) launchMeteor(); }, 7000);
 
-  /* higgsfield asset takeover: drop hero.jpg / hero.mp4 next to index.html */
-  var img=new Image();
-  img.onload=function(){ $('#heroImg').src=img.src; host.classList.add('has-img'); };
-  if(matchMedia('(orientation: portrait)').matches){
-    img.onerror=function(){ img.onerror=null; img.src='hero.jpg'; };
-    img.src='hero-portrait.jpg';
-  } else {
-    img.src='hero.jpg';
-  }
-
+  /* theme-aware hero media: night hero.* (starfield) / day hero-day.* (日照金山) */
   var v=$('#heroVideo');
   v.addEventListener('canplay',function(){ host.classList.add('has-video'); v.play().catch(function(){}); });
-  v.addEventListener('error',function(){});
-  v.src='hero.mp4'; v.load();
+  v.addEventListener('error',function(){ host.classList.remove('has-video'); });
+  function heroAssets(t){
+    var d = t==='day';
+    return { img: d?'hero-day.jpg':'hero.jpg',
+             pimg: d?'hero-day-portrait.jpg':'hero-portrait.jpg',
+             vid: d?'hero-day.mp4':'hero.mp4' };
+  }
+  function loadHero(t){
+    var a=heroAssets(t), wantP=matchMedia('(orientation: portrait)').matches;
+    host.classList.remove('has-img','has-video');
+    var img=new Image();
+    img.onload=function(){ $('#heroImg').src=img.src; host.classList.add('has-img'); };
+    img.onerror=function(){
+      if(wantP && img.src.indexOf(a.pimg)>-1){ img.src=a.img; }
+      else if(t==='day' && img.src.indexOf('hero-day')>-1){ img.src = wantP?'hero-portrait.jpg':'hero.jpg'; }
+    };
+    img.src = wantP ? a.pimg : a.img;
+    v.src=a.vid; v.load();
+  }
+  addEventListener('abc-theme',function(e){ loadHero(e.detail); });
+  loadHero(document.documentElement.getAttribute('data-theme')==='day' ? 'day' : 'night');
 })();
 
 })();
