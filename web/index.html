@@ -1844,7 +1844,12 @@ setVersion('E');
   /* higgsfield asset takeover: drop hero.jpg / hero.mp4 next to index.html */
   var img=new Image();
   img.onload=function(){ $('#heroImg').src=img.src; host.classList.add('has-img'); };
-  img.src='hero.jpg';
+  if(matchMedia('(orientation: portrait)').matches){
+    img.onerror=function(){ img.onerror=null; img.src='hero.jpg'; };
+    img.src='hero-portrait.jpg';
+  } else {
+    img.src='hero.jpg';
+  }
 
   var v=$('#heroVideo');
   v.addEventListener('canplay',function(){ host.classList.add('has-video'); v.play().catch(function(){}); });
