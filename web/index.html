@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Nepal ABC 2026 · 四人十三天主行程</title>
+<meta name="description" content="Annapurna Base Camp 2026-09-25 至 10-07 四人行程执行版：E 版定稿逐日、逐夜无月窗口实算、航班定稿、预订倒计时、风险板与摄影计划。">
+<meta property="og:title" content="Nepal ABC 2026 · 四人十三天主行程">
+<meta property="og:description" content="E 版已定稿。逐日行程、逐夜无月窗口、航班与预订倒计时、风险板与摄影计划。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000000'/><path d='M2 26 L11 9 L15.5 17 L19 12 L30 26 Z' fill='%23E9834F'/><circle cx='25' cy='6.5' r='1.9' fill='%238AB4D4'/></svg>">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5/latin-400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5/latin-500.css">
+<style>
+/* ============================================================
+   Nepal ABC 2026 — visual system
+   ground: flat blacks only (no background gradients)
+   accent: 点亮 amber  ·  astro: ice blue
+   type:   Noto Serif SC (display + body) / Geist Mono (numerals)
+   motion: cubic-bezier(0.32,0.72,0,1) everywhere
+   ============================================================ */
+:root{
+  --bg:#000000;
+  --bg-warm:#131209;
+  --surface:#181818;
+  --surface-2:#1F1F1F;
+  --surface-3:#272727;
+  --line:#272727;
+  --line-2:#313131;
+
+  --ink:#F4F1EC;
+  --ink-2:#9B9B9B;
+  --ink-3:#6E6A63;
+
+  --glow:#E9834F;
+  --glow-dim:#8C5233;
+  --ice:#8AB4D4;
+  --ice-dim:#415A6D;
+  --alert:#C9503F;
+  --ok:#5E9384;
+
+  --s-25:2px; --s-50:4px; --s-75:8px; --s-100:12px; --s-200:16px;
+  --s-300:24px; --s-400:32px; --s-500:40px; --s-600:48px;
+  --s-700:64px; --s-800:80px; --s-900:96px;
+
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-full:9999px;
+
+  --ease:cubic-bezier(0.32,0.72,0,1);
+  --serif:"Noto Serif SC","Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --mono:"Geist Mono","SF Mono","Menlo",ui-monospace,monospace;
+
+  --maxw:1180px;
+  --hero-w:680px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:104px;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--serif);font-size:16px;line-height:24px;font-weight:400;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-wrap:pretty;overflow-x:hidden;
+}
+h1,h2,h3,h4{margin:0;font-weight:700;text-wrap:balance;}
+p{margin:0;}
+ul,ol{margin:0;padding:0;list-style:none;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:var(--r-sm);}
+
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-0.01em;}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--s-300);}
+
+.skip{position:absolute;left:var(--s-200);top:-64px;z-index:200;background:var(--glow);color:#000;
+  padding:var(--s-75) var(--s-100);border-radius:var(--r-md);font-size:14px;transition:top .4s var(--ease);}
+.skip:focus{top:var(--s-200);}
+
+/* ---------- fluid island nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;pointer-events:none;padding-top:var(--s-300);}
+.pill{
+  pointer-events:auto;width:max-content;max-width:calc(100% - 32px);margin:0 auto;
+  display:flex;align-items:center;gap:var(--s-300);
+  padding:var(--s-75) var(--s-75) var(--s-75) var(--s-200);
+  border:1px solid rgba(255,255,255,.10);border-radius:var(--r-full);
+  background:rgba(10,10,10,.62);backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  transition:all .7s var(--ease);
+}
+.nav.scrolled .pill{background:rgba(10,10,10,.86);border-color:rgba(255,255,255,.16);}
+.brand{display:flex;align-items:center;gap:var(--s-75);font-size:14px;font-weight:700;white-space:nowrap;}
+.brand-mark{width:20px;height:20px;flex:0 0 20px;}
+.nav-links{display:flex;align-items:center;gap:var(--s-25);}
+.nav-links a{
+  font-size:14px;color:var(--ink-2);padding:var(--s-50) var(--s-100);border-radius:var(--r-full);
+  transition:color .7s var(--ease),background .7s var(--ease);white-space:nowrap;
+}
+.nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.06);}
+.nav-links a[aria-current="true"]{color:var(--glow);background:rgba(233,131,79,.10);}
+.nav-cta{
+  font-family:var(--mono);font-size:14px;font-weight:500;color:#0A0805;background:var(--glow);
+  padding:var(--s-75) var(--s-100);border-radius:var(--r-full);white-space:nowrap;
+  transition:transform .7s var(--ease),background .7s var(--ease);
+}
+.nav-cta:hover{background:#F19565;transform:translateY(-1px);}
+.nav-cta:active{transform:scale(.98);}
+
+.burger{display:none;width:36px;height:36px;border-radius:var(--r-full);position:relative;flex:0 0 36px;}
+.burger span{position:absolute;left:9px;width:18px;height:1.5px;background:var(--ink);border-radius:2px;
+  transition:transform .7s var(--ease),opacity .5s var(--ease);}
+.burger span:nth-child(1){top:15px;}
+.burger span:nth-child(2){top:21px;}
+body.menu-open .burger span:nth-child(1){transform:translateY(3px) rotate(45deg);}
+body.menu-open .burger span:nth-child(2){transform:translateY(-3px) rotate(-45deg);}
+
+.overlay{
+  position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;justify-content:center;
+  padding:var(--s-600) var(--s-400);gap:var(--s-100);
+  background:rgba(0,0,0,.80);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);
+  opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility .7s var(--ease);
+}
+body.menu-open .overlay{opacity:1;visibility:visible;}
+.overlay a{font-size:30px;line-height:36px;font-weight:700;color:var(--ink);
+  transform:translateY(48px);opacity:0;transition:transform .8s var(--ease),opacity .8s var(--ease);}
+.overlay a span{font-family:var(--mono);font-size:12px;color:var(--glow);margin-right:var(--s-100);vertical-align:middle;}
+body.menu-open .overlay a{transform:translateY(0);opacity:1;}
+body.menu-open .overlay a:nth-child(1){transition-delay:.10s;}
+body.menu-open .overlay a:nth-child(2){transition-delay:.15s;}
+body.menu-open .overlay a:nth-child(3){transition-delay:.20s;}
+body.menu-open .overlay a:nth-child(4){transition-delay:.25s;}
+body.menu-open .overlay a:nth-child(5){transition-delay:.30s;}
+body.menu-open .overlay a:nth-child(6){transition-delay:.35s;}
+body.menu-open .overlay a:nth-child(7){transition-delay:.40s;}
+body.menu-open .overlay a:nth-child(8){transition-delay:.45s;}
+body.menu-open .overlay a:nth-child(9){transition-delay:.50s;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--bg);}
+.hero-media{position:absolute;inset:0;z-index:0;}
+.hero-media canvas,.hero-media video,.hero-media .hero-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+}
+.hero-media video,.hero-media .hero-img{opacity:0;transition:opacity 1.2s var(--ease);}
+.hero-media.has-img .hero-img,.hero-media.has-video video{opacity:1;}
+.hero-media.has-img canvas,.hero-media.has-video canvas{opacity:0;transition:opacity 1.2s var(--ease);}
+.hero-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 34%,rgba(0,0,0,0) 70%);}
+.hero-slot{
+  position:absolute;right:var(--s-300);top:104px;z-index:3;
+  font-family:var(--mono);font-size:12px;line-height:16px;color:var(--ink-3);
+  border:1px dashed var(--line-2);border-radius:var(--r-md);padding:var(--s-75) var(--s-100);
+  background:rgba(0,0,0,.45);max-width:260px;
+}
+.hero-slot b{color:var(--ice);font-weight:500;}
+.hero-inner{position:relative;z-index:2;width:100%;padding-block:var(--s-700) var(--s-600);}
+.eyebrow{font-family:var(--mono);font-size:12px;line-height:16px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--glow);margin-bottom:var(--s-300);}
+.hero h1{
+  max-width:var(--hero-w);font-size:48px;line-height:1.16;letter-spacing:-0.01em;
+  background:linear-gradient(90deg,#FFFFFF 0%,#9B9B9B 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:var(--s-300);
+}
+.hero-sub{max-width:var(--hero-w);font-size:18px;line-height:28px;color:var(--ink-2);margin-bottom:var(--s-400);}
+.hero-actions{display:flex;align-items:center;gap:var(--s-200);flex-wrap:wrap;margin-bottom:var(--s-500);}
+.btn{
+  display:inline-flex;align-items:center;gap:var(--s-75);
+  font-family:var(--mono);font-size:16px;font-weight:500;
+  padding:var(--s-100) var(--s-300);border-radius:var(--r-full);
+  background:var(--glow);color:#0A0805;border:1px solid var(--glow);
+  transition:transform .7s var(--ease),background .7s var(--ease),box-shadow .7s var(--ease);
+}
+.btn:hover{background:#F4966A;border-color:#F4966A;transform:translateY(-2px);box-shadow:0 10px 32px rgba(233,131,79,.22);}
+.btn:active{transform:scale(.98) translateY(0);}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);}
+.btn-ghost:hover{background:rgba(255,255,255,.06);border-color:#4A4A4A;color:var(--ink);box-shadow:none;}
+.hero-stats{display:flex;flex-wrap:wrap;gap:var(--s-500) var(--s-700);border-top:1px solid var(--line);padding-top:var(--s-300);}
+.hero-stats div{min-width:96px;}
+.hero-stats .v{font-family:var(--mono);font-size:30px;line-height:36px;color:var(--ink);display:block;}
+.hero-stats .v em{font-style:normal;font-size:16px;color:var(--ink-2);margin-left:2px;}
+.hero-stats .k{font-size:12px;line-height:16px;color:var(--ink-3);letter-spacing:.06em;margin-top:var(--s-50);display:block;}
+
+/* ---------- section frame ---------- */
+section[id]{scroll-margin-top:104px;}
+.band{padding-block:var(--s-800);border-top:1px solid var(--line);}
+.band.warm{background:var(--bg-warm);}
+.band.surface{background:var(--surface);}
+.sec-head{display:flex;align-items:baseline;gap:var(--s-200);margin-bottom:var(--s-500);flex-wrap:wrap;}
+.sec-num{font-family:var(--mono);font-size:12px;color:var(--glow);letter-spacing:.14em;}
+.sec-head h2{font-size:30px;line-height:36px;letter-spacing:-0.01em;}
+.sec-note{font-size:14px;line-height:20px;color:var(--ink-3);flex:1 1 240px;}
+
+[data-reveal]{opacity:0;transform:translateY(16px);filter:blur(6px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);}
+[data-reveal].in{opacity:1;transform:none;filter:none;}
+
+/* ---------- status ---------- */
+.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-300);align-items:start;}
+.card{border:1px solid var(--line);border-radius:var(--r-xl);background:var(--bg);padding:var(--s-300);}
+.card-title{display:flex;align-items:center;gap:var(--s-75);font-size:14px;color:var(--ink-2);margin-bottom:var(--s-200);}
+.dot{width:7px;height:7px;border-radius:var(--r-full);flex:0 0 7px;background:var(--ink-3);}
+.dot.live{background:var(--ice);animation:pulse 2.4s var(--ease) infinite;}
+.dot.hot{background:var(--alert);animation:pulse 2.4s var(--ease) infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.82);}}
+
+.locked{border:1px solid var(--glow-dim);border-radius:var(--r-xl);background:var(--bg);
+  padding:var(--s-400);margin-bottom:var(--s-300);}
+.locked .stamp{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--glow);margin-bottom:var(--s-100);}
+.locked h3{font-size:24px;line-height:32px;margin-bottom:var(--s-100);}
+.locked p{font-size:15px;line-height:24px;color:var(--ink-2);max-width:78ch;}
+.locked p b{color:var(--ink);font-weight:700;}
+
+.check-list li{display:flex;gap:var(--s-100);padding-block:var(--s-100);border-top:1px solid var(--line);
+  font-size:14px;line-height:20px;}
+.check-list li:first-child{border-top:0;}
+.check-list .who{font-family:var(--mono);font-size:12px;color:var(--ink-3);flex:0 0 68px;padding-top:2px;}
+.check-list .what{color:var(--ink-2);}
+.check-list .what b{color:var(--ink);font-weight:700;}
+
+.fixed-list li{display:grid;grid-template-columns:142px 1fr;gap:var(--s-200);padding-block:var(--s-100);
+  border-top:1px solid var(--line);font-size:14px;line-height:20px;align-items:start;}
+.fixed-list li:first-child{border-top:0;}
+.fixed-list .was{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--alert);
+  font-family:var(--mono);font-size:12px;padding-top:2px;}
+.fixed-list .now{color:var(--ink-2);}
+.fixed-list .now b{color:var(--ink);font-weight:700;}
+
+/* ---------- countdown ---------- */
+.cd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-300);margin-bottom:var(--s-600);}
+.cd{border:1px solid var(--line);border-radius:var(--r-xl);padding:var(--s-300);background:var(--bg);}
+.cd.p0{border-color:var(--glow-dim);}
+.cd .tag{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--ink-3);}
+.cd.p0 .tag{color:var(--glow);}
+.cd .n{font-family:var(--mono);font-size:60px;line-height:1;color:var(--ink);margin-block:var(--s-200) var(--s-75);}
+.cd .n em{font-style:normal;font-size:20px;color:var(--ink-2);margin-left:var(--s-50);}
+.cd .lbl{font-size:14px;line-height:20px;color:var(--ink-2);}
+.cd .date{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:var(--s-75);}
+
+.prio{margin-bottom:var(--s-500);}
+.prio-head{display:flex;align-items:center;gap:var(--s-100);margin-bottom:var(--s-200);}
+.badge{font-family:var(--mono);font-size:12px;font-weight:500;padding:2px var(--s-75);border-radius:var(--r-sm);
+  border:1px solid var(--line-2);color:var(--ink-2);}
+.badge.b0{border-color:var(--glow);color:var(--glow);}
+.badge.b1{border-color:var(--ice-dim);color:var(--ice);}
+.prio-head p{font-size:14px;line-height:20px;color:var(--ink-3);}
+.task{display:grid;grid-template-columns:28px 1fr 132px;gap:var(--s-200);align-items:start;
+  padding:var(--s-100) var(--s-100) var(--s-100) 0;border-top:1px solid var(--line);
+  transition:background .7s var(--ease);border-radius:var(--r-md);}
+.task:hover{background:rgba(255,255,255,.03);}
+.task input{appearance:none;width:18px;height:18px;margin:3px 0 0 var(--s-75);border:1px solid var(--line-2);
+  border-radius:var(--r-sm);cursor:pointer;flex:0 0 18px;position:relative;
+  transition:background .7s var(--ease),border-color .7s var(--ease);}
+.task input:hover{border-color:var(--ink-3);}
+.task input:checked{background:var(--ok);border-color:var(--ok);}
+.task input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;
+  border:solid #0A0805;border-width:0 2px 2px 0;transform:rotate(42deg);}
+.task .t-body{min-width:0;display:block;}
+.task .t-name{display:block;font-size:16px;line-height:24px;color:var(--ink);font-weight:700;}
+.task .t-desc{display:block;font-size:14px;line-height:22px;color:var(--ink-3);margin-top:var(--s-50);max-width:74ch;}
+.task .t-due{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-2);text-align:right;padding-top:var(--s-50);}
+.task .t-due i{font-style:normal;display:block;color:var(--ink-3);font-size:12px;margin-top:var(--s-25);}
+.task.done .t-name{color:var(--ink-3);text-decoration:line-through;}
+.sync{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:var(--s-200);display:flex;
+  align-items:center;gap:var(--s-75);}
+
+/* ---------- tagline reveal ---------- */
+.reveal-band{padding-block:var(--s-900);background:var(--bg-warm);border-top:1px solid var(--line);}
+.reveal-copy{max-width:var(--hero-w);font-size:48px;line-height:1.3;font-weight:700;letter-spacing:-0.01em;}
+.reveal-copy .w{color:rgba(244,241,236,.28);transition:color .8s var(--ease);display:inline-block;}
+.reveal-copy .w.lit{color:var(--ink);}
+.reveal-copy .w.accent.lit{color:var(--glow);}
+.reveal-src{font-family:var(--mono);font-size:12px;line-height:20px;color:var(--ink-3);
+  margin-top:var(--s-400);max-width:var(--hero-w);}
+
+/* ---------- route ---------- */
+.switch{display:inline-flex;padding:var(--s-50);border:1px solid var(--line);border-radius:var(--r-full);
+  background:var(--bg);gap:var(--s-25);margin-bottom:var(--s-400);}
+.switch button{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ink-2);
+  padding:var(--s-75) var(--s-300);border-radius:var(--r-full);
+  transition:background .7s var(--ease),color .7s var(--ease);white-space:nowrap;}
+.switch button[aria-selected="true"]{background:var(--glow);color:#0A0805;}
+.switch button:hover[aria-selected="false"]{color:var(--ink);background:rgba(255,255,255,.06);}
+
+.profile-box{border:1px solid var(--line);border-radius:var(--r-xl);background:var(--bg);
+  padding:var(--s-300) var(--s-200) var(--s-200);margin-bottom:var(--s-400);overflow:hidden;}
+.profile-legend{display:flex;flex-wrap:wrap;gap:var(--s-300);font-family:var(--mono);font-size:12px;
+  color:var(--ink-3);padding:0 var(--s-100) var(--s-200);}
+.profile-legend i{font-style:normal;display:inline-flex;align-items:center;gap:var(--s-50);}
+.swatch{width:8px;height:8px;border-radius:2px;display:inline-block;}
+.profile-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+.profile-scroll::-webkit-scrollbar{height:4px;}
+.profile-scroll::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:2px;}
+.profile-hint{display:none;font-size:11px;color:var(--ink-3);padding:var(--s-75) var(--s-100) 0;}
+#profile{display:block;width:100%;height:auto;}
+#profile .grid-line{stroke:var(--line);stroke-width:1;}
+#profile .grid-label{fill:var(--ink-3);font-family:var(--mono);font-size:11px;}
+#profile .area{fill:rgba(138,180,212,.07);}
+#profile .line{fill:none;stroke:var(--ice);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;}
+#profile .node{fill:var(--bg);stroke:var(--ice);stroke-width:2;}
+#profile .node.peak{fill:var(--glow);stroke:var(--glow);}
+#profile .stem{stroke:var(--line-2);stroke-width:1;stroke-dasharray:2 3;}
+#profile .p-place{fill:var(--ink-2);font-family:var(--serif);font-size:12px;}
+#profile .p-place.peak{fill:var(--glow);}
+#profile .p-alt{fill:var(--ink-3);font-family:var(--mono);font-size:11px;}
+#profile .p-date{fill:var(--ink-3);font-family:var(--mono);font-size:11px;}
+
+.days{border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;background:var(--bg);}
+.day{display:grid;grid-template-columns:96px 1fr 210px;gap:var(--s-200);padding:var(--s-200);
+  border-top:1px solid var(--line);transition:background .7s var(--ease);}
+.day:first-child{border-top:0;}
+.day:hover{background:rgba(255,255,255,.025);}
+.day.abc{background:rgba(233,131,79,.05);}
+.day.abc:hover{background:rgba(233,131,79,.08);}
+.day.air{background:var(--surface);}
+.d-date{font-family:var(--mono);font-size:14px;color:var(--ink);}
+.d-date i{font-style:normal;display:block;font-size:12px;color:var(--ink-3);margin-top:var(--s-25);}
+.d-what{font-size:15px;line-height:24px;color:var(--ink-2);}
+.d-what mark{background:none;color:var(--glow);}
+.d-what .astro{color:var(--ice);}
+.d-what .warn{color:var(--alert);}
+.d-stay{text-align:right;font-size:14px;line-height:20px;color:var(--ink);}
+.d-stay i{font-style:normal;display:block;font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:var(--s-25);}
+
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-300);margin-top:var(--s-500);align-items:start;}
+.vs .card{padding:var(--s-400);}
+.vs .card.pick{border-color:var(--glow-dim);}
+.vs h3{font-size:20px;line-height:28px;margin-bottom:var(--s-75);}
+.vs .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:var(--s-100);}
+.vs .card.pick .kicker{color:var(--glow);}
+.vs .lead{font-size:14px;line-height:22px;color:var(--ink-2);padding-bottom:var(--s-200);
+  border-bottom:1px solid var(--line);margin-bottom:var(--s-200);}
+.gl{margin-bottom:var(--s-200);}
+.gl h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink-3);margin-bottom:var(--s-75);}
+.gl li{font-size:14px;line-height:22px;color:var(--ink-2);padding-left:var(--s-200);position:relative;}
+.gl li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--ink-3);}
+.gl.win li::before{background:var(--ok);}
+.gl.lose li::before{background:var(--alert);}
+.rule{border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s-300);margin-top:var(--s-300);
+  font-size:14px;line-height:24px;color:var(--ink-2);background:var(--surface);}
+.rule b{color:var(--glow);font-weight:700;}
+.rule p+p{margin-top:var(--s-100);}
+
+/* ---------- sky / moonless ---------- */
+.sky-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:var(--s-500);align-items:start;}
+.tl{border:1px solid var(--line);border-radius:var(--r-xl);background:var(--bg);padding:var(--s-300) var(--s-200) var(--s-200);}
+.tl-axis{display:grid;grid-template-columns:118px 1fr;gap:var(--s-200);font-family:var(--mono);font-size:11px;
+  color:var(--ink-3);margin-bottom:var(--s-100);}
+.tl-ticks{position:relative;height:14px;}
+.tl-ticks span{position:absolute;top:0;transform:translateX(-50%);}
+.tl-row{display:grid;grid-template-columns:118px 1fr;gap:var(--s-200);align-items:center;
+  padding-block:var(--s-75);border-top:1px solid var(--line);transition:background .7s var(--ease);}
+.tl-row:hover{background:rgba(255,255,255,.03);}
+.tl-row.here{background:rgba(233,131,79,.06);}
+.tl-meta{min-width:0;}
+.tl-date{font-family:var(--mono);font-size:13px;color:var(--ink);}
+.tl-where{font-size:12px;line-height:16px;color:var(--ink-3);margin-top:1px;
+  transition:color .7s var(--ease);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tl-row.here .tl-where{color:var(--glow);}
+.tl-bar{position:relative;height:26px;border-radius:var(--r-sm);background:var(--surface-2);overflow:hidden;}
+.tl-moon{position:absolute;top:0;bottom:0;background:rgba(138,180,212,.16);}
+.tl-dark{position:absolute;top:0;bottom:0;background:#000;border-left:1px solid var(--ice-dim);}
+.tl-dark.good{background:#000;box-shadow:inset 0 0 0 1px rgba(138,180,212,.28);}
+.tl-main{position:absolute;top:0;bottom:0;border-left:1px dashed rgba(233,131,79,.55);
+  border-right:1px dashed rgba(233,131,79,.55);}
+.tl-len{position:absolute;right:var(--s-75);top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:12px;color:var(--ink-2);}
+.tl-row.here .tl-len{color:var(--glow);}
+.tl-legend{display:flex;flex-wrap:wrap;gap:var(--s-75) var(--s-200);font-family:var(--mono);font-size:11px;
+  color:var(--ink-3);padding-top:var(--s-200);margin-top:var(--s-100);border-top:1px solid var(--line);}
+.tl-legend i{font-style:normal;display:inline-flex;align-items:center;gap:var(--s-50);flex:0 0 auto;}
+.tl-legend .swatch{flex:0 0 auto;}
+
+.fact{border-top:1px solid var(--line);padding-block:var(--s-200);}
+.fact:first-child{border-top:0;padding-top:0;}
+.fact h4{font-size:16px;line-height:24px;margin-bottom:var(--s-50);}
+.fact h4 span{font-family:var(--mono);font-size:12px;color:var(--ice);margin-right:var(--s-75);}
+.fact p{font-size:14px;line-height:22px;color:var(--ink-2);}
+.fact p b{color:var(--ink);font-weight:700;}
+
+/* ---------- photo ---------- */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-300);margin-bottom:var(--s-500);}
+.shot{border:1px solid var(--line);border-radius:var(--r-xl);background:var(--bg);padding:var(--s-400);
+  transition:border-color .7s var(--ease),transform .7s var(--ease);}
+.shot:hover{border-color:var(--line-2);transform:translateY(-3px);}
+.shot .icon{width:28px;height:28px;margin-bottom:var(--s-200);}
+.shot h3{font-size:20px;line-height:28px;margin-bottom:var(--s-75);}
+.shot .when{font-family:var(--mono);font-size:12px;color:var(--glow);margin-bottom:var(--s-200);}
+.shot .when.ice{color:var(--ice);}
+.shot p{font-size:14px;line-height:22px;color:var(--ink-2);}
+.shot p+p{margin-top:var(--s-100);}
+.params{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-300);}
+.param{border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s-300);background:var(--bg);}
+.param .n{font-family:var(--mono);font-size:12px;color:var(--glow);letter-spacing:.1em;}
+.param h4{font-size:16px;line-height:24px;margin-block:var(--s-75) var(--s-50);}
+.param p{font-size:14px;line-height:22px;color:var(--ink-2);}
+.param code{font-family:var(--mono);font-size:13px;color:var(--ice);}
+
+/* ---------- risk ---------- */
+.risks{border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;background:var(--bg);}
+.risk{border-top:1px solid var(--line);}
+.risk:first-child{border-top:0;}
+.risk-head{display:grid;grid-template-columns:20px 1fr 100px 20px;gap:var(--s-200);align-items:center;
+  width:100%;text-align:left;padding:var(--s-300) var(--s-300);transition:background .7s var(--ease);}
+.risk-head:hover{background:rgba(255,255,255,.03);}
+.risk-title{font-size:18px;line-height:28px;color:var(--ink);min-width:0;}
+.risk-title i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--ink-3);display:block;
+  line-height:16px;margin-top:2px;}
+.risk-level{font-family:var(--mono);font-size:12px;text-align:right;color:var(--ink-3);}
+.risk-level.hi{color:var(--alert);}
+.risk-level.mid{color:var(--glow);}
+.risk-level.lo{color:var(--ok);}
+.chev{width:12px;height:12px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);
+  transform:rotate(45deg) translate(-2px,-2px);transition:transform .7s var(--ease);}
+.risk[open] .chev{transform:rotate(225deg) translate(-3px,-3px);}
+.risk-body{padding:0 var(--s-300) var(--s-300) 60px;font-size:14px;line-height:22px;color:var(--ink-2);}
+.risk-body p+p{margin-top:var(--s-100);}
+.risk-body b{color:var(--ink);font-weight:700;}
+.risk-body .src{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:var(--s-200);
+  padding-top:var(--s-100);border-top:1px solid var(--line);}
+summary{list-style:none;cursor:pointer;}
+summary::-webkit-details-marker{display:none;}
+
+/* ---------- crew + logistics ---------- */
+.crew{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-300);margin-bottom:var(--s-500);align-items:start;}
+.person{border:1px solid var(--line);border-radius:var(--r-xl);padding:var(--s-300);background:var(--bg);}
+.person .name{font-size:24px;line-height:32px;margin-bottom:var(--s-50);}
+.person .from{font-family:var(--mono);font-size:12px;color:var(--glow);letter-spacing:.08em;margin-bottom:var(--s-200);}
+.person dl{display:grid;grid-template-columns:auto 1fr;gap:var(--s-50) var(--s-100);margin:0;font-size:14px;line-height:20px;}
+.person dt{color:var(--ink-3);white-space:nowrap;}
+.person dd{margin:0;color:var(--ink-2);}
+.logi{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-200);}
+.logi div{border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s-200);background:var(--bg);}
+.logi .v{font-family:var(--mono);font-size:20px;line-height:28px;color:var(--ice);}
+.logi .k{font-size:12px;line-height:16px;color:var(--ink-3);margin-top:var(--s-50);}
+
+/* ---------- faq ---------- */
+.faq{max-width:840px;}
+.q{border-top:1px solid var(--line);}
+.q:last-child{border-bottom:1px solid var(--line);}
+.q summary{display:flex;justify-content:space-between;align-items:center;gap:var(--s-300);
+  padding-block:var(--s-300);font-size:18px;line-height:28px;transition:color .7s var(--ease);}
+.q summary:hover{color:var(--glow);}
+.q .a{padding-bottom:var(--s-300);font-size:15px;line-height:24px;color:var(--ink-2);max-width:680px;}
+.q .a b{color:var(--ink);font-weight:700;}
+.plus{position:relative;width:14px;height:14px;flex:0 0 14px;}
+.plus::before,.plus::after{content:"";position:absolute;background:var(--ink-3);transition:transform .7s var(--ease);}
+.plus::before{left:0;top:6.5px;width:14px;height:1.5px;}
+.plus::after{left:6.5px;top:0;width:1.5px;height:14px;}
+.q[open] .plus::after{transform:scaleY(0);}
+
+/* ---------- final cta + footer ---------- */
+.final{text-align:center;padding-block:var(--s-900);border-top:1px solid var(--line);background:var(--bg-warm);}
+.final h2{font-size:36px;line-height:40px;max-width:var(--hero-w);margin:0 auto var(--s-200);
+  background:linear-gradient(90deg,#FFFFFF 0%,#9B9B9B 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.final p{max-width:var(--hero-w);margin:0 auto var(--s-400);font-size:18px;line-height:28px;color:var(--ink-2);}
+footer{border-top:1px solid var(--line);padding-block:var(--s-500);font-size:12px;line-height:20px;color:var(--ink-3);}
+.foot-grid{display:flex;justify-content:space-between;gap:var(--s-300);flex-wrap:wrap;}
+footer b{color:var(--ink-2);font-weight:400;}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .status-grid,.sky-grid,.vs,.params{grid-template-columns:1fr;}
+  .shots,.crew{grid-template-columns:1fr;}
+  .cd-grid{grid-template-columns:1fr;}
+  .logi{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:760px){
+  html{scroll-padding-top:88px;}
+  section[id]{scroll-margin-top:88px;}
+  .wrap{padding-inline:var(--s-200);}
+  .nav-links,.nav-cta{display:none;}
+  .burger{display:block;}
+  .pill{gap:var(--s-200);padding:var(--s-75) var(--s-75) var(--s-75) var(--s-200);}
+  .hero{min-height:92svh;}
+  .hero-scrim{background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.82) 44%,
+    rgba(0,0,0,.34) 72%,rgba(0,0,0,0) 100%);}
+  .hero h1{font-size:30px;line-height:1.24;}
+  .hero-sub{font-size:16px;line-height:24px;}
+  .hero-slot{display:none;}
+  .hero-stats{gap:var(--s-300) var(--s-400);}
+  .hero-stats .v{font-size:24px;line-height:32px;}
+  .band,.reveal-band,.final{padding-block:var(--s-600);}
+  .sec-head h2{font-size:24px;line-height:32px;}
+  .reveal-copy{font-size:30px;line-height:1.34;}
+  .final h2{font-size:24px;line-height:32px;}
+  .locked h3{font-size:20px;line-height:28px;}
+  .cd .n{font-size:48px;}
+  .day{grid-template-columns:1fr;gap:var(--s-75);}
+  .d-stay{text-align:left;}
+  .d-stay::before{content:"过夜 · ";color:var(--ink-3);font-family:var(--mono);font-size:12px;}
+  .task{grid-template-columns:28px 1fr;}
+  .task .t-due{grid-column:2;text-align:left;padding-top:var(--s-50);}
+  .task .t-due i{display:inline;margin-left:var(--s-75);}
+  .tl-axis,.tl-row{grid-template-columns:82px 1fr;gap:var(--s-75);}
+  .tl-where{font-size:11px;}
+  .tl-ticks span:nth-child(even){display:none;}
+  .tl-ticks span{font-size:10px;}
+  .risk-head{grid-template-columns:20px 1fr 20px;padding:var(--s-200);}
+  .risk-level{display:none;}
+  .risk-body{padding:0 var(--s-200) var(--s-200) 44px;}
+  .fixed-list li{grid-template-columns:1fr;gap:var(--s-25);}
+  .profile-box{padding:var(--s-200) var(--s-75) var(--s-75);overflow:visible;}
+  #profile{min-width:820px;}
+  .profile-hint{display:block;}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important;}
+  [data-reveal]{opacity:1;transform:none;filter:none;}
+  .reveal-copy .w{color:var(--ink);}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<nav class="nav" id="nav">
+  <div class="pill">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M2 26 L11 9 L15.5 17 L19 12 L30 26 Z" fill="#E9834F"/>
+        <circle cx="25" cy="6.5" r="1.9" fill="#8AB4D4"/>
+      </svg>
+      <span>ABC 2026</span>
+    </a>
+    <div class="nav-links">
+      <a href="#now">现状</a>
+      <a href="#booking">预订</a>
+      <a href="#route">行程</a>
+      <a href="#sky">夜空</a>
+      <a href="#photo">摄影</a>
+      <a href="#risk">风险</a>
+    </div>
+    <a class="nav-cta" href="#booking">本周待办</a>
+    <button class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="overlay">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="overlay" id="overlay">
+  <a href="#now"><span>01</span>现状与核实中</a>
+  <a href="#booking"><span>02</span>预订倒计时</a>
+  <a href="#route"><span>03</span>E 版主行程</a>
+  <a href="#sky"><span>04</span>逐夜无月窗口</a>
+  <a href="#photo"><span>05</span>摄影计划</a>
+  <a href="#risk"><span>06</span>风险板</a>
+  <a href="#crew"><span>07</span>人与山上物流</a>
+  <a href="#faq"><span>08</span>常见问题</a>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <canvas id="sky-canvas" aria-hidden="true"></canvas>
+    <img class="hero-img" id="heroImg" alt="" aria-hidden="true">
+    <video id="heroVideo" muted playsinline loop preload="none" aria-hidden="true"></video>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <div class="hero-slot" aria-label="素材位说明">
+    <b>HERO 素材位</b><br>
+    等 higgsfield 出图后把 <code>hero.jpg</code> 与 <code>hero.mp4</code>
+    放进本目录即可自动接管。规格见 HERO_ASSET_BRIEF.md。
+  </div>
+
+  <div class="hero-inner">
+    <div class="wrap">
+      <p class="eyebrow">Annapurna Base Camp · Nepal · 2026</p>
+      <h1>十三天，<br>走进 4,130 米的那只碗</h1>
+      <p class="hero-sub">四人从 YVR 与 PVG 出发。2026-09-25 至 10-07，中秋接国庆的唯一窗口。E 版已定稿，目标是碗底的两个无月夜和一次点亮。</p>
+      <div class="hero-actions">
+        <a class="btn" href="#booking">本周待办 · 5 项</a>
+        <a class="btn btn-ghost" href="#route">E 版逐日行程</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="v mono">4,130<em>m</em></span><span class="k">最高点 · ABC 碗底</span></div>
+        <div><span class="v mono">13<em>天</em></span><span class="k">中秋 + 年假 + 国庆</span></div>
+        <div><span class="v mono">5<em>h</em>14</span><span class="k">最长无月窗 · 10/4 夜</span></div>
+        <div><span class="v mono" id="cdHero">—</span><span class="k">距 9/26 加都会合</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 现状 ============ -->
+<section class="band" id="now">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">01 / STATUS</span>
+      <h2>计划现状</h2>
+      <p class="sec-note">weather、flights、lodging 三组核查已并入（Part G / G7 / H）。rules 组仍在跑。</p>
+    </div>
+
+    <div class="locked" data-reveal>
+      <p class="stamp mono">Q13 已拍板 · 2026-08-23</p>
+      <h3>主行程 = E 版</h3>
+      <p>保 Poon Hill、ABC 连住、Chhomrong 核心夜的那一版。<b>D 版降为退路</b>，只在 Birethanti 断路时启用。
+        Part D 的 v1.1 行程作废存档。<b>会合提前到 9/26</b>，9/27 变成完整准备日，多出一天缓冲。</p>
+    </div>
+
+    <div class="status-grid">
+      <div class="card" data-reveal>
+        <p class="card-title"><span class="dot live"></span>核实中 · 结论回来前不要签字</p>
+        <ul class="check-list">
+          <li><span class="who mono">道路</span><span class="what"><b>Birethanti 与 Ghurjung 吊桥</b>通车状态。截至 8/23 无通车报道，9/15 前后复查，9/20 是切换红线。</span></li>
+          <li><span class="who mono">向导社</span><span class="what">Third Rock 与 Ace 询价发出，<b>48h 比价定社</b>。山屋没有远期预订，选社就是选房源保障。</span></li>
+          <li><span class="who mono">套餐</span><span class="what"><b>是否含徒步期三餐</b>，这一项摆动 <span class="mono">$950-1,300</span>，是最大预算变量，签约前书面确认。</span></li>
+          <li><span class="who mono">进山证</span><span class="what"><b>TIMS 是否仍查验存疑</b>。多个 2026 信源称 Annapurna 线只查 ACAP，与原口径冲突未解决，向导社书面确认。</span></li>
+          <li><span class="who mono">材料</span><span class="what">四人护照扫描件与 35×45mm 白底照，<b>48h 内</b>收齐，选定社后立即要用。</span></li>
+          <li><span class="who mono">班期</span><span class="what">出票前电 95530 确认 <b>MU9617 / MU9618 可售</b>，携程该航线时刻表异常空白。</span></li>
+          <li><span class="who mono">第二夜</span><span class="what">ABC 10/4 连住只能 <b>10/3 入住时现场争取</b>，无床则启用预案②退宿 MBC。</span></li>
+          <li><span class="who mono">回程</span><span class="what">叶的 <b>CX640 与 KE696 二选一</b>，出票前拍板。KE 要在 10/6 当晚 19:20 离境，强耦合。</span></li>
+          <li><span class="who mono">预算</span><span class="what">四人总额待 v1.2 重算；相机卡口与已有镜头仍未盘清，器材清单待出。</span></li>
+        </ul>
+      </div>
+
+      <div class="card" data-reveal>
+        <p class="card-title"><span class="dot" style="background:var(--ok)"></span>已修正 · 被核查推翻的十条</p>
+        <ul class="fixed-list">
+          <li><span class="was mono">山屋可远期锁定</span><span class="now"><b>没有远期预订机制</b>。向导每天早上电话联系当晚山屋，背夫先行占房，视野只有 1-2 天。</span></li>
+          <li><span class="was mono">10/7 走昆明</span><span class="now">MU9618 只飞周二、四、六，<b>10/7 周三停飞</b>。帅组改走成都天府。</span></li>
+          <li><span class="was mono">国内段托运 15kg</span><span class="now">那是本地低价档。外国人 USD 档是 <b>托运 25kg + 手提 5kg</b>，器材约束大幅放宽。</span></li>
+          <li><span class="was mono">叶 MU 联程 19-21h</span><span class="now">那是川航路线。MU 需两次中转 62h；<b>3U 全程 21h30m</b>，最短。</span></li>
+          <li><span class="was mono">现金 $300 每人</span><span class="now">四人测算中位 USD 1,850，<b>带 USD 2,500-2,700 现钞</b>，每人 625 至 675。</span></li>
+          <li><span class="was mono">新月窗口</span><span class="now">满月 <b>9/26</b>，新月 <b>10/10</b>。假期内没有新月，逐夜按无月窗口长度排。</span></li>
+          <li><span class="was mono">Dashain 撞期</span><span class="now">Dashain 2026 为 <b>10/11 至 10/25</b>，行程 10/7 结束，全程避开。</span></li>
+          <li><span class="was mono">当日下撤 7-8h</span><span class="now">ABC 到 Jhinu 实为 <b>11-13h</b>，下撤必须拆两天。</span></li>
+          <li><span class="was mono">06:10 到 Poon Hill</span><span class="now">日出实算 <b>06:02</b>，05:15 前到顶，Ghorepani 04:30 出发。</span></li>
+          <li><span class="was mono">C1 月升表</span><span class="now">系统性偏晚 <b>50-65 分钟</b>，已由 skyfield + DE421 实算全表替换。</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 预订 ============ -->
+<section class="band warm" id="booking">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">02 / BOOKING</span>
+      <h2>预订倒计时</h2>
+      <p class="sec-note">清单按 H6 重排，2026-08-23 起算。当下 36 至 44 天是国内段价格与余量的最优点。</p>
+    </div>
+
+    <div class="cd-grid" data-reveal>
+      <div class="cd p0">
+        <p class="tag mono">P0-2 · 材料</p>
+        <p class="n mono" id="cd825">—<em>天</em></p>
+        <p class="lbl">四人护照扫描件加白底照收齐</p>
+        <p class="date mono">48h 内 · 2026-08-25</p>
+      </div>
+      <div class="cd p0">
+        <p class="tag mono">P0-3 · 出票</p>
+        <p class="n mono" id="cd826">—<em>天</em></p>
+        <p class="lbl">国际段四人全部出票</p>
+        <p class="date mono">3 天内 · 2026-08-26</p>
+      </div>
+      <div class="cd">
+        <p class="tag mono">会合</p>
+        <p class="n mono" id="cd926">—<em>天</em></p>
+        <p class="lbl">四人加德满都会合，比原计划早一天</p>
+        <p class="date mono">2026-09-26</p>
+      </div>
+    </div>
+
+    <div data-reveal>
+      <div class="prio">
+        <div class="prio-head">
+          <span class="badge b0 mono">P0</span>
+          <p>断供风险。四项都在本周内要有结果。</p>
+        </div>
+        <div class="task-list" data-prio="p0"></div>
+      </div>
+      <div class="prio">
+        <div class="prio-head">
+          <span class="badge b1 mono">P1</span>
+          <p>越晚越贵，或者有办理周期。</p>
+        </div>
+        <div class="task-list" data-prio="p1"></div>
+      </div>
+      <div class="prio">
+        <div class="prio-head">
+          <span class="badge mono">P2</span>
+          <p>出发前搞定，外加一次统一复查。</p>
+        </div>
+        <div class="task-list" data-prio="p2"></div>
+      </div>
+      <p class="sync mono"><span class="dot" id="syncDot"></span><span id="syncMsg">勾选本地保存</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ tagline reveal ============ -->
+<section class="reveal-band" aria-label="核心判断">
+  <div class="wrap">
+    <p class="reveal-copy" id="revealCopy" data-tokens="下午|两三点，|山屋|就满了。‖每天|早走|早到店，‖是|这条线|唯一的|房源|保障。"></p>
+    <p class="reveal-src mono">lodging 组 2026-08-23 证伪：徒步沿线山屋无远期预订机制，向导每天早上电话联系当晚山屋 + 背夫先行占房，预订视野只有 1-2 天。<br>P0 因此重定义为：选电话网络强、执行力强的向导社，加上全程每日早出发早到店。</p>
+  </div>
+</section>
+
+<!-- ============ 03 行程 ============ -->
+<section class="band" id="route">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">03 / ROUTE</span>
+      <h2>E 版主行程</h2>
+      <p class="sec-note">Q13 已拍板，E 版为定稿。切到 D 版可以看退路形态，海拔剖面、逐日安排和夜空段所在地会一起变。</p>
+    </div>
+
+    <div class="switch" role="tablist" aria-label="行程版本" data-reveal>
+      <button role="tab" id="tab-e" aria-selected="true" aria-controls="dayList" data-ver="E">E 版 · 主行程</button>
+      <button role="tab" id="tab-d" aria-selected="false" aria-controls="dayList" data-ver="D">D 版 · 退路</button>
+    </div>
+
+    <div class="profile-box" data-reveal>
+      <div class="profile-legend">
+        <i><span class="swatch" style="background:var(--ice)"></span>过夜海拔</i>
+        <i><span class="swatch" style="background:var(--glow)"></span>ABC 碗底 4,130m</i>
+        <i id="verNote">E 版：山上 8 晚，10/3 上碗，10/4 连住为现场争取</i>
+      </div>
+      <div class="profile-scroll">
+        <svg id="profile" viewBox="0 0 1000 340" role="img" aria-labelledby="profTitle">
+          <title id="profTitle">行程逐日过夜海拔剖面</title>
+        </svg>
+      </div>
+      <p class="profile-hint mono">横向滑动看完整剖面</p>
+    </div>
+
+    <div class="days" id="dayList" role="tabpanel" aria-labelledby="tab-e" data-reveal></div>
+
+    <div class="vs">
+      <div class="card pick" data-reveal>
+        <p class="kicker mono">E · 定稿主行程</p>
+        <h3>Poon Hill + 双 ABC 夜</h3>
+        <p class="lead">9/28 早 07:30 班飞博卡拉，吉普到 Ulleri（经 Birethanti，3-4h），当日徒步上 Ghorepani。</p>
+        <div class="gl win">
+          <h4>得</h4>
+          <ul>
+            <li>Poon Hill 日出在 9/29，三层构图完整保留</li>
+            <li>ABC 落在 10/3 与 10/4，正好压中全程最佳的两个无月窗（4h05 与 5h14）</li>
+            <li>10/5 夜住 Chhomrong，银河核心主力机位，月亮 01:31 才升</li>
+            <li>Jhinu 温泉顺路泡，加德满都保留一晚缓冲</li>
+          </ul>
+        </div>
+        <div class="gl lose">
+          <h4>失与风险</h4>
+          <ul>
+            <li>没有 Tiger Mountain</li>
+            <li>9/28、10/5、10/6 是三个强度日</li>
+            <li>完全依赖 Birethanti 通车</li>
+            <li>10/1 的 Himalaya 只有 3 家山屋，全线最脆弱一站</li>
+            <li>9/28 航班晚点自动降级：宿 Ulleri，逐日后移一天，ABC 只剩 10/4 一夜</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" data-reveal>
+        <p class="kicker mono">D · 退路</p>
+        <h3>道路中断时启用</h3>
+        <p class="lead">9/28 早班飞博卡拉，吉普到 Samrung（2-3h），过新吊桥经 Jhinu 直进 Chhomrong。不走 Poon Hill。</p>
+        <div class="gl win">
+          <h4>得</h4>
+          <ul>
+            <li>节奏最松，全程没有超长日</li>
+            <li>Tiger Mountain 一夜，山脊上回望刚走完的碗</li>
+            <li>Jhinu 整日温泉恢复</li>
+            <li>道路中断时改 Phedi 或 Dhampus 到 Landruk 步行接入，损失最小</li>
+          </ul>
+        </div>
+        <div class="gl lose">
+          <h4>失与风险</h4>
+          <ul>
+            <li>没有 Poon Hill</li>
+            <li>ABC 两夜落在 10/1 与 10/2，无月窗只有 1h55 与 2h57</li>
+            <li>19:15 至 20:45 的主窗口不受影响，拱桥仍然拍得到</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule" data-reveal>
+      <p><b>切换规则</b>　9/20 前 Birethanti 仍未通车 → 改 D 版的 Phedi 接入形态。9/28 航班晚点 → E 版降级形态，逐日后移一天，ABC 只剩 10/4 一夜。</p>
+      <p><b>预案②</b>　10/3 入住 ABC 时争取不到 10/4 连住，就 10/4 退宿 MBC：傍晚拱桥在 MBC 拍，10/5 凌晨轻装 1.5 至 2h 上碗拍点亮再下撤，下撤因此缩短约 1.5h。有秋季摄影行程资料明确建议把弹性日放 MBC，这是常态选项。</p>
+      <p><b>C 版直升机出山</b>在所有版本里都保留为伤病与极端天气的应急通道，参数见风险板。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 夜空 ============ -->
+<section class="band surface" id="sky">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">04 / SKY</span>
+      <h2>逐夜无月窗口</h2>
+      <p class="sec-note">skyfield 1.55 + DE421 实算，坐标 28.53°N 83.88°E，地形遮挡走 SRTM 30m DEM。</p>
+    </div>
+
+    <div class="sky-grid">
+      <div class="tl" data-reveal>
+        <div class="tl-axis">
+          <span>夜 / 所在地</span>
+          <div class="tl-ticks" id="tlTicks"></div>
+        </div>
+        <div id="tlRows"></div>
+        <div class="tl-legend">
+          <i><span class="swatch" style="background:#1F1F1F;box-shadow:inset 0 0 0 1px #313131"></span>天文暗之前</i>
+          <i><span class="swatch" style="background:rgba(138,180,212,.32)"></span>月亮在天上</i>
+          <i><span class="swatch" style="background:#000;box-shadow:inset 0 0 0 1px rgba(138,180,212,.5)"></span>无月窗口</i>
+          <i><span class="swatch" style="background:transparent;border-left:1px dashed rgba(233,131,79,.8);border-right:1px dashed rgba(233,131,79,.8);width:10px"></span>19:15 至 20:45 主窗口</i>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <div class="fact">
+          <h4><span class="mono">A</span>拱桥</h4>
+          <p>碗内唯一拍得到的银河形态。天鹅座与天鹰座近天顶，整条秋季银河从西南经天顶跨到东北，<b>拱桥跨圣殿群峰可拍</b>。E 版 10/3 首拍，10/4 主力。</p>
+        </div>
+        <div class="fact">
+          <h4><span class="mono">B</span>核心拍不到</h4>
+          <p>碗内西南天际线仰角 <b>26 至 32 度</b>，是 Annapurna South 与 Hiunchuli 的山脊。银河核心天黑前约 <b>19:05</b> 就沉进山脊，只剩 19:12 至 19:32 约二十分钟的极限余量。</p>
+        </div>
+        <div class="fact">
+          <h4><span class="mono">C</span>核心机位在 Chhomrong</h4>
+          <p>西南天际线只有 <b>8 至 11 度</b>，19:15 至约 21:15 拍得到核心低悬。10/3 夜起月亮完全让开。E 版把 10/5 夜安排在这里，<b>9/30 路过时当面请老板留房</b>。</p>
+        </div>
+        <div class="fact">
+          <h4><span class="mono">D</span>Poon Hill 的星空作废</h4>
+          <p>视野全线最好，天际线只有 -3 至 +2.6 度，但 9/29 与 9/30 撞上 <b>89 至 95% 的月亮</b>。这两晚只按日出峰次拍，星空放弃。MBC 遮挡数据不可用，按拍不到预期。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 摄影 ============ -->
+<section class="band" id="photo">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">05 / SHOOTING</span>
+      <h2>摄影计划</h2>
+      <p class="sec-note">三个目标，各有唯一的时间和地点。器材清单待四人卡口盘清后出。</p>
+    </div>
+
+    <div class="shots">
+      <article class="shot" data-reveal>
+        <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M2 26 L11 8 L16 17 L20 11 L30 26 Z" stroke="#E9834F" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M11 8 L16 17 L20 11" stroke="#E9834F" stroke-width="3" stroke-linejoin="round" opacity=".55"/>
+        </svg>
+        <h3>点亮</h3>
+        <p class="when mono">ABC · 05:45 · E 版 10/4 与 10/5</p>
+        <p>Annapurna I 峰顶被晨光染红。九点前最清，午后必起云，早起守光。碗里瓦蓝转金不加饱和，留 16-bit 切光。</p>
+        <p>启用预案②时改为 10/5 凌晨从 MBC 轻装 1.5 至 2h 上碗拍，仍然拍得到。</p>
+      </article>
+
+      <article class="shot" data-reveal>
+        <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M3 24 C8 8, 24 8, 29 24" stroke="#8AB4D4" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="9" cy="14" r="1" fill="#8AB4D4"/><circle cx="16" cy="10.5" r="1.3" fill="#8AB4D4"/>
+          <circle cx="23" cy="14" r="1" fill="#8AB4D4"/><circle cx="26.5" cy="19" r=".8" fill="#8AB4D4"/>
+          <circle cx="5.5" cy="19" r=".8" fill="#8AB4D4"/>
+        </svg>
+        <h3>拱桥</h3>
+        <p class="when ice mono">ABC · 傍晚 · E 版 10/3 与 10/4 夜</p>
+        <p>横跨天顶的银河带，碗内唯一可拍的银河形态。10/3 无月窗 4h05 首拍，10/4 无月窗 5h14 主力，同时兼作天气备份日。</p>
+        <p>10/4 若退宿 MBC，主力夜就在 MBC 拍，无月窗长度不变。</p>
+      </article>
+
+      <article class="shot" data-reveal>
+        <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M2 22 L10 22 L14 16 L20 24 L24 19 L30 19" stroke="#8AB4D4" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="21" cy="9" r="4" stroke="#E9834F" stroke-width="1.6"/>
+          <path d="M21 3.5 V1 M21 17 V14.5 M26.5 9 H29 M13 9 H15.5" stroke="#E9834F" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <h3>核心机位</h3>
+        <p class="when ice mono">Chhomrong · 19:15 至 21:15 · E 版 10/5 夜</p>
+        <p>银河核心沉没前低悬西南，全线只有这里拍得到。月亮 01:31 才升，整段完全无月。</p>
+        <p>当天是 8-9h 全下行的长日，机位要提前想好；房 9/30 路过时就当面留。</p>
+      </article>
+    </div>
+
+    <div class="params">
+      <div class="param" data-reveal>
+        <p class="n mono">01</p>
+        <h4>蓝调先拍前景，星再补</h4>
+        <p>19:00 左右天还有钴蓝时先拍山，机位不动，20:00 再拍星，Lighten 模式只把星叠进来。山不打灯，黑要留住。</p>
+      </div>
+      <div class="param" data-reveal>
+        <p class="n mono">02</p>
+        <h4>白平衡固定在冷区</h4>
+        <p>自动白平衡会把高山夜空拉紫变油。锁 <code>3800-4100K</code> 保留钴蓝黑，雪峰微蓝才是真的。</p>
+      </div>
+      <div class="param" data-reveal>
+        <p class="n mono">03</p>
+        <h4>单张留星点</h4>
+        <p><code>21mm f/2.8 ISO2000 13-15s</code> 星点圆，现场可交付。想更干净就地面 7 张中值堆栈，星空不堆。Bortle 参考 2 至 3 级，城市是 7 至 8。</p>
+      </div>
+      <div class="param" data-reveal>
+        <p class="n mono">04</p>
+        <h4>让人做尺度</h4>
+        <p>一个人站碗口或冰碛脊，头灯或小手电 <code>1s</code> 微扫，剪影加比例感，比满天星更能讲清这只碗有多大。</p>
+      </div>
+      <div class="param" data-reveal>
+        <p class="n mono">05</p>
+        <h4>电力是硬约束</h4>
+        <p>ABC 与 MBC 太阳能限电，按次收费 <code>NPR 100-500</code>。两块 20,000mAh 充电宝加四块相机电池全部贴身保温，零下锂电掉得快。</p>
+      </div>
+      <div class="param" data-reveal>
+        <p class="n mono">06</p>
+        <h4>站得住才拍得成</h4>
+        <p>ABC 典型夜温 <code>-2 至 +3°C</code>，晴朗无风极端约 <code>-5°C</code>。拍星要静止一到两小时，羽绒裤加厚手套必带，红光头灯别忘。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 风险 ============ -->
+<section class="band warm" id="risk">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">06 / RISK</span>
+      <h2>风险板</h2>
+      <p class="sec-note">按当前已知程度排序。前两条一条决定 E 版能不能成立，一条决定每天晚上睡哪。</p>
+    </div>
+
+    <div class="risks" data-reveal>
+      <details class="risk" open>
+        <summary class="risk-head">
+          <span class="dot hot"></span>
+          <span class="risk-title">起点公路冲毁，抢修中<i>NAYAPUL · BIRETHANTI · GHANDRUK · GHURJUNG</i></span>
+          <span class="risk-level hi mono">最高</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p>2026-08-14 莫迪河暴洪冲走 Birethanti 约 100m 路面，Nayapul 到 Birethanti 到 Ghandruk 两处中断。<b>ABC 的全部起点支线都经过 Birethanti 这一个瓶颈</b>：Ulleri 线、Kimche-Ghandruk 线、Kyumi-Siwai-Samrung 线，一个都绕不开。flights 组独立证实 <b>Ghurjung 吊桥同毁</b>，与之同源。</p>
+          <p>8/18 起尼军 100 人抢修，官方口径是水位降后全面恢复约一个半月，恢复时间点正好压在 9 月底。截至 8/23 还没有通车报道，季风未退，存在二次冲毁的可能。Pokhara 到 Ulleri 在 Nayapul 之后必须四驱。</p>
+          <p><b>协议</b>：9 月中旬复查，出发前 7 至 10 天由向导社实地确认哪条支线通车。全部中断则改 Phedi 或 Dhampus 到 Landruk 步行接入，代价是多一天。9/20 前仍未通车就改 D 版。</p>
+          <p class="src">来源：kathmandupost.com 2026-08-14 与 08-15、nepaljapan.com 2026-08-18、TAAN Gandaki 绕行通知、flights 组 Ghurjung 独立核实</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot hot"></span>
+          <span class="risk-title">山屋没有远期预订机制<i>下午 2-3 点满房 · HIMALAYA 仅 3 家</i></span>
+          <span class="risk-level hi mono">最高</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p>lodging 组证伪了原计划的核心假设：徒步沿线山屋<b>不接受远期预订</b>。实际做法是向导每天早上打电话联系当晚山屋，背夫先行赶到占房，旺季满房时点在<b>下午 2 到 3 点</b>。预订视野只有 1 到 2 天，山屋不会提前承诺第二晚。</p>
+          <p><b>床位最少站排序</b>：Himalaya 仅 3 家（10/1，全线最脆弱，旺季餐厅过夜常见）、Tadapani 6 至 10 家（9/29）、ABC 4 家、MBC 3 至 5 家。房型预期：Chhomrong 及以下才有双人房，<b>Himalaya 起按 3-4 人间或通铺规划</b>，E 版 8 晚里只有 4 晚可以期待两间双人房。四人规模是双刃：双人房型最不友好，但高段 4-5 床房可以整间包下。</p>
+          <p><b>对策</b>：P0 重定义为选电话网络强、执行力强的向导社，加全程每日早出发早到店。ABC 第二夜 10/3 入住时现场争取，无床启用预案②退宿 MBC。Chhomrong 的 10/5 房在 9/30 路过时当面向老板留。ABC 四家、MBC、Chhomrong 主要 lodge 的电话号码已收集，交向导社直接拨测。</p>
+          <p class="src">二手转述未独立核实：十月旺季约 40% 徒步者至少一晚睡餐厅（Reddit 2024-2025 讨论串口径）</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot" style="background:var(--glow)"></span>
+          <span class="risk-title">窗口内 43% 的日子有降水<i>NASA POWER · 26 年再分析</i></span>
+          <span class="risk-level mid mono">中</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p>9/28 至 10/6 窗口内，<b>43% 的日子有可测降水</b>（≥1mm）。10/11 之后降到 21%，假期赶不上那一段。季风撤退常年日是 10/2，2023 与 2024 分别延后 13 天和 10 天，年际离散极大，这个窗口只有好年和坏年。</p>
+          <p><b>2026 的有利信号</b>：极强 El Niño（NOAA CPC 8/20 判断秋冬概率 >90%，OND 可能是 1950 年以来最强），南亚季风受抑、偏干、撤退偏早的概率大。但 8 月下旬季风仍然活跃，尼泊尔已有 10 县道路受阻。</p>
+          <p>午后起云的机制成立，Deurali 一带最明显，所以清晨拍摄的原则不变。</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot" style="background:var(--glow)"></span>
+          <span class="risk-title">孟加拉湾气旋残余<i>10 月唯一的尾部风险</i></span>
+          <span class="risk-level mid mono">尾部</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p>气旋残余是十月最危险的机制。2024-09-27 加都下了 1970 年以来最强的暴雨，2014-10-14 Annapurna 暴雪造成 39 人死亡。<b>2025 年 10 月底气旋 Montha 直接让 ABC 线关闭 4 天，CAAN 全面禁飞，72 名徒步者撤出</b>。</p>
+          <p><b>协议</b>：出发后每日盯预报，气旋残余接近就在 Deurali 以下停步。这也是雪崩风险的唯一例外情景，十月初的雪崩本身是低风险，历史致死事故全部集中在冬春。注意 Montha 那次的教训是禁飞与道路关闭同时发生，<b>直升机是应急通道，不是刚性依赖</b>。</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot" style="background:var(--ice)"></span>
+          <span class="risk-title">直升机应急通道与保险结构<i>C 版 · 全版本保留</i></span>
+          <span class="risk-level mono">应急</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p><b>ABC 到 Pokhara 应急包机</b>：报价 $2,000-2,600，实付约 <b>$2,500-3,250</b>（四人人均 625 至 813，含 13% VAT 与 10% 服务费，报价必问含不含税）。AS350 / H125 限重 400 至 500kg 含行李，四人加器材约 340 至 360kg 可行。<b>只在早晨 VFR 窗口起飞，06:00 至 07:15，约 10:00 至 11:00 截止</b>，错过等次日。拼座不是常规产品，四人直接包机。</p>
+          <p><b>医疗撤离真实价</b>：ABC 到 Pokhara $2,500-4,000，飞加德满都翻倍，非必要不飞。直升机起飞的前置条件是保险公司付款担保或现金刷卡到位，<b>四人合计要留 USD 5,000-6,000 信用卡额度</b>。</p>
+          <p><b>避开三家</b>：2026-03 尼泊尔假救援保险诈骗案起诉 32 人，Mountain Helicopters、Manang Air（现名 Basecamp Helicopters）、Altitude Air 在被诉之列，包机与救援都避开。行业后果是保险公司普遍要求事前授权，World Nomads 明确除外搜救。</p>
+          <p><b>推荐保险结构</b>：Global Rescue 标准会籍（约 $139 每人，ABC 4,130m 在其 4,600m 门槛之内，标准档即覆盖，事发当时联系才有效）加一份旅行医疗险，海拔上限必须白纸黑字 <b>≥4,600m</b> 且明确含 helicopter evacuation。市面大量保单上限 4,000m，差 130m 就全额自付，Dingboche 有 $4,800 自付先例。</p>
+          <p><b>应急通信</b>：NTC 卡在博卡拉装好。<b>Chhomrong 是最后一处可靠信号</b>，上行前复确认待命方式；ABC 信号看天气与站位。</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot" style="background:var(--glow)"></span>
+          <span class="risk-title">回程结构与缓冲<i>10/7 KMG 停飞已重排</i></span>
+          <span class="risk-level mid mono">中</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p>原回程结构不成立：MU9618 只飞周二、四、六，<b>10/7 是周三，昆明线停飞</b>。帅组改走成都：CA438 KTM 11:55 到天府 17:15，国航同票接天府到浦东晚班，当晚约 23:00 至 23:45 落地。<b>天府入境要提取行李过海关，中转必须留 ≥3h</b>。另有 3U3902 与 CZ1509 每日班可选。</p>
+          <p>次优方案是 10/6 MU9618 16:35 走昆明，与当日 PKR 到 KTM 的小飞机强耦合，小飞机一取消全程受威胁，<b>默认不选</b>。</p>
+          <p>叶推荐 10/7 CX640 KTM 23:00 到香港，10/8 上午到 YVR，出山后有整整一天缓冲。想 10/7 到家就得走 10/6 周二 KE696 19:20，强耦合同上。3U 回程不可用，天府到 YVR 只有周二和周五。</p>
+          <p>小飞机层面：KTM 到 PKR 日均约 15 班，取消罕见延误常态，延误时柜台可以调更早的班。真出问题当天走陆路 7 至 8h，包车 6 至 8h 人均 $28-50，当晚仍然到得了。</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot" style="background:var(--ink-3)"></span>
+          <span class="risk-title">套餐是否含三餐<i>最大预算变量 · $950-1,300</i></span>
+          <span class="risk-level lo mono">待定</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p>四人现金总需求测算中位 USD 1,850，建议带 <b>USD 2,500-2,700 现钞</b>（每人 625 至 675）含缓冲，小费池约 $450（两向导加两背夫十天口径）存博卡拉酒店保险箱，上山带约 $1,600。</p>
+          <p>但整个数字的最大摆动来自一件事：<b>向导社套餐含不含徒步期三餐，差 $950-1,300</b>。签约前必须书面确认。</p>
+          <p>换汇带 USD 现钞在博卡拉 Lakeside 或加都 Thamel 换，佣金 0.7% 至 1.2%，优于 ATM（单卡单日 NPR 50,000 限额加每笔 NPR 500 手续费加 1-3% 汇差，四张卡要分两天取）。入境每人 USD 5,000 以下免申报。</p>
+          <p>国内段行李已放宽：外国人 USD 档托运 <b>25kg</b> 加手提 <b>5kg</b>，超重约 NPR 186 每公斤含税柜台现金。器材约束比原来的 15kg 口径宽松得多。</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 人 + 物流 ============ -->
+<section class="band" id="crew">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">07 / CREW</span>
+      <h2>四个人与山上物流</h2>
+      <p class="sec-note">加都两间房三夜。山屋 Chhomrong 及以下争取双人房，Himalaya 起按 3-4 人间或通铺规划。</p>
+    </div>
+
+    <div class="crew">
+      <article class="person" data-reveal>
+        <p class="name">叶</p>
+        <p class="from mono">3U3860 → 天府 → 3U3901 → KTM</p>
+        <dl>
+          <dt>护照</dt><dd>中国</dd>
+          <dt>居住</dt><dd>加拿大，保险按居住地分轨</dd>
+          <dt>体能</dt><dd>有高海拔经历</dd>
+          <dt>去程</dt><dd>9/24 晚温哥华值机，9/25 00:30 起飞，9/26 10:45 到 KTM，全程 21h30m，所有方案里最短</dd>
+          <dt>回程</dt><dd>推荐 10/7 CX640 23:00 到香港，10/8 上午到 YVR</dd>
+          <dt>预算</dt><dd>3U 往返 C$1,400-1,900；CX 往返约 C$2,200</dd>
+        </dl>
+      </article>
+      <article class="person" data-reveal>
+        <p class="name">帅</p>
+        <p class="from mono">PVG → KMG → MU9617 → KTM</p>
+        <dl>
+          <dt>护照</dt><dd>中国</dd>
+          <dt>体能</dt><dd>有 5,000m 以上过夜经历</dd>
+          <dt>负责</dt><dd>向导社、小飞机、Dwarika's、行李过秤</dd>
+          <dt>去程</dt><dd>9/26 早 PVG 飞昆明，MU9617 14:25 起飞，15:35 到 KTM，两段直挂</dd>
+          <dt>回程</dt><dd>10/7 CA438 11:55 到成都天府 17:15，同票转晚班，当晚约 23:00-23:45 到浦东</dd>
+          <dt>预算</dt><dd>¥3,800-4,500 每人</dd>
+        </dl>
+      </article>
+      <article class="person" data-reveal>
+        <p class="name">同行朋友 ×2</p>
+        <p class="from mono">与帅同订单 · 3 人合单</p>
+        <dl>
+          <dt>护照</dt><dd>中国</dd>
+          <dt>体能</dt><dd>无虞，按帅的口径</dd>
+          <dt>订单</dt><dd>3 人同一订单合规，散客上限 9 人；风险只在低价舱位深度</dd>
+          <dt>待补</dt><dd>护照扫描件、白底照、高海拔史、相机卡口</dd>
+          <dt>节奏</dt><dd>标准版，含 MBC 适应夜；Diamox 遵医嘱可选</dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="logi" data-reveal>
+      <div><p class="v mono">25 + 5 kg</p><p class="k">国内段外国人 USD 档托运加手提。超重约 NPR 186 每公斤，含税柜台现金</p></div>
+      <div><p class="v mono">USD 2,500-2,700</p><p class="k">四人携带现钞总额，每人 625-675。含约 $450 小费池</p></div>
+      <div><p class="v mono">USD 120</p><p class="k">KTM–PKR 外国人票价，每人每程。四人两程约 $960，Buddha 官网直订</p></div>
+      <div><p class="v mono">USD 5,000-6,000</p><p class="k">四人合计要留出的信用卡额度，直升机起飞前置</p></div>
+      <div><p class="v mono">4G</p><p class="k">MBC / ABC / Deurali 全有。Chhomrong 是最后一处可靠信号</p></div>
+      <div><p class="v mono">NPR 500</p><p class="k">到达当天买 NTC 实体卡加 20GB 包，每人。主 NTC 副 Ncell</p></div>
+      <div><p class="v mono">2 名</p><p class="k">背夫基线，社里派遣。可加钱上 porter-guide 档提升服务密度</p></div>
+      <div><p class="v mono">Level 2</p><p class="k">美国 2026-03-31 旅行建议等级。2026-03 大选后局势稳定，加都避大型集会</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 FAQ ============ -->
+<section class="band surface" id="faq">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">08 / FAQ</span>
+      <h2>现在最该问的十一个问题</h2>
+    </div>
+    <div class="faq" data-reveal>
+      <details class="q"><summary>E 版定稿了，D 版还留着干什么？<span class="plus"></span></summary>
+        <p class="a">当退路。Q13 在 2026-08-23 拍板 E 版为主行程，<b>D 版只在 Birethanti 断路时启用</b>。两版的机票日期一样，所以切换不影响已出的票，红线是 9/20。C 版直升机出山则是所有版本共用的伤病与极端天气通道。</p></details>
+      <details class="q"><summary>山屋到底订不订得上？<span class="plus"></span></summary>
+        <p class="a">这条线<b>没有远期预订机制</b>。向导每天早上打电话联系当晚山屋，背夫先行赶到占房，旺季下午两三点就满。所以 P0 不是"锁房"，是<b>选一个电话网络强、执行力强的向导社，加上全程每天早出发早到店</b>。最脆弱的一站是 10/1 的 Himalaya，全线只有 3 家。</p></details>
+      <details class="q"><summary>ABC 连住两夜稳吗？<span class="plus"></span></summary>
+        <p class="a">不稳，要现场争取。山屋不会提前承诺第二晚，真实形态是 <b>10/3 入住时当面争取 10/4</b>。争取不到就启用<b>预案②</b>：10/4 退宿 MBC，傍晚拱桥在 MBC 拍，10/5 凌晨轻装 1.5 至 2h 上碗拍点亮再下撤。有秋季摄影行程资料明确建议把弹性日放 MBC，这是常态选项。</p></details>
+      <details class="q"><summary>为什么 ABC 要压在 10/3 和 10/4？<span class="plus"></span></summary>
+        <p class="a">这两夜的无月窗口是全窗口最长的 <b>4h05</b> 和 <b>5h14</b>，第二夜同时兼作天气备份日。D 版的 ABC 两夜落在 10/1 与 10/2，无月窗只有 1h55 和 2h57。这是 E 版赢的全部理由。</p></details>
+      <details class="q"><summary>在 ABC 能拍到银河核心吗？<span class="plus"></span></summary>
+        <p class="a">拍不到。碗内西南天际线仰角 26 到 32 度，是 Annapurna South 与 Hiunchuli 的山脊，核心天黑前约 19:05 就沉进去了，只剩约二十分钟极限余量。<b>碗里拍拱桥，核心留给 Chhomrong</b>。</p></details>
+      <details class="q"><summary>回程为什么改走成都？<span class="plus"></span></summary>
+        <p class="a">MU9618 只飞周二、四、六，<b>10/7 是周三，昆明线根本没有航班</b>。帅组改 CA438 KTM 11:55 到成都天府 17:15，同票接晚班回浦东，当晚约 23:00 至 23:45 落地。天府入境要提取行李过海关，<b>中转必须留 ≥3h</b>。</p></details>
+      <details class="q"><summary>十月初还会下雨吗？<span class="plus"></span></summary>
+        <p class="a">窗口内 <b>43% 的日子有可测降水</b>。季风撤退常年日是 10/2，年际离散极大。2026 的有利信号是极强 El Niño，指向偏干、撤退偏早。真正要盯的是孟加拉湾气旋残余，2025 年 10 月底的 Montha 就让 ABC 线关闭了 4 天且全面禁飞。</p></details>
+      <details class="q"><summary>保险买哪个？<span class="plus"></span></summary>
+        <p class="a"><b>Global Rescue 标准会籍</b>（约 $139 每人，ABC 4,130m 在其 4,600m 门槛内）加一份旅行医疗险，海拔上限必须白纸黑字 <b>≥4,600m</b> 且明确含 helicopter evacuation。市面大量保单上限 4,000m，差 130m 全额自付。另外包机与救援要<b>避开 Mountain Helicopters、Basecamp Helicopters（原 Manang Air）、Altitude Air</b>，2026-03 假救援案里这三家被诉。</p></details>
+      <details class="q"><summary>高反怎么处理？<span class="plus"></span></summary>
+        <p class="a">节奏上靠 <b>MBC 3,700m 的适应夜</b>，两版都保留。Diamox 遵医嘱可选，不自行定量。最坏情况走直升机，但只有早晨 06:00 至 07:15 的 VFR 窗口能起飞，错过等次日，所以它是通道不是依赖。四人里帅有 5,000m 以上过夜经历，叶有高海拔经历，两位朋友按无虞处理。</p></details>
+      <details class="q"><summary>会不会撞上 Dashain？<span class="plus"></span></summary>
+        <p class="a">不会。<b>Dashain 2026 是 10/11 至 10/25</b>，Tika 在 10/21，行程 10/7 结束，比尼泊尔国内徒步客高峰早四天走完。还有两个附带好处：向导和背夫都想在节前收工回家，10/5 至 10/6 出山的人力供给是顺的；山屋也避开了本地客流叠加。</p></details>
+      <details class="q"><summary>四个人一共要带多少现金？<span class="plus"></span></summary>
+        <p class="a">测算中位 USD 1,850，<b>建议带 USD 2,500-2,700 现钞</b>，每人 625 至 675。其中小费池约 $450 存博卡拉酒店保险箱，上山带约 $1,600。最大的不确定来自<b>向导社套餐含不含徒步期三餐，差 $950-1,300</b>，签约前书面确认。四人总预算待 v1.2 重算。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ final CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2>本周五件事</h2>
+    <p>今天发询价、48 小时内交护照、三天内出国际票、本周内订小飞机和 Dwarika's。其余全部排在这五件之后。</p>
+    <a class="btn" href="#booking">回到预订清单</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <p><b>Nepal ABC 2026</b>　内容全部取自 initial_plan v1.1，含 Part F（Q13 定稿）、Part G（weather 组）、G7（lodging 组）、Part H（flights 组），均为 2026-08-23 并入。任何与本页不一致处以该文档为准。</p>
+    <p class="mono">SKYFIELD 1.55 · DE421 · SRTM 30M DEM · NASA POWER · 28.53°N 83.88°E<br>PAGE BUILT 2026-08-23 · 私有页面，未索引</p>
+  </div>
+</footer>
+
+</main>
+
+<script>
+(function(){
+"use strict";
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------------- data ---------------- */
+/* E 版 = 定稿主行程（initial_plan Part G · G6，含 Part H 航班定稿） */
+var E = [
+  {d:'9/24', w:'四', what:'叶温哥华晚间值机（3U3860 于 9/25 00:30 起飞）', stay:'—', alt:null, air:true},
+  {d:'9/25', w:'中秋', what:'叶在途，成都天府中转；帅组上海整装', stay:'机上 / 上海', alt:null, air:true},
+  {d:'9/26', w:'六', what:'叶 10:45 到 KTM（3U3901）；帅组 PVG→KMG→MU9617 15:35 到 KTM；<mark>双队会合提前一天</mark>', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
+  {d:'9/27', w:'日', what:'完整准备日：向导见面、装备检查、换汇、办证材料交接；晚餐 Krishnarpan', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
+  {d:'9/28', w:'年假', what:'<mark>07:30 班飞 PKR</mark> → 吉普 Ulleri（经 Birethanti，3-4h）→ 徒步 Ghorepani（4-5h）；航班晚点则宿 Ulleri', stay:'Ghorepani', alt:2860, place:'Ghorepani'},
+  {d:'9/29', w:'年假', what:'<mark>04:30 出发，05:15 前 Poon Hill 到顶，06:02 日出</mark>，21mm 横构图收梯田、云海、雪峰三层；回 Ghorepani 早饭后到 Tadapani', stay:'Tadapani', alt:2600, place:'Tadapani'},
+  {d:'9/30', w:'年假', what:'到 Chhomrong，最后一次热水澡，把所有电充满；<mark>当面请老板为 10/5 留房</mark>', stay:'Chhomrong', alt:2170, place:'Chhomrong'},
+  {d:'10/1', w:'国庆', what:'Sinuwa → Bamboo → Himalaya，6-7h；<span class="warn">全线床位最少站，仅 3 家，背夫先行占房</span>', stay:'Himalaya', alt:2920, place:'Himalaya'},
+  {d:'10/2', w:'国庆', what:'雪崩段早走，经 Deurali 午后到 MBC，<mark>高海拔适应夜</mark>', stay:'MBC', alt:3700, place:'MBC'},
+  {d:'10/3', w:'国庆', what:'上午轻装上 ABC（1.5-2h）；傍晚<span class="astro">拱桥首拍，无月窗 19:11 至 23:16</span>；<span class="warn">入住时现场争取 10/4 连住</span>', stay:'ABC', alt:4130, place:'ABC', abc:true, shoot:true},
+  {d:'10/4', w:'国庆', what:'<mark>05:45 点亮①</mark>，九点前收工；全天碗内机位；傍晚<span class="astro">拱桥主力夜，无月窗 19:10 至次日 00:24</span>；兼天气备份日。<span class="warn">无床则启用预案②退宿 MBC</span>', stay:'ABC', alt:4130, place:'ABC', night:'ABC 或 MBC', abc:true, shoot:true, stayNote:'预案② MBC'},
+  {d:'10/5', w:'国庆', what:'点亮②可选，随后长下撤到 Chhomrong，8-9h 全下行，全程唯一长日；夜里 <span class="astro">19:09 至 21:15 银河核心主力</span>，月亮 01:31 才升', stay:'Chhomrong', alt:2170, place:'Chhomrong', shoot:true},
+  {d:'10/6', w:'国庆', what:'到 Jhinu（1-1.5h）泡温泉 2-3h，吉普 Samrung 出山，午后 PKR→KTM。取消则 8h 陆路，当晚仍到', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
+  {d:'10/7', w:'国庆', what:'帅组 CA438 11:55 到成都天府 17:15，同票转晚班，当晚约 23:00-23:45 到浦东；叶 CX640 23:00 到香港，10/8 上午到 YVR', stay:'—', alt:null, air:true}
+];
+
+/* D 版 = 退路，Birethanti 断路时启用 */
+var D = [
+  {d:'9/26', w:'六', what:'四人加德满都会合（航班同 E 版）', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都', air:false},
+  {d:'9/27', w:'日', what:'见向导、装备检查、换汇、办证材料交接', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
+  {d:'9/28', w:'年假', what:'早班飞 PKR → 吉普 <mark>Samrung</mark>（2-3h）→ 过新高吊桥经 Jhinu 步行进 Chhomrong（2.5-3.5h）', stay:'Chhomrong', alt:2170, place:'Chhomrong'},
+  {d:'9/29', w:'年假', what:'Sinuwa → Bamboo → Himalaya，6-7h；<span class="warn">仅 3 家山屋</span>', stay:'Himalaya', alt:2920, place:'Himalaya'},
+  {d:'9/30', w:'年假', what:'雪崩段早走，经 Deurali 午后到 MBC，<mark>高海拔适应夜</mark>', stay:'MBC', alt:3700, place:'MBC'},
+  {d:'10/1', w:'国庆', what:'上午轻装上 ABC（1.5-2h）；傍晚<span class="astro">拱桥首拍，19:13 起无月至 21:08</span>', stay:'ABC', alt:4130, place:'ABC', abc:true, shoot:true},
+  {d:'10/2', w:'国庆', what:'<mark>05:45 点亮第一次</mark>；全天碗内；傍晚<span class="astro">拱桥主力夜，无月至 22:09</span>；兼天气备份日', stay:'ABC', alt:4130, place:'ABC', abc:true, shoot:true},
+  {d:'10/3', w:'国庆', what:'点亮第二次机会，随后长下撤到 Chhomrong，8-9h 全下行，唯一长日；夜里 <span class="astro">19:11 至 21:15 银河核心主力</span>，月亮 23:16 才升', stay:'Chhomrong', alt:2170, place:'Chhomrong', shoot:true},
+  {d:'10/4', w:'国庆', what:'到 Jhinu 只要 1-1.5h，全日温泉恢复，私卫房加 1,000 卢比', stay:'Jhinu', alt:1780, place:'Jhinu'},
+  {d:'10/5', w:'国庆', what:'吉普出山，博卡拉午到，入住 Tiger Mountain，山脊上回望刚走完的那只碗', stay:'博卡拉 · Tiger Mountain', alt:820, place:'博卡拉'},
+  {d:'10/6', w:'国庆', what:'早晨 Annapurna 全景，午后 PKR→KTM。取消则 8h 陆路，当晚仍到', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
+  {d:'10/7', w:'国庆', what:'各自国际段回程（航班同 E 版）', stay:'—', alt:null, air:true}
+];
+
+/* 逐夜天文实算，skyfield 1.55 + DE421，基准 18:45 */
+var NIGHTS = [
+  {d:'9/28', dark:'19:17', rise:'18:49', darkM:32, riseM:4,   len:'0'},
+  {d:'9/29', dark:'19:16', rise:'19:28', darkM:31, riseM:43,  len:'~0'},
+  {d:'9/30', dark:'19:15', rise:'20:15', darkM:30, riseM:90,  len:'1h00'},
+  {d:'10/1', dark:'19:13', rise:'21:08', darkM:28, riseM:143, len:'1h55'},
+  {d:'10/2', dark:'19:12', rise:'22:09', darkM:27, riseM:204, len:'2h57'},
+  {d:'10/3', dark:'19:11', rise:'23:16', darkM:26, riseM:271, len:'4h05'},
+  {d:'10/4', dark:'19:10', rise:'00:24', darkM:25, riseM:339, len:'5h14'},
+  {d:'10/5', dark:'19:09', rise:'01:31', darkM:24, riseM:406, len:'6h22'}
+];
+
+/* 预订清单 = initial_plan Part H · H6（2026-08-23 起算） */
+var TASKS = [
+  {id:'h01', p:'p0', n:'向导社询价与定社', due:'本周', sub:'P0-1 · 帅',
+   desc:'Third Rock 与 Ace 英文询价邮件今天发出（草稿见 outreach/），48h 比价定社付定金。山屋没有远期预订，所以这一项就是房源保障本身：要电话网络强、执行力强的社。可靠性优先，语言不限，中文社与英文社同表对比，行前视频面试。'},
+  {id:'h02', p:'p0', n:'四人护照扫描件加白底照', due:'48h 内', sub:'P0-2 · 全员',
+   desc:'电子版收齐，35×45mm 白底。选定社后立即要用来办 ACAP。护照有效期自查 ≥2027-04。'},
+  {id:'h03', p:'p0', n:'国际段出票', due:'3 天内', sub:'P0-3 · 各自',
+   desc:'帅组 9/26 PVG–KMG–KTM（MU 三人合单，先电 95530 确认 MU9617 可售）+ 10/7 KTM–成都天府–PVG 国航一票，中转留 ≥3h。叶 9/25 00:30 3U3860 去程 + 回程 CX640 或 KE696，出票前二选一。'},
+  {id:'h04', p:'p0', n:'KTM–PKR 四座', due:'本周', sub:'P0-4 · 帅 / 向导社',
+   desc:'9/28 订 07:30 早班，10/6 订 13:00-14:00 午后班。早班最可靠，午后对流加 TIA 单跑道延误会累积。外国人 USD 120 每人每程，四人两程约 $960。Buddha 官网 Visa/MC 直订，付款页银行 logo 是收单商户勿误判，提交失败先查邮箱防重复出票。当下 36-44 天是价格与余量最优点。'},
+  {id:'h05', p:'p1', n:"Dwarika's 两房三夜", due:'本周', sub:'P1-1 · 帅',
+   desc:'9/26、9/27、10/6。会合提前一天，所以要加订 9/26 夜。Krishnarpan 传统尼餐多道制需预订，订在 9/27 晚。预算无上限按高档房型，确认可退政策。'},
+  {id:'h06', p:'p1', n:'保险出单', due:'9/10 前', sub:'P1-2 · 各自',
+   desc:'Global Rescue 标准会籍 ×4（约 $139 每人，ABC 4,130m 在其 4,600m 门槛内，事发当时联系才有效）加旅行医疗险，海拔上限白纸黑字 ≥4,600m 且明确含 helicopter evacuation。市面大量保单上限 4,000m。叶按加拿大居住地分轨。保单打印随身。'},
+  {id:'h07', p:'p1', n:'ACAP 四人，TIMS 若仍需', due:'定社后即办', sub:'P1-3 · 向导社',
+   desc:'ACAP NPR 3,000 每人，2024-10 起 e-permit 线上化，必须挂持证向导名下。TIMS 是否仍查验存疑，多个 2026 信源称 Annapurna 线只查 ACAP，由向导社书面确认。约 3 个工作日。收据别丢，出山要查。'},
+  {id:'h08', p:'p2', n:'出发前一周清单', due:'T-7d', sub:'P2 · 各自',
+   desc:'换 USD 2,500-2,700 现钞（每人 625-675，含约 $450 小费池）；博卡拉或加都换卢比，佣金 0.7-1.2%；NTC 实体卡加 20GB 包约 NPR 500 每人；每件行李过秤，红线 25kg 托运加 5kg 手提；Diamox 问诊；尼泊尔在线入境卡填好打印。'},
+  {id:'h09', p:'p2', n:'9/15 前后统一复查', due:'9/15 前后', sub:'复查 · Cha',
+   desc:'Birethanti 与 Ghurjung 吊桥通车状态、TIA 夜间关闭 NOTAM、MU 班期再确认，并开始每日盯气旋预报。9/20 是 E 转 D 的红线。'}
+];
+
+/* ---------------- helpers ---------------- */
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+function bez(t){ /* approximation of cubic-bezier(.32,.72,0,1) */
+  var u=1-t; return 3*u*u*t*0.72 + 3*u*t*t*1 + t*t*t;
+}
+
+/* ---------------- nav ---------------- */
+var nav=$('#nav'), burger=$('#burger');
+addEventListener('scroll',function(){ nav.classList.toggle('scrolled', scrollY>24); },{passive:true});
+burger.addEventListener('click',function(){
+  var open=document.body.classList.toggle('menu-open');
+  burger.setAttribute('aria-expanded', open?'true':'false');
+  burger.setAttribute('aria-label', open?'关闭菜单':'打开菜单');
+});
+$$('#overlay a').forEach(function(a){ a.addEventListener('click',function(){
+  document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false');
+});});
+addEventListener('keydown',function(e){ if(e.key==='Escape'&&document.body.classList.contains('menu-open')){
+  document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); burger.focus();
+}});
+
+var navLinks=$$('.nav-links a');
+var spy=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(!e.isIntersecting) return;
+    navLinks.forEach(function(a){
+      a.setAttribute('aria-current', a.getAttribute('href')==='#'+e.target.id ? 'true':'false');
+    });
+  });
+},{rootMargin:'-45% 0px -50% 0px'});
+['now','booking','route','sky','photo','risk'].forEach(function(id){
+  var el=document.getElementById(id); if(el) spy.observe(el);
+});
+
+/* ---------------- reveals ---------------- */
+var ro=new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target);} });
+},{rootMargin:'0px 0px -8% 0px',threshold:0.06});
+$$('[data-reveal]').forEach(function(el,i){ el.style.transitionDelay=(Math.min(i%3,2)*70)+'ms'; ro.observe(el); });
+
+/* ---------------- tagline reveal ---------------- */
+(function(){
+  var host=$('#revealCopy'); if(!host) return;
+  var raw=host.getAttribute('data-tokens').split('‖');
+  raw.forEach(function(line,li){
+    line.split('|').forEach(function(tok){
+      var s=document.createElement('span');
+      s.className='w'+(/两三点|满了|早走|早到店|唯一的/.test(tok)?' accent':'');
+      s.textContent=tok; host.appendChild(s);
+    });
+    if(li<raw.length-1) host.appendChild(document.createElement('br'));
+  });
+  var words=$$('.w',host);
+  var wo=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var i=words.indexOf(e.target);
+      e.target.style.transitionDelay=(Math.min(i,14)*45)+'ms';
+      e.target.classList.add('lit'); wo.unobserve(e.target);
+    });
+  },{rootMargin:'0px 0px -42% 0px'});
+  words.forEach(function(w){ wo.observe(w); });
+})();
+
+/* ---------------- countdown ---------------- */
+(function(){
+  function days(y,m,d){
+    var t=new Date(y,m-1,d,0,0,0), n=new Date();
+    return Math.max(0, Math.ceil((t-n)/86400000));
+  }
+  function set(id,n){ var el=document.getElementById(id); if(el) el.innerHTML=n+'<em>天</em>'; }
+  set('cd825', days(2026,8,25));
+  set('cd826', days(2026,8,26));
+  set('cd926', days(2026,9,26));
+  var h=$('#cdHero'); if(h) h.innerHTML=days(2026,9,26)+'<em>天</em>';
+})();
+
+/* ---------------- checklist ---------------- */
+(function(){
+  var LS='abc2026-tasks-h6', state={};
+  try{ state=JSON.parse(localStorage.getItem(LS)||'{}')||{}; }catch(e){ state={}; }
+
+  TASKS.forEach(function(t){
+    var host=$('.task-list[data-prio="'+t.p+'"]'); if(!host) return;
+    var row=document.createElement('label');
+    row.className='task'; row.setAttribute('for',t.id);
+    row.innerHTML='<input type="checkbox" id="'+t.id+'">'+
+      '<span class="t-body"><span class="t-name">'+t.n+'</span>'+
+      '<span class="t-desc">'+t.desc+'</span></span>'+
+      '<span class="t-due mono">'+t.due+'<i>'+t.sub+'</i></span>';
+    host.appendChild(row);
+    var box=$('#'+t.id,row);
+    box.checked=!!state[t.id];
+    row.classList.toggle('done',box.checked);
+    box.addEventListener('change',function(){
+      state[t.id]=box.checked; row.classList.toggle('done',box.checked);
+      try{ localStorage.setItem(LS,JSON.stringify(state)); }catch(e){}
+      push(t.id,box.checked);
+    });
+  });
+
+  /* optional cross-device sync via the per-slug KV API. fails soft. */
+  var API=location.pathname.replace(/\/index\.html$/,'/').replace(/\/?$/,'/')+'api/kv/tasks-h6';
+  var etag=null, alive=false;
+  function apply(v){
+    if(!v||typeof v!=='object') return;
+    Object.keys(v).forEach(function(k){
+      var box=document.getElementById(k); if(!box) return;
+      var on=!!v[k];
+      if(box.checked!==on){ box.checked=on; box.closest('.task').classList.toggle('done',on); }
+      state[k]=on;
+    });
+    try{ localStorage.setItem(LS,JSON.stringify(state)); }catch(e){}
+  }
+  function pull(){
+    fetch(API,{headers:etag?{'If-None-Match':etag}:{}}).then(function(r){
+      if(r.status===304){ mark(true); return null; }
+      if(r.status!==200){ mark(false); return null; }
+      etag=r.headers.get('ETag'); mark(true); return r.json();
+    }).then(function(j){ if(j&&j.value) apply(j.value); }).catch(function(){ mark(false); });
+  }
+  function push(k,v){
+    if(!alive) return;
+    var p={}; p[k]=v;
+    fetch(API+'/merge',{method:'POST',body:JSON.stringify(p)}).catch(function(){});
+  }
+  function mark(ok){
+    alive=ok;
+    var dot=$('#syncDot'), msg=$('#syncMsg');
+    if(!dot) return;
+    dot.style.background = ok? 'var(--ok)':'var(--ink-3)';
+    msg.textContent = ok? '已跨设备同步' : '勾选本地保存';
+  }
+  pull(); setInterval(pull, 25000);
+})();
+
+/* ---------------- altitude profile ---------------- */
+var svg=$('#profile'), NS='http://www.w3.org/2000/svg';
+var W=1000,H=340, PL=52,PR=52,PT=46,PB=52;
+var AMIN=600, AMAX=4400;
+var current=null, anim=null;
+
+function pts(list){
+  var v=list.filter(function(x){return x.alt!==null;});
+  var n=v.length;
+  return v.map(function(x,i){
+    return {
+      x: PL + (W-PL-PR) * (n===1?0.5:i/(n-1)),
+      y: PT + (H-PT-PB) * (1-(x.alt-AMIN)/(AMAX-AMIN)),
+      alt:x.alt, place:x.place, d:x.d, abc:!!x.abc
+    };
+  });
+}
+function el(tag,attrs,text){
+  var e=document.createElementNS(NS,tag);
+  for(var k in attrs) e.setAttribute(k,attrs[k]);
+  if(text!=null) e.textContent=text;
+  return e;
+}
+function drawGrid(){
+  var g=el('g',{});
+  [1000,2000,3000,4000].forEach(function(a){
+    var y=PT+(H-PT-PB)*(1-(a-AMIN)/(AMAX-AMIN));
+    g.appendChild(el('line',{class:'grid-line',x1:PL-12,x2:W-PR+12,y1:y,y2:y}));
+    g.appendChild(el('text',{class:'grid-label',x:8,y:y+4}, (a/1000)+'k'));
+  });
+  return g;
+}
+function render(P){
+  while(svg.childNodes.length>1) svg.removeChild(svg.lastChild);
+  svg.appendChild(drawGrid());
+  var d=P.map(function(p,i){return (i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1);}).join(' ');
+  var base=H-PB;
+  svg.appendChild(el('path',{class:'area',d:d+' L'+P[P.length-1].x.toFixed(1)+' '+base+' L'+P[0].x.toFixed(1)+' '+base+' Z'}));
+  svg.appendChild(el('path',{class:'line',d:d}));
+  P.forEach(function(p){
+    svg.appendChild(el('line',{class:'stem',x1:p.x,x2:p.x,y1:p.y,y2:base}));
+    svg.appendChild(el('circle',{class:'node'+(p.abc?' peak':''),cx:p.x,cy:p.y,r:p.abc?5.5:4}));
+    var above=p.y>PT+40;
+    svg.appendChild(el('text',{class:'p-place'+(p.abc?' peak':''),x:p.x,y:above?p.y-24:p.y+30,'text-anchor':'middle'},p.place));
+    svg.appendChild(el('text',{class:'p-alt',x:p.x,y:above?p.y-11:p.y+43,'text-anchor':'middle'},p.alt.toLocaleString()+'m'));
+    svg.appendChild(el('text',{class:'p-date',x:p.x,y:H-18,'text-anchor':'middle'},p.d));
+  });
+}
+function tween(from,to){
+  if(anim) cancelAnimationFrame(anim);
+  if(reduced){ render(to); current=to; return; }
+  var t0=performance.now(), dur=760;
+  (function step(now){
+    var k=Math.min(1,(now-t0)/dur), e=bez(k);
+    var mid=to.map(function(p,i){
+      var f=from[Math.min(i,from.length-1)];
+      return {x:f.x+(p.x-f.x)*e, y:f.y+(p.y-f.y)*e, alt:Math.round(f.alt+(p.alt-f.alt)*e),
+              place:e>0.5?p.place:f.place, d:e>0.5?p.d:f.d, abc:e>0.5?p.abc:f.abc};
+    });
+    render(mid);
+    if(k<1) anim=requestAnimationFrame(step); else { render(to); current=to; }
+  })(t0);
+}
+
+/* ---------------- day list + version switch ---------------- */
+var dayHost=$('#dayList');
+function renderDays(list){
+  dayHost.innerHTML='';
+  list.forEach(function(x){
+    var row=document.createElement('article');
+    row.className='day'+(x.abc?' abc':'')+(x.air?' air':'');
+    var stayExtra = x.alt ? '<i>'+x.alt.toLocaleString()+' m'+(x.stayNote?' · '+x.stayNote:'')+'</i>' : '';
+    row.innerHTML='<div class="d-date mono">'+x.d+(x.w?'<i>'+x.w+'</i>':'')+'</div>'+
+      '<div class="d-what">'+x.what+'</div>'+
+      '<div class="d-stay">'+x.stay+stayExtra+'</div>';
+    dayHost.appendChild(row);
+  });
+}
+function setVersion(v){
+  var list = v==='E'?E:D;
+  $$('.switch button').forEach(function(b){ b.setAttribute('aria-selected', b.dataset.ver===v?'true':'false'); });
+  dayHost.setAttribute('aria-labelledby', v==='E'?'tab-e':'tab-d');
+  $('#verNote').textContent = v==='E'
+    ? 'E 版：山上 8 晚，10/3 上碗，10/4 连住为现场争取'
+    : 'D 版：山上 7 晚加 Tiger Mountain 1 晚，ABC 连住 10/1 与 10/2';
+  var target=pts(list);
+  if(current) tween(current,target); else { render(target); current=target; }
+  renderDays(list);
+  paintNights(v);
+}
+$$('.switch button').forEach(function(b){
+  b.addEventListener('click',function(){ setVersion(b.dataset.ver); });
+});
+
+/* ---------------- moonless timeline ---------------- */
+var SPAN=435; /* 18:45 → 02:00, minutes */
+(function ticks(){
+  var host=$('#tlTicks');
+  [['19:00',15],['20:00',75],['21:00',135],['22:00',195],['23:00',255],['00:00',315],['01:00',375]]
+  .forEach(function(t){
+    var s=document.createElement('span');
+    s.className='mono'; s.textContent=t[0]; s.style.left=(t[1]/SPAN*100)+'%';
+    host.appendChild(s);
+  });
+})();
+
+var tlRowEls={};
+(function buildNights(){
+  var host=$('#tlRows');
+  NIGHTS.forEach(function(n){
+    var row=document.createElement('div');
+    row.className='tl-row';
+    var darkPct=n.darkM/SPAN*100, risePct=n.riseM/SPAN*100;
+    var winW=Math.max(0, risePct-darkPct);
+    var bar='<div class="tl-bar">';
+    bar+='<div class="tl-moon" style="left:'+risePct+'%;right:0"></div>';
+    if(n.riseM>=n.darkM){
+      bar+='<div class="tl-dark'+(winW>8?' good':'')+'" style="left:'+darkPct+'%;width:'+winW+'%"></div>';
+    }
+    bar+='<div class="tl-main" style="left:'+(30/SPAN*100)+'%;width:'+(90/SPAN*100)+'%"></div>';
+    bar+='<span class="tl-len mono">'+n.len+'</span></div>';
+    row.innerHTML='<div class="tl-meta"><div class="tl-date">'+n.d+
+      '</div><div class="tl-where">—</div></div>'+bar;
+    host.appendChild(row);
+    tlRowEls[n.d]=row;
+  });
+})();
+function paintNights(v){
+  var list = v==='E'?E:D;
+  var map={};
+  list.forEach(function(x){ if(x.place) map[x.d]={place:x.night||x.place, shoot:!!x.shoot}; });
+  NIGHTS.forEach(function(n){
+    var row=tlRowEls[n.d]; if(!row) return;
+    var m=map[n.d]||{place:'—',shoot:false};
+    $('.tl-where',row).textContent=m.place;
+    row.classList.toggle('here', m.shoot);
+  });
+}
+
+setVersion('E');
+
+/* ---------------- hero: starfield + asset probe ---------------- */
+(function(){
+  var cv=$('#sky-canvas'), host=$('#heroMedia');
+  if(!cv) return;
+  var ctx=cv.getContext('2d'), w=0,h=0,dpr=1, stars=[], band=[],
+      farR=null, nearR=null, summit=null, meteor=null, raf=null;
+
+  function rnd(s){ /* deterministic */ var x=Math.sin(s)*43758.5453; return x-Math.floor(x); }
+
+  /* seeded midpoint displacement, then sharp-apex summits, then a fine jagged pass */
+  function makeRidge(seed, base, amp, summits){
+    var p=[{x:0,y:base+0.05},{x:1,y:base+0.07}], a=amp, s=seed;
+    for(var it=0; it<8; it++){
+      var np=[p[0]];
+      for(var i=1;i<p.length;i++){
+        var A=p[i-1], B=p[i];
+        np.push({x:(A.x+B.x)/2, y:(A.y+B.y)/2 + (rnd(s++)-0.5)*a});
+        np.push(B);
+      }
+      p=np; a*=0.56;
+    }
+    summits.forEach(function(su){
+      var pw=su.p||1.4;
+      p.forEach(function(q){
+        var t=Math.abs(q.x-su.x)/su.w;
+        if(t<1) q.y -= su.h*(1-Math.pow(t,pw));
+      });
+    });
+    p.forEach(function(q,i){
+      q.y += (rnd(seed+900+i)-0.5)*0.016;
+      q.y = Math.min(1.06, Math.max(0.16,q.y));
+    });
+    return p;
+  }
+
+  function buildRidges(){
+    farR = makeRidge(11, 0.70, 0.075, [
+      {x:0.585,h:0.185,w:0.075,p:1.55},
+      {x:0.672,h:0.290,w:0.058,p:1.30},
+      {x:0.760,h:0.150,w:0.062,p:1.60},
+      {x:0.300,h:0.120,w:0.105,p:1.9},
+      {x:0.945,h:0.135,w:0.080,p:1.7}
+    ]);
+    nearR = makeRidge(37, 0.895, 0.055, [
+      {x:0.145,h:0.105,w:0.150,p:1.8},
+      {x:0.480,h:0.070,w:0.130,p:1.9}
+    ]);
+    summit = farR.reduce(function(m,q){
+      return (Math.abs(q.x-0.672)<0.05 && (!m||q.y<m.y)) ? q : m;
+    }, null) || {x:0.672,y:0.41};
+  }
+
+  function build(){
+    stars=[]; band=[];
+    var n=Math.round(w*h/5200);
+    for(var i=0;i<n;i++){
+      var m=Math.pow(Math.random(),2.6);
+      stars.push({x:Math.random()*w, y:Math.random()*h*0.92, r:0.35+m*1.5,
+                  a:0.24+m*0.66, tw:Math.random()<0.14, ph:Math.random()*6.28});
+    }
+    /* milky-way arch: dense cluster along a shallow arc */
+    var bn=Math.round(w*2.8);
+    for(var j=0;j<bn;j++){
+      var t=Math.random();
+      var bx=t*w;
+      var by=h*0.66 - Math.sin(t*Math.PI)*h*0.52;
+      var sp=(Math.random()+Math.random()+Math.random()-1.5)*h*0.062;
+      var m2=Math.pow(Math.random(),3.2);
+      band.push({x:bx+ (Math.random()-0.5)*w*0.02, y:by+sp, r:0.26+m2*0.92,
+                 a:(0.09+m2*0.48)*Math.max(0,1-Math.abs(sp)/(h*0.115))});
+    }
+    buildRidges();
+  }
+
+  function size(){
+    dpr=Math.min(2, window.devicePixelRatio||1);
+    w=host.clientWidth; h=host.clientHeight;
+    cv.width=w*dpr; cv.height=h*dpr; cv.style.width=w+'px'; cv.style.height=h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    build();
+  }
+
+  function fillRidge(pts,color){
+    ctx.beginPath(); ctx.moveTo(-2,h+2);
+    pts.forEach(function(q){ ctx.lineTo(q.x*w, q.y*h); });
+    ctx.lineTo(w+2,h+2); ctx.closePath();
+    ctx.fillStyle=color; ctx.fill();
+  }
+
+  /* airglow: a cool horizon lift so every ridge silhouettes, plus a warm pool
+     behind the main massif for the 点亮 to sit against */
+  function drawAirglow(){
+    var lin=ctx.createLinearGradient(0, 0.26*h, 0, h);
+    lin.addColorStop(0,'rgba(0,0,0,0)');
+    lin.addColorStop(0.50,'rgba(20,31,41,0.28)');
+    lin.addColorStop(1,'rgba(29,43,56,0.62)');
+    ctx.fillStyle=lin; ctx.fillRect(0,0,w,h);
+    var g=ctx.createRadialGradient(0.66*w, 0.88*h, 0, 0.66*w, 0.88*h, 0.44*w);
+    g.addColorStop(0,'rgba(56,39,29,0.30)');
+    g.addColorStop(0.6,'rgba(34,26,22,0.12)');
+    g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+  }
+
+  function drawRidges(){
+    fillRidge(farR,'#0C0F15');
+
+    /* 点亮: a thin warm rim on the top of the crest only, never the full flank */
+    var crest=summit.y+0.052;
+    var seg=farR.filter(function(q){ return q.y<=crest && Math.abs(q.x-summit.x)<0.085; });
+    if(seg.length>1){
+      var lo=seg[0].x, hi=seg[seg.length-1].x;
+      var g=ctx.createLinearGradient(lo*w,0,hi*w,0);
+      g.addColorStop(0,'rgba(233,131,79,0)');
+      g.addColorStop(0.30,'rgba(233,131,79,0.55)');
+      g.addColorStop(0.52,'rgba(250,186,142,0.95)');
+      g.addColorStop(0.74,'rgba(233,131,79,0.45)');
+      g.addColorStop(1,'rgba(233,131,79,0)');
+      ctx.save();
+      ctx.globalCompositeOperation='lighter';
+      ctx.beginPath();
+      seg.forEach(function(q,i){ i?ctx.lineTo(q.x*w,q.y*h):ctx.moveTo(q.x*w,q.y*h); });
+      ctx.lineWidth=1.3; ctx.lineJoin='round'; ctx.lineCap='round';
+      ctx.strokeStyle=g; ctx.stroke();
+      var sg=ctx.createRadialGradient(summit.x*w,summit.y*h,0,summit.x*w,summit.y*h,0.042*w);
+      sg.addColorStop(0,'rgba(233,131,79,0.13)');
+      sg.addColorStop(1,'rgba(233,131,79,0)');
+      ctx.fillStyle=sg;
+      ctx.fillRect((summit.x-0.05)*w,(summit.y-0.09)*h,0.10*w,0.18*h);
+      ctx.restore();
+    }
+
+    fillRidge(nearR,'#000000');
+  }
+
+  function frame(t){
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle='#000'; ctx.fillRect(0,0,w,h);
+    drawAirglow();
+    band.forEach(function(s){
+      if(s.a<=0) return;
+      ctx.globalAlpha=s.a; ctx.fillStyle='#B9C9D9';
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.283); ctx.fill();
+    });
+    stars.forEach(function(s){
+      var a=s.a;
+      if(s.tw && !reduced) a*=0.6+0.4*Math.sin(t/900+s.ph);
+      ctx.globalAlpha=a; ctx.fillStyle= s.r>1.25 ? '#FFF6EC' : '#E8EEF5';
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.283); ctx.fill();
+    });
+    if(meteor){
+      var k=(t-meteor.t0)/620;
+      if(k>=1){ meteor=null; }
+      else{
+        ctx.globalAlpha=Math.sin(k*Math.PI)*0.9;
+        ctx.strokeStyle='#FFF3E4'; ctx.lineWidth=1.1;
+        ctx.beginPath();
+        ctx.moveTo(meteor.x+meteor.dx*k, meteor.y+meteor.dy*k);
+        ctx.lineTo(meteor.x+meteor.dx*(k-0.14), meteor.y+meteor.dy*(k-0.14));
+        ctx.stroke();
+      }
+    }
+    ctx.globalAlpha=1;
+    drawRidges();
+    raf=requestAnimationFrame(frame);
+  }
+
+  function launchMeteor(){
+    if(reduced || document.hidden) return;
+    var x=Math.random()*w*0.9, y=Math.random()*h*0.42;
+    meteor={t0:performance.now(), x:x, y:y, dx:-(90+Math.random()*140), dy:(60+Math.random()*110)};
+  }
+
+  size(); raf=requestAnimationFrame(frame);
+  var rz; addEventListener('resize',function(){ clearTimeout(rz); rz=setTimeout(size,180); });
+  if(!reduced) setInterval(function(){ if(Math.random()<0.55) launchMeteor(); }, 7000);
+
+  /* higgsfield asset takeover: drop hero.jpg / hero.mp4 next to index.html */
+  var img=new Image();
+  img.onload=function(){ $('#heroImg').src=img.src; host.classList.add('has-img'); };
+  img.src='hero.jpg';
+
+  var v=$('#heroVideo');
+  v.addEventListener('canplay',function(){ host.classList.add('has-video'); v.play().catch(function(){}); });
+  v.addEventListener('error',function(){});
+  v.src='hero.mp4'; v.load();
+})();
+
+})();
+</script>
+</body>
+</html>
