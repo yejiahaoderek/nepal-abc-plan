@@ -2384,13 +2384,15 @@ setVersion('E');
   v.addEventListener('canplay',function(){ host.classList.add('has-video'); tryPlay(); });
   v.addEventListener('loadeddata',function(){ host.classList.add('has-video'); tryPlay(); });
   v.addEventListener('error',function(){ host.classList.remove('has-video'); });
-  document.addEventListener('pointerdown',function(){ if(v.paused&&v.src) tryPlay(); },{passive:true});
+  ['pointerdown','click','touchend'].forEach(function(evt){
+    document.addEventListener(evt,function(){ if(v.paused&&v.src) tryPlay(); },{passive:true});
+  });
   document.addEventListener('visibilitychange',function(){ if(!document.hidden&&v.paused&&v.src) tryPlay(); });
   function heroAssets(t){
     var d = t==='day';
-    return { img: d?'hero-day.jpg':'hero.jpg',
-             pimg: d?'hero-day-portrait.jpg':'hero-portrait.jpg',
-             vid: d?'hero-day.mp4':'hero.mp4' };
+    return { img: (d?'hero-day.jpg':'hero.jpg')+'?v26bfa21',
+             pimg: (d?'hero-day-portrait.jpg':'hero-portrait.jpg')+'?v26bfa21',
+             vid: (d?'hero-day.mp4':'hero.mp4')+'?v26bfa21' };
   }
   function loadHero(t){
     var a=heroAssets(t), wantP=matchMedia('(orientation: portrait)').matches;
@@ -2399,7 +2401,7 @@ setVersion('E');
     img.onload=function(){ $('#heroImg').src=img.src; host.classList.add('has-img'); };
     img.onerror=function(){
       if(wantP && img.src.indexOf(a.pimg)>-1){ img.src=a.img; }
-      else if(t==='day' && img.src.indexOf('hero-day')>-1){ img.src = wantP?'hero-portrait.jpg':'hero.jpg'; }
+      else if(t==='day' && img.src.indexOf('hero-day')>-1){ img.src = (wantP?'hero-portrait.jpg':'hero.jpg')+'?v26bfa21'; }
     };
     img.src = wantP ? a.pimg : a.img;
     /* video only on landscape / desktop: portrait phones get the poster and save 2-3 MB,
