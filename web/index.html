@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Nepal ABC 2026 · 四人十三天主行程</title>
-<meta name="description" content="Annapurna Base Camp 2026-09-25 至 10-07 四人行程执行版：E 版定稿逐日、逐夜无月窗口实算、航班定稿、预订倒计时、风险板与摄影计划。">
+<meta name="description" content="Annapurna Base Camp 2026-09-25 至 10-07 四人行程执行版：E 版定稿逐日、逐夜无月窗口实算、向导社排序、保险定稿、预订倒计时与风险板。">
 <meta property="og:title" content="Nepal ABC 2026 · 四人十三天主行程">
-<meta property="og:description" content="E 版已定稿。逐日行程、逐夜无月窗口、航班与预订倒计时、风险板与摄影计划。">
+<meta property="og:description" content="E 版已定稿。逐日行程、逐夜无月窗口、向导社与保险定稿、预订倒计时与风险板。">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000000'/><path d='M2 26 L11 9 L15.5 17 L19 12 L30 26 Z' fill='%23E9834F'/><circle cx='25' cy='6.5' r='1.9' fill='%238AB4D4'/></svg>">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -41,6 +41,7 @@
   --ice:#8AB4D4;
   --ice-dim:#415A6D;
   --alert:#C9503F;
+  --alert-dim:#6E2E24;
   --ok:#5E9384;
 
   --s-25:2px; --s-50:4px; --s-75:8px; --s-100:12px; --s-200:16px;
@@ -118,12 +119,12 @@ body.menu-open .burger span:nth-child(2){transform:translateY(-3px) rotate(-45de
 
 .overlay{
   position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;justify-content:center;
-  padding:var(--s-600) var(--s-400);gap:var(--s-100);
+  padding:var(--s-600) var(--s-400);gap:var(--s-75);
   background:rgba(0,0,0,.80);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);
   opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility .7s var(--ease);
 }
 body.menu-open .overlay{opacity:1;visibility:visible;}
-.overlay a{font-size:30px;line-height:36px;font-weight:700;color:var(--ink);
+.overlay a{font-size:24px;line-height:32px;font-weight:700;color:var(--ink);
   transform:translateY(48px);opacity:0;transition:transform .8s var(--ease),opacity .8s var(--ease);}
 .overlay a span{font-family:var(--mono);font-size:12px;color:var(--glow);margin-right:var(--s-100);vertical-align:middle;}
 body.menu-open .overlay a{transform:translateY(0);opacity:1;}
@@ -192,26 +193,31 @@ section[id]{scroll-margin-top:104px;}
 .sec-num{font-family:var(--mono);font-size:12px;color:var(--glow);letter-spacing:.14em;}
 .sec-head h2{font-size:30px;line-height:36px;letter-spacing:-0.01em;}
 .sec-note{font-size:14px;line-height:20px;color:var(--ink-3);flex:1 1 240px;}
+.sub-head{display:flex;align-items:baseline;gap:var(--s-200);margin:var(--s-700) 0 var(--s-300);flex-wrap:wrap;
+  padding-top:var(--s-400);border-top:1px solid var(--line);}
+.sub-head h3{font-size:24px;line-height:32px;}
+.sub-head p{font-size:14px;line-height:20px;color:var(--ink-3);flex:1 1 240px;}
 
 [data-reveal]{opacity:0;transform:translateY(16px);filter:blur(6px);
   transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);}
 [data-reveal].in{opacity:1;transform:none;filter:none;}
 
-/* ---------- status ---------- */
-.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-300);align-items:start;}
-.card{border:1px solid var(--line);border-radius:var(--r-xl);background:var(--bg);padding:var(--s-300);}
-.card-title{display:flex;align-items:center;gap:var(--s-75);font-size:14px;color:var(--ink-2);margin-bottom:var(--s-200);}
-.dot{width:7px;height:7px;border-radius:var(--r-full);flex:0 0 7px;background:var(--ink-3);}
-.dot.live{background:var(--ice);animation:pulse 2.4s var(--ease) infinite;}
-.dot.hot{background:var(--alert);animation:pulse 2.4s var(--ease) infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.82);}}
-
+/* ---------- callouts ---------- */
 .locked{border:1px solid var(--glow-dim);border-radius:var(--r-xl);background:var(--bg);
   padding:var(--s-400);margin-bottom:var(--s-300);}
 .locked .stamp{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--glow);margin-bottom:var(--s-100);}
 .locked h3{font-size:24px;line-height:32px;margin-bottom:var(--s-100);}
 .locked p{font-size:15px;line-height:24px;color:var(--ink-2);max-width:78ch;}
+.locked p+p{margin-top:var(--s-100);}
 .locked p b{color:var(--ink);font-weight:700;}
+.locked.danger{border-color:var(--alert-dim);}
+.locked.danger .stamp{color:var(--alert);}
+.locked.danger p b{color:var(--alert);}
+
+.warnstrip{border:1px solid var(--line-2);border-radius:var(--r-lg);background:var(--surface);
+  padding:var(--s-200) var(--s-300);margin-bottom:var(--s-600);
+  font-size:14px;line-height:22px;color:var(--ink-2);}
+.warnstrip b{color:var(--glow);font-weight:700;}
 
 .check-list li{display:flex;gap:var(--s-100);padding-block:var(--s-100);border-top:1px solid var(--line);
   font-size:14px;line-height:20px;}
@@ -220,7 +226,7 @@ section[id]{scroll-margin-top:104px;}
 .check-list .what{color:var(--ink-2);}
 .check-list .what b{color:var(--ink);font-weight:700;}
 
-.fixed-list li{display:grid;grid-template-columns:142px 1fr;gap:var(--s-200);padding-block:var(--s-100);
+.fixed-list li{display:grid;grid-template-columns:150px 1fr;gap:var(--s-200);padding-block:var(--s-100);
   border-top:1px solid var(--line);font-size:14px;line-height:20px;align-items:start;}
 .fixed-list li:first-child{border-top:0;}
 .fixed-list .was{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--alert);
@@ -228,8 +234,16 @@ section[id]{scroll-margin-top:104px;}
 .fixed-list .now{color:var(--ink-2);}
 .fixed-list .now b{color:var(--ink);font-weight:700;}
 
+.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-300);align-items:start;}
+.card{border:1px solid var(--line);border-radius:var(--r-xl);background:var(--bg);padding:var(--s-300);}
+.card-title{display:flex;align-items:center;gap:var(--s-75);font-size:14px;color:var(--ink-2);margin-bottom:var(--s-200);}
+.dot{width:7px;height:7px;border-radius:var(--r-full);flex:0 0 7px;background:var(--ink-3);}
+.dot.live{background:var(--ice);animation:pulse 2.4s var(--ease) infinite;}
+.dot.hot{background:var(--alert);animation:pulse 2.4s var(--ease) infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.82);}}
+
 /* ---------- countdown ---------- */
-.cd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-300);margin-bottom:var(--s-600);}
+.cd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-300);margin-bottom:var(--s-300);}
 .cd{border:1px solid var(--line);border-radius:var(--r-xl);padding:var(--s-300);background:var(--bg);}
 .cd.p0{border-color:var(--glow-dim);}
 .cd .tag{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--ink-3);}
@@ -246,7 +260,7 @@ section[id]{scroll-margin-top:104px;}
 .badge.b0{border-color:var(--glow);color:var(--glow);}
 .badge.b1{border-color:var(--ice-dim);color:var(--ice);}
 .prio-head p{font-size:14px;line-height:20px;color:var(--ink-3);}
-.task{display:grid;grid-template-columns:28px 1fr 132px;gap:var(--s-200);align-items:start;
+.task{display:grid;grid-template-columns:28px 1fr 136px;gap:var(--s-200);align-items:start;
   padding:var(--s-100) var(--s-100) var(--s-100) 0;border-top:1px solid var(--line);
   transition:background .7s var(--ease);border-radius:var(--r-md);}
 .task:hover{background:rgba(255,255,255,.03);}
@@ -265,6 +279,32 @@ section[id]{scroll-margin-top:104px;}
 .task.done .t-name{color:var(--ink-3);text-decoration:line-through;}
 .sync{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:var(--s-200);display:flex;
   align-items:center;gap:var(--s-75);}
+
+/* ---------- agency ranking ---------- */
+.agency{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-300);align-items:start;}
+.ag{border:1px solid var(--line);border-radius:var(--r-xl);background:var(--bg);padding:var(--s-300);}
+.ag.pick{border-color:var(--glow-dim);}
+.ag .rank{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:var(--s-75);}
+.ag.pick .rank{color:var(--glow);}
+.ag h4{font-size:20px;line-height:28px;margin-bottom:var(--s-50);}
+.ag .price{font-family:var(--mono);font-size:13px;color:var(--ice);margin-bottom:var(--s-200);}
+.ag li{font-size:14px;line-height:22px;color:var(--ink-2);padding-left:var(--s-200);position:relative;
+  margin-bottom:var(--s-50);}
+.ag li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--ink-3);}
+.ag li.no::before{background:var(--alert);}
+.ag li.yes::before{background:var(--ok);}
+.ag-notes{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-300);margin-top:var(--s-300);align-items:start;}
+.note{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg);padding:var(--s-300);}
+.note.warn{border-color:var(--alert-dim);}
+.note h4{font-size:16px;line-height:24px;margin-bottom:var(--s-75);}
+.note.warn h4{color:var(--alert);}
+.note p{font-size:14px;line-height:22px;color:var(--ink-2);}
+.note p+p{margin-top:var(--s-75);}
+.note b{color:var(--ink);font-weight:700;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-200);margin-top:var(--s-300);}
+.step{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg);padding:var(--s-200);}
+.step .w{font-family:var(--mono);font-size:12px;color:var(--glow);letter-spacing:.1em;}
+.step p{font-size:14px;line-height:22px;color:var(--ink-2);margin-top:var(--s-75);}
 
 /* ---------- tagline reveal ---------- */
 .reveal-band{padding-block:var(--s-900);background:var(--bg-warm);border-top:1px solid var(--line);}
@@ -297,6 +337,8 @@ section[id]{scroll-margin-top:104px;}
 #profile{display:block;width:100%;height:auto;}
 #profile .grid-line{stroke:var(--line);stroke-width:1;}
 #profile .grid-label{fill:var(--ink-3);font-family:var(--mono);font-size:11px;}
+#profile .redline{stroke:var(--alert-dim);stroke-width:1;stroke-dasharray:4 4;}
+#profile .redlabel{fill:var(--alert);font-family:var(--mono);font-size:10px;}
 #profile .area{fill:rgba(138,180,212,.07);}
 #profile .line{fill:none;stroke:var(--ice);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;}
 #profile .node{fill:var(--bg);stroke:var(--ice);stroke-width:2;}
@@ -420,6 +462,7 @@ section[id]{scroll-margin-top:104px;}
 .risk-body b{color:var(--ink);font-weight:700;}
 .risk-body .src{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:var(--s-200);
   padding-top:var(--s-100);border-top:1px solid var(--line);}
+.risk-body .avoid{color:var(--alert);font-weight:700;}
 summary{list-style:none;cursor:pointer;}
 summary::-webkit-details-marker{display:none;}
 
@@ -463,8 +506,8 @@ footer b{color:var(--ink-2);font-weight:400;}
 
 /* ---------- responsive ---------- */
 @media (max-width:980px){
-  .status-grid,.sky-grid,.vs,.params{grid-template-columns:1fr;}
-  .shots,.crew{grid-template-columns:1fr;}
+  .status-grid,.sky-grid,.vs,.params,.ag-notes{grid-template-columns:1fr;}
+  .shots,.crew,.agency,.steps{grid-template-columns:1fr;}
   .cd-grid{grid-template-columns:1fr;}
   .logi{grid-template-columns:repeat(2,1fr);}
 }
@@ -485,6 +528,7 @@ footer b{color:var(--ink-2);font-weight:400;}
   .hero-stats .v{font-size:24px;line-height:32px;}
   .band,.reveal-band,.final{padding-block:var(--s-600);}
   .sec-head h2{font-size:24px;line-height:32px;}
+  .sub-head h3{font-size:20px;line-height:28px;}
   .reveal-copy{font-size:30px;line-height:1.34;}
   .final h2{font-size:24px;line-height:32px;}
   .locked h3{font-size:20px;line-height:28px;}
@@ -530,6 +574,7 @@ footer b{color:var(--ink-2);font-weight:400;}
     <div class="nav-links">
       <a href="#now">现状</a>
       <a href="#booking">预订</a>
+      <a href="#agency">向导社</a>
       <a href="#route">行程</a>
       <a href="#sky">夜空</a>
       <a href="#photo">摄影</a>
@@ -545,12 +590,13 @@ footer b{color:var(--ink-2);font-weight:400;}
 <div class="overlay" id="overlay">
   <a href="#now"><span>01</span>现状与核实中</a>
   <a href="#booking"><span>02</span>预订倒计时</a>
-  <a href="#route"><span>03</span>E 版主行程</a>
-  <a href="#sky"><span>04</span>逐夜无月窗口</a>
-  <a href="#photo"><span>05</span>摄影计划</a>
-  <a href="#risk"><span>06</span>风险板</a>
-  <a href="#crew"><span>07</span>人与山上物流</a>
-  <a href="#faq"><span>08</span>常见问题</a>
+  <a href="#agency"><span>03</span>向导社排序</a>
+  <a href="#route"><span>04</span>E 版主行程</a>
+  <a href="#sky"><span>05</span>逐夜无月窗口</a>
+  <a href="#photo"><span>06</span>摄影计划</a>
+  <a href="#risk"><span>07</span>风险与保险</a>
+  <a href="#crew"><span>08</span>人与山上物流</a>
+  <a href="#faq"><span>09</span>常见问题</a>
 </div>
 
 <main id="main">
@@ -574,9 +620,9 @@ footer b{color:var(--ink-2);font-weight:400;}
     <div class="wrap">
       <p class="eyebrow">Annapurna Base Camp · Nepal · 2026</p>
       <h1>十三天，<br>走进 4,130 米的那只碗</h1>
-      <p class="hero-sub">四人从 YVR 与 PVG 出发。2026-09-25 至 10-07，中秋接国庆的唯一窗口。E 版已定稿，目标是碗底的两个无月夜和一次点亮。</p>
+      <p class="hero-sub">四人从 YVR 与 PVG 出发。2026-09-25 至 10-07，中秋接国庆的唯一窗口。四组核查全部归位，E 版已定稿，目标是碗底的两个无月夜和一次点亮。</p>
       <div class="hero-actions">
-        <a class="btn" href="#booking">本周待办 · 5 项</a>
+        <a class="btn" href="#booking">本周待办 · 6 项</a>
         <a class="btn btn-ghost" href="#route">E 版逐日行程</a>
       </div>
       <div class="hero-stats">
@@ -595,7 +641,7 @@ footer b{color:var(--ink-2);font-weight:400;}
     <div class="sec-head" data-reveal>
       <span class="sec-num">01 / STATUS</span>
       <h2>计划现状</h2>
-      <p class="sec-note">weather、flights、lodging 三组核查已并入（Part G / G7 / H）。rules 组仍在跑。</p>
+      <p class="sec-note">weather、flights、lodging、rules 四组核查全部并入（Part G / G7 / H / I / J）。文档已到最终状态。</p>
     </div>
 
     <div class="locked" data-reveal>
@@ -603,37 +649,42 @@ footer b{color:var(--ink-2);font-weight:400;}
       <h3>主行程 = E 版</h3>
       <p>保 Poon Hill、ABC 连住、Chhomrong 核心夜的那一版。<b>D 版降为退路</b>，只在 Birethanti 断路时启用。
         Part D 的 v1.1 行程作废存档。<b>会合提前到 9/26</b>，9/27 变成完整准备日，多出一天缓冲。</p>
+      <p>向导社排序、保险产品、签证与许可、节假日口径都已定稿，剩下的是执行与三项书面确认。</p>
     </div>
 
     <div class="status-grid">
       <div class="card" data-reveal>
-        <p class="card-title"><span class="dot live"></span>核实中 · 结论回来前不要签字</p>
+        <p class="card-title"><span class="dot live"></span>仍然开放 · 出单与签约前要闭掉</p>
         <ul class="check-list">
-          <li><span class="who mono">道路</span><span class="what"><b>Birethanti 与 Ghurjung 吊桥</b>通车状态。截至 8/23 无通车报道，9/15 前后复查，9/20 是切换红线。</span></li>
-          <li><span class="who mono">向导社</span><span class="what">Third Rock 与 Ace 询价发出，<b>48h 比价定社</b>。山屋没有远期预订，选社就是选房源保障。</span></li>
+          <li><span class="who mono">MSP</span><span class="what"><b>叶的 BC MSP 在 9/25 至 10/7 是否有效</b>。这是保险终稿唯一待定前提，叶本人查，决定加拿大轨道成不成立。</span></li>
+          <li><span class="who mono">道路</span><span class="what"><b>Birethanti 与 Ghurjung 吊桥</b>通车状态。9/15 前后复查，9/20 是 E 转 D 的红线。</span></li>
+          <li><span class="who mono">Tiger</span><span class="what"><b>Tiger Mountain 2026 重开日</b>。每年 6 月中至 9 月中歇业，10 月初重开，是 D 版 10/5 夜的前提，须书面确认。</span></li>
+          <li><span class="who mono">向导社</span><span class="what">三家同发已就绪，<b>48h 回信质量比价定社</b>。选中 Third Rock 则须书面补齐两名候选向导、背夫保险含直升机救援、负重单一数字。</span></li>
+          <li><span class="who mono">刷卡</span><span class="what">Global Rescue <b>中国发卡行能否结账未核实</b>。帅试刷，失败则叶用加拿大卡代付四份。同时在结账页确认 14 天档现价。</span></li>
+          <li><span class="who mono">条款</span><span class="what">苏黎世的<b>「空中救护机」是否含直升机</b>，以及 TuGo / GMS <b>无绳索 4,130m 茶屋徒步不属 mountaineering</b>，两项都要书面。</span></li>
           <li><span class="who mono">套餐</span><span class="what"><b>是否含徒步期三餐</b>，这一项摆动 <span class="mono">$950-1,300</span>，是最大预算变量，签约前书面确认。</span></li>
-          <li><span class="who mono">进山证</span><span class="what"><b>TIMS 是否仍查验存疑</b>。多个 2026 信源称 Annapurna 线只查 ACAP，与原口径冲突未解决，向导社书面确认。</span></li>
-          <li><span class="who mono">材料</span><span class="what">四人护照扫描件与 35×45mm 白底照，<b>48h 内</b>收齐，选定社后立即要用。</span></li>
+          <li><span class="who mono">材料</span><span class="what">四人护照扫描件与 35×45mm 白底照，<b>48h 内</b>收齐，定社后立即要用。</span></li>
           <li><span class="who mono">班期</span><span class="what">出票前电 95530 确认 <b>MU9617 / MU9618 可售</b>，携程该航线时刻表异常空白。</span></li>
           <li><span class="who mono">第二夜</span><span class="what">ABC 10/4 连住只能 <b>10/3 入住时现场争取</b>，无床则启用预案②退宿 MBC。</span></li>
-          <li><span class="who mono">回程</span><span class="what">叶的 <b>CX640 与 KE696 二选一</b>，出票前拍板。KE 要在 10/6 当晚 19:20 离境，强耦合。</span></li>
-          <li><span class="who mono">预算</span><span class="what">四人总额待 v1.2 重算；相机卡口与已有镜头仍未盘清，器材清单待出。</span></li>
+          <li><span class="who mono">其他</span><span class="what">叶的回程 CX640 与 KE696 出票前二选一；相机卡口与四人总预算待 v1.2。</span></li>
         </ul>
       </div>
 
       <div class="card" data-reveal>
-        <p class="card-title"><span class="dot" style="background:var(--ok)"></span>已修正 · 被核查推翻的十条</p>
+        <p class="card-title"><span class="dot" style="background:var(--ok)"></span>已修正 · 被核查推翻的十二条</p>
         <ul class="fixed-list">
-          <li><span class="was mono">山屋可远期锁定</span><span class="now"><b>没有远期预订机制</b>。向导每天早上电话联系当晚山屋，背夫先行占房，视野只有 1-2 天。</span></li>
+          <li><span class="was mono">山屋可远期锁定</span><span class="now"><b>没有远期预订机制</b>，也没有中心化系统。向导每天早上电话联系当晚山屋，背夫先行占房，视野只有 1-2 天。</span></li>
+          <li><span class="was mono">porter-guide 值得加钱</span><span class="now">证伪。负重上限反而<b>少一半</b>（10-12kg 对纯背夫 20-25kg），资质是降级（15 天结业证对 5 周向导证）。正确升级是 assistant guide 加专属背夫。</span></li>
+          <li><span class="was mono">TIMS 强制查验</span><span class="now">规则在册但 <b>Annapurna 线执行已停</b>，2026 年中检查站只查 ACAP。仍办团体 TIMS 防过渡期恢复。</span></li>
+          <li><span class="was mono">签证要交费</span><span class="now">中国公民 <b>150 天 gratis visa，四人全免</b>。按国籍不按居住地，叶同享。</span></li>
+          <li><span class="was mono">额度四人合计</span><span class="now">信用卡额度是<b>每人</b> USD 5,000-6,000，不是四人合计。直升机起飞的前置条件。</span></li>
+          <li><span class="was mono">遵循 IPPG</span><span class="now">无效声明。<b>IPPG 2020 年已停运</b>，2002 年起就不再背书任何公司。改核 KEEP 会员、背夫保险单据实物、合同负重数字。</span></li>
           <li><span class="was mono">10/7 走昆明</span><span class="now">MU9618 只飞周二、四、六，<b>10/7 周三停飞</b>。帅组改走成都天府。</span></li>
           <li><span class="was mono">国内段托运 15kg</span><span class="now">那是本地低价档。外国人 USD 档是 <b>托运 25kg + 手提 5kg</b>，器材约束大幅放宽。</span></li>
-          <li><span class="was mono">叶 MU 联程 19-21h</span><span class="now">那是川航路线。MU 需两次中转 62h；<b>3U 全程 21h30m</b>，最短。</span></li>
           <li><span class="was mono">现金 $300 每人</span><span class="now">四人测算中位 USD 1,850，<b>带 USD 2,500-2,700 现钞</b>，每人 625 至 675。</span></li>
           <li><span class="was mono">新月窗口</span><span class="now">满月 <b>9/26</b>，新月 <b>10/10</b>。假期内没有新月，逐夜按无月窗口长度排。</span></li>
-          <li><span class="was mono">Dashain 撞期</span><span class="now">Dashain 2026 为 <b>10/11 至 10/25</b>，行程 10/7 结束，全程避开。</span></li>
           <li><span class="was mono">当日下撤 7-8h</span><span class="now">ABC 到 Jhinu 实为 <b>11-13h</b>，下撤必须拆两天。</span></li>
-          <li><span class="was mono">06:10 到 Poon Hill</span><span class="now">日出实算 <b>06:02</b>，05:15 前到顶，Ghorepani 04:30 出发。</span></li>
-          <li><span class="was mono">C1 月升表</span><span class="now">系统性偏晚 <b>50-65 分钟</b>，已由 skyfield + DE421 实算全表替换。</span></li>
+          <li><span class="was mono">C1 月升表</span><span class="now">系统性偏晚 <b>50-65 分钟</b>，已由 skyfield + DE421 实算全表替换。另：日出实算 06:02，Poon Hill 05:15 前到顶。</span></li>
         </ul>
       </div>
     </div>
@@ -646,7 +697,7 @@ footer b{color:var(--ink-2);font-weight:400;}
     <div class="sec-head" data-reveal>
       <span class="sec-num">02 / BOOKING</span>
       <h2>预订倒计时</h2>
-      <p class="sec-note">清单按 H6 重排，2026-08-23 起算。当下 36 至 44 天是国内段价格与余量的最优点。</p>
+      <p class="sec-note">清单按 H6 最新版重排，2026-08-23 起算。当下 36 至 44 天是国内段价格与余量的最优点。</p>
     </div>
 
     <div class="cd-grid" data-reveal>
@@ -670,6 +721,10 @@ footer b{color:var(--ink-2);font-weight:400;}
       </div>
     </div>
 
+    <p class="warnstrip" data-reveal><b>9/20 周日补班</b>　国内三人行前要连上 9 天班：9/14 至 9/24 之间只有 9/19 一天休。
+      装备采购与打包必须提前到 <b>9/13 前的那个周末</b>完成。回国后 10/8 至 10/10 再连上三天，10/10 周六也补班。
+      另有两个日期窗口要卡准：入境在线预填只能在抵达前 15 天内提交，<b>9/11 起可填，9/15 前完成</b>。</p>
+
     <div data-reveal>
       <div class="prio">
         <div class="prio-head">
@@ -681,7 +736,7 @@ footer b{color:var(--ink-2);font-weight:400;}
       <div class="prio">
         <div class="prio-head">
           <span class="badge b1 mono">P1</span>
-          <p>越晚越贵，或者有办理周期。</p>
+          <p>有办理周期，或者有硬性时间窗。</p>
         </div>
         <div class="task-list" data-prio="p1"></div>
       </div>
@@ -697,19 +752,97 @@ footer b{color:var(--ink-2);font-weight:400;}
   </div>
 </section>
 
+<!-- ============ 03 向导社 ============ -->
+<section class="band" id="agency">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-num">03 / AGENCY</span>
+      <h2>向导社排序</h2>
+      <p class="sec-note">山屋没有远期预订，所以选社就是选房源保障。三家同发，48h 回信质量是第一道筛选。</p>
+    </div>
+
+    <div class="agency">
+      <article class="ag pick" data-reveal>
+        <p class="rank mono">① 首选</p>
+        <h4>Third Rock</h4>
+        <p class="price mono">定金 10% · 背夫上限 30kg</p>
+        <ul>
+          <li class="yes">四人默认 1 主向导加 1 助理向导，别家这个配置要加 $350 至 500，它零增量</li>
+          <li class="yes">背夫负重上限 30kg，七家里最高</li>
+          <li class="no">须书面补齐三件：两名候选向导、背夫保险含直升机救援、负重写成单一合同数字</li>
+        </ul>
+      </article>
+      <article class="ag" data-reveal>
+        <p class="rank mono">② 次选</p>
+        <h4>Nepal Hiking Team</h4>
+        <p class="price mono">四人 $1,090 每人 · 最贵</p>
+        <ul>
+          <li class="yes">唯一成文承诺付款前给 NTB 执照号并用数字方式介绍拟派向导</li>
+          <li class="yes">背夫保险与备份背夫机制都写明</li>
+          <li class="no">价格最高</li>
+        </ul>
+      </article>
+      <article class="ag" data-reveal>
+        <p class="rank mono">③ 保留</p>
+        <h4>Ace</h4>
+        <p class="price mono">四人 $950 每人 · 唯一真折扣</p>
+        <ul>
+          <li class="yes">三家里唯一给出真实折扣</li>
+          <li class="no">向导不可挑、不可提前见</li>
+          <li class="no">有「向导英语差、公司敷衍」的实证投诉，与本团把向导质量放第一的优先级正面冲突</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="steps" data-reveal>
+      <div class="step">
+        <p class="w mono">T+48H</p>
+        <p>比三家回信质量：是否回避外包问题，负重是否给单一数字。第一道筛选就在这里。</p>
+      </div>
+      <div class="step">
+        <p class="w mono">付尾款前 T-7</p>
+        <p>与<b>拟派向导本人</b>视频。问他 ABC 带过几次、10 月 ABC 天亮时间、MBC 到 ABC 摸黑段的难点，当场判断英语。</p>
+      </div>
+      <div class="step">
+        <p class="w mono">加都 BRIEFING</p>
+        <p>核执照原件、背夫保险单据，当场称重背夫包。</p>
+      </div>
+    </div>
+
+    <div class="ag-notes">
+      <div class="note warn" data-reveal>
+        <h4>付款红旗</h4>
+        <p>行前跨境定金宣称收支付宝或微信是<b>可疑信号</b>：尼泊尔的支付宝与微信通道只限境内扫码零售。</p>
+        <p><b>绝不私转个人账户。</b>备份社 Magical Nepal 是唯一支持 Wise 的一家。</p>
+      </div>
+      <div class="note" data-reveal>
+        <h4>已排除的几家</h4>
+        <p>Green Valley 与 Himalayan Masters 不推荐。<b>3 Sisters 直接排除</b>：背夫负重只有 10 至 13kg，装不下摄影器材。</p>
+        <p>中文向导不作为选社标准。全网只有 3 名具名中文尼泊尔向导，游侠客有 2026-03 黑猫投诉且 12 人拼团与摄影节奏冲突，兜峰探险站内评价 100% 是虚拟标记已证伪排除。真要中文服务，向选定的社点名 Sherpana 平台的人选另外单独请（$25 每天不加价，Subas Magar 常驻博卡拉最优）。</p>
+      </div>
+    </div>
+
+    <div class="rule" data-reveal>
+      <p><b>porter-guide 档不买。</b>它的负重上限只有 10 至 12kg，比纯背夫的 20 至 25kg 少一半，资质也是降级：15 天结业证对 5 周向导证。正确的升级方式是 assistant guide（分组拆队时必需）加上摄影两人各配专属背夫、第三名共享。</p>
+      <p><b>「遵循 IPPG」是无效声明。</b>IPPG 2020 年已停运，2002 年起就不再背书任何公司。换成可核验的三件套：KEEP 会员身份、背夫保险单据实物、合同里的负重数字。</p>
+      <p><b>写进合同的一句话</b>：每日晨间电话预订 MBC 与 ABC。这是山屋唯一的确定性来源。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ tagline reveal ============ -->
 <section class="reveal-band" aria-label="核心判断">
   <div class="wrap">
     <p class="reveal-copy" id="revealCopy" data-tokens="下午|两三点，|山屋|就满了。‖每天|早走|早到店，‖是|这条线|唯一的|房源|保障。"></p>
-    <p class="reveal-src mono">lodging 组 2026-08-23 证伪：徒步沿线山屋无远期预订机制，向导每天早上电话联系当晚山屋 + 背夫先行占房，预订视野只有 1-2 天。<br>P0 因此重定义为：选电话网络强、执行力强的向导社，加上全程每日早出发早到店。</p>
+    <p class="reveal-src mono">lodging 与 rules 两组均证实：徒步沿线山屋无中心化预订系统、无远期预订机制。向导每日晨间电话加背夫先行占房是唯一手段，7:00 出发、15:00 至 16:00 前到店。约 30% 山屋可电话确认，20% 低段可 WhatsApp。<br>P0 因此重定义为：选电话网络强、执行力强的向导社，并把「每日晨间电话预订 MBC / ABC」写进合同。</p>
   </div>
 </section>
 
-<!-- ============ 03 行程 ============ -->
+<!-- ============ 04 行程 ============ -->
 <section class="band" id="route">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">03 / ROUTE</span>
+      <span class="sec-num">04 / ROUTE</span>
       <h2>E 版主行程</h2>
       <p class="sec-note">Q13 已拍板，E 版为定稿。切到 D 版可以看退路形态，海拔剖面、逐日安排和夜空段所在地会一起变。</p>
     </div>
@@ -723,6 +856,7 @@ footer b{color:var(--ink-2);font-weight:400;}
       <div class="profile-legend">
         <i><span class="swatch" style="background:var(--ice)"></span>过夜海拔</i>
         <i><span class="swatch" style="background:var(--glow)"></span>ABC 碗底 4,130m</i>
+        <i><span class="swatch" style="background:var(--alert)"></span>4,600m 保险红线</i>
         <i id="verNote">E 版：山上 8 晚，10/3 上碗，10/4 连住为现场争取</i>
       </div>
       <div class="profile-scroll">
@@ -779,6 +913,7 @@ footer b{color:var(--ink-2);font-weight:400;}
           <ul>
             <li>没有 Poon Hill</li>
             <li>ABC 两夜落在 10/1 与 10/2，无月窗只有 1h55 与 2h57</li>
+            <li><b>Tiger Mountain 每年 6 月中至 9 月中歇业</b>，10 月初重开，2026 确切重开日必须书面确认，这是 10/5 夜的前提</li>
             <li>19:15 至 20:45 的主窗口不受影响，拱桥仍然拍得到</li>
           </ul>
         </div>
@@ -793,11 +928,11 @@ footer b{color:var(--ink-2);font-weight:400;}
   </div>
 </section>
 
-<!-- ============ 04 夜空 ============ -->
+<!-- ============ 05 夜空 ============ -->
 <section class="band surface" id="sky">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">04 / SKY</span>
+      <span class="sec-num">05 / SKY</span>
       <h2>逐夜无月窗口</h2>
       <p class="sec-note">skyfield 1.55 + DE421 实算，坐标 28.53°N 83.88°E，地形遮挡走 SRTM 30m DEM。</p>
     </div>
@@ -839,11 +974,11 @@ footer b{color:var(--ink-2);font-weight:400;}
   </div>
 </section>
 
-<!-- ============ 05 摄影 ============ -->
+<!-- ============ 06 摄影 ============ -->
 <section class="band" id="photo">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">05 / SHOOTING</span>
+      <span class="sec-num">06 / SHOOTING</span>
       <h2>摄影计划</h2>
       <p class="sec-note">三个目标，各有唯一的时间和地点。器材清单待四人卡口盘清后出。</p>
     </div>
@@ -915,19 +1050,27 @@ footer b{color:var(--ink-2);font-weight:400;}
       <div class="param" data-reveal>
         <p class="n mono">06</p>
         <h4>站得住才拍得成</h4>
-        <p>ABC 典型夜温 <code>-2 至 +3°C</code>，晴朗无风极端约 <code>-5°C</code>。拍星要静止一到两小时，羽绒裤加厚手套必带，红光头灯别忘。</p>
+        <p>ABC 典型夜温 <code>-2 至 +3°C</code>，晴朗无风极端约 <code>-5°C</code>。拍星要静止一到两小时，羽绒裤加厚手套必带。睡袋一律租 <code>-10 至 -15°C</code> 档，按装备边界配。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 06 风险 ============ -->
+<!-- ============ 07 风险与保险 ============ -->
 <section class="band warm" id="risk">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">06 / RISK</span>
-      <h2>风险板</h2>
-      <p class="sec-note">按当前已知程度排序。前两条一条决定 E 版能不能成立，一条决定每天晚上睡哪。</p>
+      <span class="sec-num">07 / RISK</span>
+      <h2>风险与保险</h2>
+      <p class="sec-note">按当前已知程度排序。保险已定稿为三轨结构，条款级的避坑清单在最后一条里。</p>
+    </div>
+
+    <div class="locked danger" data-reveal>
+      <p class="stamp mono">硬红线 · 不可越过</p>
+      <h3>4,600 米</h3>
+      <p>Global Rescue 标准会籍的野外救援上限是 4,600m。<b>行程任何时刻越过 4,600m，整趟野外救援即失效</b>，
+        不是那一段失效，是整趟。所以<b>禁止任何临时加垭口的动议</b>，无论现场天气多好、向导多推荐。</p>
+      <p>ABC 碗底 4,130m，Poon Hill 3,210m，全程最高点距红线还有 <b>470m</b> 余量。按现行 E 版与 D 版走都安全。</p>
     </div>
 
     <div class="risks" data-reveal>
@@ -954,10 +1097,42 @@ footer b{color:var(--ink-2);font-weight:400;}
           <span class="chev"></span>
         </summary>
         <div class="risk-body">
-          <p>lodging 组证伪了原计划的核心假设：徒步沿线山屋<b>不接受远期预订</b>。实际做法是向导每天早上打电话联系当晚山屋，背夫先行赶到占房，旺季满房时点在<b>下午 2 到 3 点</b>。预订视野只有 1 到 2 天，山屋不会提前承诺第二晚。</p>
+          <p>lodging 与 rules 两组都证实：徒步沿线山屋<b>没有中心化预订系统，也没有远期预订机制</b>，更没有传闻中的床位上限新政。实际做法是向导每天早上打电话联系当晚山屋，背夫先行赶到占房，旺季满房时点在<b>下午 2 到 3 点</b>。预订视野只有 1 到 2 天。约 30% 的山屋可以电话确认，20% 的低段可以 WhatsApp。</p>
           <p><b>床位最少站排序</b>：Himalaya 仅 3 家（10/1，全线最脆弱，旺季餐厅过夜常见）、Tadapani 6 至 10 家（9/29）、ABC 4 家、MBC 3 至 5 家。房型预期：Chhomrong 及以下才有双人房，<b>Himalaya 起按 3-4 人间或通铺规划</b>，E 版 8 晚里只有 4 晚可以期待两间双人房。四人规模是双刃：双人房型最不友好，但高段 4-5 床房可以整间包下。</p>
-          <p><b>对策</b>：P0 重定义为选电话网络强、执行力强的向导社，加全程每日早出发早到店。ABC 第二夜 10/3 入住时现场争取，无床启用预案②退宿 MBC。Chhomrong 的 10/5 房在 9/30 路过时当面向老板留。ABC 四家、MBC、Chhomrong 主要 lodge 的电话号码已收集，交向导社直接拨测。</p>
+          <p><b>对策</b>：把「每日晨间电话预订 MBC 与 ABC」<b>写进旅行社合同</b>；全程 7:00 出发、15:00 至 16:00 前到店。ABC 第二夜 10/3 入住时现场争取，无床启用预案②退宿 MBC。Chhomrong 的 10/5 房在 9/30 路过时当面向老板留。ABC 四家、MBC、Chhomrong 主要 lodge 的电话号码已收集，交向导社直接拨测。</p>
           <p class="src">二手转述未独立核实：十月旺季约 40% 徒步者至少一晚睡餐厅（Reddit 2024-2025 讨论串口径）</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot" style="background:var(--ice)"></span>
+          <span class="risk-title">保险定稿：三轨结构<i>GLOBAL RESCUE ×4 + 分轨医疗险</i></span>
+          <span class="risk-level mono">已定稿</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p><b>共同层 · Global Rescue 标准会籍 ×4</b>：无国籍与居住地限制，field rescue 上限 $500k，<b>直付运营方零垫付</b>。ABC 4,130m 低于其 4,600m 门槛，不需要买 $495 的高海拔包。45 天既往症回溯从生效日起算，所以<b>要尽早买</b>。7 天档 $139、14 天档约 $184（©2024 费率卡，本行程按 14 天档，结账页确认现价）。中国发卡行能否结账未核实，刷不过就由叶用加拿大卡代付四份。</p>
+          <p><b>国内三人 · 苏黎世「万国游踪-全球版」全球完美档 ¥626 每人</b>（productCode 6001，13 天实测报价）：海拔上限 5,500m；医疗运送<b>实际费用无上限且直付</b>（Travel Guard 安排）；<b>条款里没有尼泊尔子限额，国内竞品独此一家</b>。强制持证向导随队正好满足它的「合格向导督导」安全港，高反医疗与运送可赔（高反身故明文除外）。出单前书面确认「空中救护机」含直升机。认准全球版，同品牌的亚洲版与申根版目的地都不含尼泊尔。品牌提示：AIG 美亚 2025-11 停售，万国游踪已归苏黎世，旧攻略里的「美亚」口径全部过期。</p>
+          <p><b>叶 · 加拿大轨道</b>：中国境内产品全部不可买（投保时须身在大陆加居住天数门槛，行业通例）。前提是 BC MSP 在 9/25 至 10/7 全程有效，这是终稿唯一待定项。候选 <b>TuGo</b>（约 CAD 41-83 / 13 天，无海拔上限，加方产品里唯一没有「未预先致电」罚则的；注意它把「冰川上徒步」一律算登山，所以<b>全程不要踏上冰面</b>）或 <b>GMS TravelStar</b>（约 CAD 36，加拿大市场唯一逐字写 helicopter 的条款，air ambulance 加 remote evac 合计 $40k；出单前书面确认无绳索茶屋徒步不算 mountaineering）。MSP 无效则叶只剩 Global Rescue 单层。</p>
+          <p class="avoid">明确避开（都有条款级理由）</p>
+          <p>国内：众安（尼泊尔整体除外）、史带（尼泊尔运返只赔 ¥5,000）、京东安联（尼泊尔直升机上限 ¥6,000）、平安 24 全球游 E（除外搜救且 trekking 并列除外）、太平洋户外安心（境内险，尼泊尔一分不赔）。<br>
+          加拿大：World Nomads（两条全局除外搜救）、Ripcord（不卖加拿大居民且尼泊尔渠道关闭）、AIG Canada（「通常带向导的登山」除外条款反噬带向导行程）、IMG Patriot 与 SafetyWing（上限 4,500m 只剩 370m 余量，且 SafetyWing 2026-02 新版逐字除外直升机搜救）。</p>
+        </div>
+      </details>
+
+      <details class="risk">
+        <summary class="risk-head">
+          <span class="dot hot"></span>
+          <span class="risk-title">出事自己打热线<i>绝不让中间人代打</i></span>
+          <span class="risk-level hi mono">协议</span>
+          <span class="chev"></span>
+        </summary>
+        <div class="risk-body">
+          <p>出事<b>由本人</b>打 Global Rescue 或保司的 24h 热线，<b>绝不让向导、旅行社或医院代打</b>。2026-01 尼泊尔 CIB 逮捕 6 名高管、3 月起诉 32 人的骗保链条，入口正是中间人这一层。</p>
+          <p>直升机起飞的前置条件是保险公司付款担保，<b>信用卡额度每人留 USD 5,000-6,000</b>。未涉案的直升机运营商：Simrik Air、Fishtail Air、Prabhu Helicopter、Shree Airlines。</p>
+          <p class="avoid">包机与救援避开：Mountain Helicopters、Basecamp Helicopters（原 Manang Air）、Altitude Air —— 这三家在 2026-03 假救援案里被诉。</p>
+          <p><b>应急通信</b>：NTC 卡在博卡拉装好。<b>Chhomrong 是最后一处可靠信号</b>，上行前复确认待命方式；ABC 信号看天气与站位。</p>
         </div>
       </details>
 
@@ -984,23 +1159,8 @@ footer b{color:var(--ink-2);font-weight:400;}
         </summary>
         <div class="risk-body">
           <p>气旋残余是十月最危险的机制。2024-09-27 加都下了 1970 年以来最强的暴雨，2014-10-14 Annapurna 暴雪造成 39 人死亡。<b>2025 年 10 月底气旋 Montha 直接让 ABC 线关闭 4 天，CAAN 全面禁飞，72 名徒步者撤出</b>。</p>
-          <p><b>协议</b>：出发后每日盯预报，气旋残余接近就在 Deurali 以下停步。这也是雪崩风险的唯一例外情景，十月初的雪崩本身是低风险，历史致死事故全部集中在冬春。注意 Montha 那次的教训是禁飞与道路关闭同时发生，<b>直升机是应急通道，不是刚性依赖</b>。</p>
-        </div>
-      </details>
-
-      <details class="risk">
-        <summary class="risk-head">
-          <span class="dot" style="background:var(--ice)"></span>
-          <span class="risk-title">直升机应急通道与保险结构<i>C 版 · 全版本保留</i></span>
-          <span class="risk-level mono">应急</span>
-          <span class="chev"></span>
-        </summary>
-        <div class="risk-body">
-          <p><b>ABC 到 Pokhara 应急包机</b>：报价 $2,000-2,600，实付约 <b>$2,500-3,250</b>（四人人均 625 至 813，含 13% VAT 与 10% 服务费，报价必问含不含税）。AS350 / H125 限重 400 至 500kg 含行李，四人加器材约 340 至 360kg 可行。<b>只在早晨 VFR 窗口起飞，06:00 至 07:15，约 10:00 至 11:00 截止</b>，错过等次日。拼座不是常规产品，四人直接包机。</p>
-          <p><b>医疗撤离真实价</b>：ABC 到 Pokhara $2,500-4,000，飞加德满都翻倍，非必要不飞。直升机起飞的前置条件是保险公司付款担保或现金刷卡到位，<b>四人合计要留 USD 5,000-6,000 信用卡额度</b>。</p>
-          <p><b>避开三家</b>：2026-03 尼泊尔假救援保险诈骗案起诉 32 人，Mountain Helicopters、Manang Air（现名 Basecamp Helicopters）、Altitude Air 在被诉之列，包机与救援都避开。行业后果是保险公司普遍要求事前授权，World Nomads 明确除外搜救。</p>
-          <p><b>推荐保险结构</b>：Global Rescue 标准会籍（约 $139 每人，ABC 4,130m 在其 4,600m 门槛之内，标准档即覆盖，事发当时联系才有效）加一份旅行医疗险，海拔上限必须白纸黑字 <b>≥4,600m</b> 且明确含 helicopter evacuation。市面大量保单上限 4,000m，差 130m 就全额自付，Dingboche 有 $4,800 自付先例。</p>
-          <p><b>应急通信</b>：NTC 卡在博卡拉装好。<b>Chhomrong 是最后一处可靠信号</b>，上行前复确认待命方式；ABC 信号看天气与站位。</p>
+          <p><b>协议</b>：出发后每日盯预报，气旋残余接近就在 Deurali 以下停步。这也是雪崩风险的唯一例外情景，十月初的雪崩本身是低风险，历史致死事故全部集中在冬春。Montha 那次的教训是禁飞与道路关闭同时发生，<b>直升机是应急通道，不是刚性依赖</b>。</p>
+          <p><b>ABC 到 Pokhara 应急包机</b>：报价 $2,000-2,600，实付约 <b>$2,500-3,250</b>（含 13% VAT 与 10% 服务费，报价必问含不含税）。AS350 / H125 限重 400 至 500kg 含行李，四人加器材约 340 至 360kg 可行。<b>只在早晨 VFR 窗口起飞，06:00 至 07:15，约 10:00 至 11:00 截止</b>，错过等次日。医疗撤离真实价 ABC 到 Pokhara $2,500-4,000，飞加德满都翻倍，非必要不飞。</p>
         </div>
       </details>
 
@@ -1022,7 +1182,7 @@ footer b{color:var(--ink-2);font-weight:400;}
       <details class="risk">
         <summary class="risk-head">
           <span class="dot" style="background:var(--ink-3)"></span>
-          <span class="risk-title">套餐是否含三餐<i>最大预算变量 · $950-1,300</i></span>
+          <span class="risk-title">现金与最大预算变量<i>套餐是否含三餐 · $950-1,300</i></span>
           <span class="risk-level lo mono">待定</span>
           <span class="chev"></span>
         </summary>
@@ -1030,18 +1190,18 @@ footer b{color:var(--ink-2);font-weight:400;}
           <p>四人现金总需求测算中位 USD 1,850，建议带 <b>USD 2,500-2,700 现钞</b>（每人 625 至 675）含缓冲，小费池约 $450（两向导加两背夫十天口径）存博卡拉酒店保险箱，上山带约 $1,600。</p>
           <p>但整个数字的最大摆动来自一件事：<b>向导社套餐含不含徒步期三餐，差 $950-1,300</b>。签约前必须书面确认。</p>
           <p>换汇带 USD 现钞在博卡拉 Lakeside 或加都 Thamel 换，佣金 0.7% 至 1.2%，优于 ATM（单卡单日 NPR 50,000 限额加每笔 NPR 500 手续费加 1-3% 汇差，四张卡要分两天取）。入境每人 USD 5,000 以下免申报。</p>
-          <p>国内段行李已放宽：外国人 USD 档托运 <b>25kg</b> 加手提 <b>5kg</b>，超重约 NPR 186 每公斤含税柜台现金。器材约束比原来的 15kg 口径宽松得多。</p>
+          <p>国内段行李已放宽：外国人 USD 档托运 <b>25kg</b> 加手提 <b>5kg</b>，超重约 NPR 186 每公斤含税柜台现金。睡袋在加都或博卡拉租，NPR 150-330 每天，四人 13 天约 $86，租 10 天以上可谈 20% 至 50% 折扣，城里付掉就不占山上现金。</p>
         </div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- ============ 07 人 + 物流 ============ -->
+<!-- ============ 08 人 + 物流 ============ -->
 <section class="band" id="crew">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">07 / CREW</span>
+      <span class="sec-num">08 / CREW</span>
       <h2>四个人与山上物流</h2>
       <p class="sec-note">加都两间房三夜。山屋 Chhomrong 及以下争取双人房，Himalaya 起按 3-4 人间或通铺规划。</p>
     </div>
@@ -1051,82 +1211,84 @@ footer b{color:var(--ink-2);font-weight:400;}
         <p class="name">叶</p>
         <p class="from mono">3U3860 → 天府 → 3U3901 → KTM</p>
         <dl>
-          <dt>护照</dt><dd>中国</dd>
-          <dt>居住</dt><dd>加拿大，保险按居住地分轨</dd>
+          <dt>护照</dt><dd>中国，150 天 gratis visa 免签证费</dd>
+          <dt>居住</dt><dd>加拿大，保险走加拿大轨道</dd>
           <dt>体能</dt><dd>有高海拔经历</dd>
           <dt>去程</dt><dd>9/24 晚温哥华值机，9/25 00:30 起飞，9/26 10:45 到 KTM，全程 21h30m，所有方案里最短</dd>
           <dt>回程</dt><dd>推荐 10/7 CX640 23:00 到香港，10/8 上午到 YVR</dd>
-          <dt>预算</dt><dd>3U 往返 C$1,400-1,900；CX 往返约 C$2,200</dd>
+          <dt>保险</dt><dd>Global Rescue 加 TuGo 或 GMS，前提是 BC MSP 全程有效，待本人确认</dd>
         </dl>
       </article>
       <article class="person" data-reveal>
         <p class="name">帅</p>
         <p class="from mono">PVG → KMG → MU9617 → KTM</p>
         <dl>
-          <dt>护照</dt><dd>中国</dd>
+          <dt>护照</dt><dd>中国，gratis visa</dd>
           <dt>体能</dt><dd>有 5,000m 以上过夜经历</dd>
-          <dt>负责</dt><dd>向导社、小飞机、Dwarika's、行李过秤</dd>
+          <dt>负责</dt><dd>向导社、小飞机、Dwarika's、Global Rescue 试刷、行李过秤</dd>
           <dt>去程</dt><dd>9/26 早 PVG 飞昆明，MU9617 14:25 起飞，15:35 到 KTM，两段直挂</dd>
           <dt>回程</dt><dd>10/7 CA438 11:55 到成都天府 17:15，同票转晚班，当晚约 23:00-23:45 到浦东</dd>
-          <dt>预算</dt><dd>¥3,800-4,500 每人</dd>
+          <dt>保险</dt><dd>Global Rescue 加苏黎世万国游踪全球完美档 ¥626</dd>
         </dl>
       </article>
       <article class="person" data-reveal>
         <p class="name">同行朋友 ×2</p>
         <p class="from mono">与帅同订单 · 3 人合单</p>
         <dl>
-          <dt>护照</dt><dd>中国</dd>
+          <dt>护照</dt><dd>中国，gratis visa</dd>
           <dt>体能</dt><dd>无虞，按帅的口径</dd>
           <dt>订单</dt><dd>3 人同一订单合规，散客上限 9 人；风险只在低价舱位深度</dd>
           <dt>待补</dt><dd>护照扫描件、白底照、高海拔史、相机卡口</dd>
-          <dt>节奏</dt><dd>标准版，含 MBC 适应夜；Diamox 遵医嘱可选</dd>
+          <dt>保险</dt><dd>同帅，Global Rescue 加苏黎世全球完美档</dd>
         </dl>
       </article>
     </div>
 
     <div class="logi" data-reveal>
+      <div><p class="v mono">1 : 7</p><p class="k">2026-03-22 起 1 名向导最多带 7 人。四人配 1 向导即合规，第 2 名是服务性加购</p></div>
+      <div><p class="v mono">07:00 / 15:00</p><p class="k">每日出发与到店时间。这是山屋唯一的确定性来源</p></div>
+      <div><p class="v mono">gratis ×4</p><p class="k">中国公民 150 天免签证费，按国籍不按居住地。护照有效期 ≥6 个月加至少 1 页空白</p></div>
       <div><p class="v mono">25 + 5 kg</p><p class="k">国内段外国人 USD 档托运加手提。超重约 NPR 186 每公斤，含税柜台现金</p></div>
       <div><p class="v mono">USD 2,500-2,700</p><p class="k">四人携带现钞总额，每人 625-675。含约 $450 小费池</p></div>
-      <div><p class="v mono">USD 120</p><p class="k">KTM–PKR 外国人票价，每人每程。四人两程约 $960，Buddha 官网直订</p></div>
-      <div><p class="v mono">USD 5,000-6,000</p><p class="k">四人合计要留出的信用卡额度，直升机起飞前置</p></div>
+      <div><p class="v mono">USD 5,000-6,000</p><p class="k">每人要留出的信用卡额度，直升机起飞前置</p></div>
+      <div><p class="v mono">-10 ~ -15°C</p><p class="k">睡袋一律租这一档。加都 Thamel 或博卡拉 TESA，四人 13 天约 $86</p></div>
       <div><p class="v mono">4G</p><p class="k">MBC / ABC / Deurali 全有。Chhomrong 是最后一处可靠信号</p></div>
-      <div><p class="v mono">NPR 500</p><p class="k">到达当天买 NTC 实体卡加 20GB 包，每人。主 NTC 副 Ncell</p></div>
-      <div><p class="v mono">2 名</p><p class="k">背夫基线，社里派遣。可加钱上 porter-guide 档提升服务密度</p></div>
-      <div><p class="v mono">Level 2</p><p class="k">美国 2026-03-31 旅行建议等级。2026-03 大选后局势稳定，加都避大型集会</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 08 FAQ ============ -->
+<!-- ============ 09 FAQ ============ -->
 <section class="band surface" id="faq">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-num">08 / FAQ</span>
-      <h2>现在最该问的十一个问题</h2>
+      <span class="sec-num">09 / FAQ</span>
+      <h2>现在最该问的十二个问题</h2>
     </div>
     <div class="faq" data-reveal>
       <details class="q"><summary>E 版定稿了，D 版还留着干什么？<span class="plus"></span></summary>
-        <p class="a">当退路。Q13 在 2026-08-23 拍板 E 版为主行程，<b>D 版只在 Birethanti 断路时启用</b>。两版的机票日期一样，所以切换不影响已出的票，红线是 9/20。C 版直升机出山则是所有版本共用的伤病与极端天气通道。</p></details>
+        <p class="a">当退路。Q13 在 2026-08-23 拍板 E 版为主行程，<b>D 版只在 Birethanti 断路时启用</b>。两版的机票日期一样，所以切换不影响已出的票，红线是 9/20。注意 D 版有个额外前提：Tiger Mountain 每年 6 月中至 9 月中歇业，2026 确切重开日必须书面确认。</p></details>
       <details class="q"><summary>山屋到底订不订得上？<span class="plus"></span></summary>
-        <p class="a">这条线<b>没有远期预订机制</b>。向导每天早上打电话联系当晚山屋，背夫先行赶到占房，旺季下午两三点就满。所以 P0 不是"锁房"，是<b>选一个电话网络强、执行力强的向导社，加上全程每天早出发早到店</b>。最脆弱的一站是 10/1 的 Himalaya，全线只有 3 家。</p></details>
+        <p class="a">这条线<b>没有中心化预订系统，也没有远期预订机制</b>。向导每天早上打电话联系当晚山屋，背夫先行赶到占房，旺季下午两三点就满。所以 P0 不是「锁房」，是<b>选一个电话网络强、执行力强的向导社，并把「每日晨间电话预订 MBC 与 ABC」写进合同</b>，全程 7:00 出发、15:00 至 16:00 前到店。最脆弱的一站是 10/1 的 Himalaya，全线只有 3 家。</p></details>
+      <details class="q"><summary>向导社定哪家？<span class="plus"></span></summary>
+        <p class="a">排序是 <b>Third Rock 优先</b>（四人默认给 1 主向导加 1 助理，别家这个配置要加 $350-500；背夫上限 30kg 最高），<b>Nepal Hiking Team 次选</b>（唯一成文承诺付款前给执照号和拟派向导），<b>Ace 保留</b>（$950 最便宜但向导不可挑不可提前见，且有英语差的实证投诉）。三家同发，48h 回信质量比价。<b>porter-guide 档不买</b>，负重反而少一半、资质是降级。</p></details>
       <details class="q"><summary>ABC 连住两夜稳吗？<span class="plus"></span></summary>
         <p class="a">不稳，要现场争取。山屋不会提前承诺第二晚，真实形态是 <b>10/3 入住时当面争取 10/4</b>。争取不到就启用<b>预案②</b>：10/4 退宿 MBC，傍晚拱桥在 MBC 拍，10/5 凌晨轻装 1.5 至 2h 上碗拍点亮再下撤。有秋季摄影行程资料明确建议把弹性日放 MBC，这是常态选项。</p></details>
-      <details class="q"><summary>为什么 ABC 要压在 10/3 和 10/4？<span class="plus"></span></summary>
-        <p class="a">这两夜的无月窗口是全窗口最长的 <b>4h05</b> 和 <b>5h14</b>，第二夜同时兼作天气备份日。D 版的 ABC 两夜落在 10/1 与 10/2，无月窗只有 1h55 和 2h57。这是 E 版赢的全部理由。</p></details>
+      <details class="q"><summary>保险买哪个？<span class="plus"></span></summary>
+        <p class="a">三轨结构。<b>四人共同层是 Global Rescue 标准会籍</b>（14 天档约 $184，直付零垫付，45 天既往症回溯所以要尽早买）。<b>国内三人加苏黎世万国游踪全球版·完美档 ¥626 每人</b>，海拔上限 5,500m、医疗运送实际费用无上限且直付、条款没有尼泊尔子限额，国内独此一家。<b>叶走加拿大的 TuGo 或 GMS TravelStar</b>，前提是 BC MSP 全程有效。</p></details>
+      <details class="q"><summary>为什么不能加垭口？<span class="plus"></span></summary>
+        <p class="a">因为 <b>4,600m 是 Global Rescue 的硬红线</b>：行程任何时刻越过，整趟野外救援即失效，不是那一段失效。ABC 碗底 4,130m 距红线还有 470m 余量，按现行路线走都安全，但任何临时加垭口的动议都要拒绝。另外 TuGo 把「冰川上徒步」一律算登山，所以全程不要踏上冰面。</p></details>
       <details class="q"><summary>在 ABC 能拍到银河核心吗？<span class="plus"></span></summary>
         <p class="a">拍不到。碗内西南天际线仰角 26 到 32 度，是 Annapurna South 与 Hiunchuli 的山脊，核心天黑前约 19:05 就沉进去了，只剩约二十分钟极限余量。<b>碗里拍拱桥，核心留给 Chhomrong</b>。</p></details>
+      <details class="q"><summary>签证和进山证要办什么？<span class="plus"></span></summary>
+        <p class="a">签证<b>不要钱</b>：中国公民 150 天 gratis visa，四人全免，按国籍不按居住地。许可只有 <b>ACAP 一张是强制的</b>，NPR 3,000 每人，无证被查双倍罚 NPR 6,000。TIMS 规则在册但 Annapurna 线执行已停，仍让旅行社一并办团体 TIMS 防过渡期恢复。另外入境在线预填只能在抵达前 15 天内提交，<b>9/11 起可填、9/15 前完成</b>，预填通道 12-18 分钟对普通通道 60-120 分钟。</p></details>
       <details class="q"><summary>回程为什么改走成都？<span class="plus"></span></summary>
         <p class="a">MU9618 只飞周二、四、六，<b>10/7 是周三，昆明线根本没有航班</b>。帅组改 CA438 KTM 11:55 到成都天府 17:15，同票接晚班回浦东，当晚约 23:00 至 23:45 落地。天府入境要提取行李过海关，<b>中转必须留 ≥3h</b>。</p></details>
       <details class="q"><summary>十月初还会下雨吗？<span class="plus"></span></summary>
         <p class="a">窗口内 <b>43% 的日子有可测降水</b>。季风撤退常年日是 10/2，年际离散极大。2026 的有利信号是极强 El Niño，指向偏干、撤退偏早。真正要盯的是孟加拉湾气旋残余，2025 年 10 月底的 Montha 就让 ABC 线关闭了 4 天且全面禁飞。</p></details>
-      <details class="q"><summary>保险买哪个？<span class="plus"></span></summary>
-        <p class="a"><b>Global Rescue 标准会籍</b>（约 $139 每人，ABC 4,130m 在其 4,600m 门槛内）加一份旅行医疗险，海拔上限必须白纸黑字 <b>≥4,600m</b> 且明确含 helicopter evacuation。市面大量保单上限 4,000m，差 130m 全额自付。另外包机与救援要<b>避开 Mountain Helicopters、Basecamp Helicopters（原 Manang Air）、Altitude Air</b>，2026-03 假救援案里这三家被诉。</p></details>
-      <details class="q"><summary>高反怎么处理？<span class="plus"></span></summary>
-        <p class="a">节奏上靠 <b>MBC 3,700m 的适应夜</b>，两版都保留。Diamox 遵医嘱可选，不自行定量。最坏情况走直升机，但只有早晨 06:00 至 07:15 的 VFR 窗口能起飞，错过等次日，所以它是通道不是依赖。四人里帅有 5,000m 以上过夜经历，叶有高海拔经历，两位朋友按无虞处理。</p></details>
-      <details class="q"><summary>会不会撞上 Dashain？<span class="plus"></span></summary>
-        <p class="a">不会。<b>Dashain 2026 是 10/11 至 10/25</b>，Tika 在 10/21，行程 10/7 结束，比尼泊尔国内徒步客高峰早四天走完。还有两个附带好处：向导和背夫都想在节前收工回家，10/5 至 10/6 出山的人力供给是顺的；山屋也避开了本地客流叠加。</p></details>
+      <details class="q"><summary>节假日和补班怎么排？<span class="plus"></span></summary>
+        <p class="a">国办通知已证实：中秋 9/25-27、国庆 10/1-7，<b>9/28-30 是工作日要请 3 天年假</b>。新发现是 <b>9/20 周日补班</b>，国内三人行前要连上 9 天班（9/14 至 9/24 只有 9/19 休），所以装备采购与打包提前到 9/13 前的周末。回国后 10/8 至 10/10 再连上三天。Dashain 是 10/11 至 10/25，行程 10/7 结束，全程避开。</p></details>
       <details class="q"><summary>四个人一共要带多少现金？<span class="plus"></span></summary>
-        <p class="a">测算中位 USD 1,850，<b>建议带 USD 2,500-2,700 现钞</b>，每人 625 至 675。其中小费池约 $450 存博卡拉酒店保险箱，上山带约 $1,600。最大的不确定来自<b>向导社套餐含不含徒步期三餐，差 $950-1,300</b>，签约前书面确认。四人总预算待 v1.2 重算。</p></details>
+        <p class="a">测算中位 USD 1,850，<b>建议带 USD 2,500-2,700 现钞</b>，每人 625 至 675。其中小费池约 $450 存博卡拉酒店保险箱，上山带约 $1,600。最大的不确定来自<b>向导社套餐含不含徒步期三餐，差 $950-1,300</b>，签约前书面确认。另外每人还要留出 USD 5,000-6,000 的信用卡额度，那是直升机起飞的前置条件。</p></details>
     </div>
   </div>
 </section>
@@ -1134,15 +1296,15 @@ footer b{color:var(--ink-2);font-weight:400;}
 <!-- ============ final CTA ============ -->
 <section class="final">
   <div class="wrap">
-    <h2>本周五件事</h2>
-    <p>今天发询价、48 小时内交护照、三天内出国际票、本周内订小飞机和 Dwarika's。其余全部排在这五件之后。</p>
+    <h2>本周六件事</h2>
+    <p>三家同发询价、48 小时内交护照、三天内出国际票、本周内订小飞机、订 Dwarika's、买 Global Rescue。其余全部排在这六件之后。</p>
     <a class="btn" href="#booking">回到预订清单</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot-grid">
-    <p><b>Nepal ABC 2026</b>　内容全部取自 initial_plan v1.1，含 Part F（Q13 定稿）、Part G（weather 组）、G7（lodging 组）、Part H（flights 组），均为 2026-08-23 并入。任何与本页不一致处以该文档为准。</p>
+    <p><b>Nepal ABC 2026</b>　内容全部取自 initial_plan v1.1 最终状态：Part F（Q13 定稿）、Part G 与 G7（weather 与 lodging）、Part H（flights）、Part I（lodging 终稿）、Part J（rules 终稿），均为 2026-08-23 并入。任何与本页不一致处以该文档为准。</p>
     <p class="mono">SKYFIELD 1.55 · DE421 · SRTM 30M DEM · NASA POWER · 28.53°N 83.88°E<br>PAGE BUILT 2026-08-23 · 私有页面，未索引</p>
   </div>
 </footer>
@@ -1175,7 +1337,7 @@ var E = [
 
 /* D 版 = 退路，Birethanti 断路时启用 */
 var D = [
-  {d:'9/26', w:'六', what:'四人加德满都会合（航班同 E 版）', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都', air:false},
+  {d:'9/26', w:'六', what:'四人加德满都会合（航班同 E 版）', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
   {d:'9/27', w:'日', what:'见向导、装备检查、换汇、办证材料交接', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
   {d:'9/28', w:'年假', what:'早班飞 PKR → 吉普 <mark>Samrung</mark>（2-3h）→ 过新高吊桥经 Jhinu 步行进 Chhomrong（2.5-3.5h）', stay:'Chhomrong', alt:2170, place:'Chhomrong'},
   {d:'9/29', w:'年假', what:'Sinuwa → Bamboo → Himalaya，6-7h；<span class="warn">仅 3 家山屋</span>', stay:'Himalaya', alt:2920, place:'Himalaya'},
@@ -1184,7 +1346,7 @@ var D = [
   {d:'10/2', w:'国庆', what:'<mark>05:45 点亮第一次</mark>；全天碗内；傍晚<span class="astro">拱桥主力夜，无月至 22:09</span>；兼天气备份日', stay:'ABC', alt:4130, place:'ABC', abc:true, shoot:true},
   {d:'10/3', w:'国庆', what:'点亮第二次机会，随后长下撤到 Chhomrong，8-9h 全下行，唯一长日；夜里 <span class="astro">19:11 至 21:15 银河核心主力</span>，月亮 23:16 才升', stay:'Chhomrong', alt:2170, place:'Chhomrong', shoot:true},
   {d:'10/4', w:'国庆', what:'到 Jhinu 只要 1-1.5h，全日温泉恢复，私卫房加 1,000 卢比', stay:'Jhinu', alt:1780, place:'Jhinu'},
-  {d:'10/5', w:'国庆', what:'吉普出山，博卡拉午到，入住 Tiger Mountain，山脊上回望刚走完的那只碗', stay:'博卡拉 · Tiger Mountain', alt:820, place:'博卡拉'},
+  {d:'10/5', w:'国庆', what:'吉普出山，博卡拉午到，入住 Tiger Mountain，山脊上回望刚走完的那只碗。<span class="warn">前提：2026 重开日已书面确认</span>', stay:'博卡拉 · Tiger Mountain', alt:820, place:'博卡拉'},
   {d:'10/6', w:'国庆', what:'早晨 Annapurna 全景，午后 PKR→KTM。取消则 8h 陆路，当晚仍到', stay:"加德满都 · Dwarika's", alt:1400, place:'加德满都'},
   {d:'10/7', w:'国庆', what:'各自国际段回程（航班同 E 版）', stay:'—', alt:null, air:true}
 ];
@@ -1201,25 +1363,29 @@ var NIGHTS = [
   {d:'10/5', dark:'19:09', rise:'01:31', darkM:24, riseM:406, len:'6h22'}
 ];
 
-/* 预订清单 = initial_plan Part H · H6（2026-08-23 起算） */
+/* 预订清单 = initial_plan Part H · H6 最新版（2026-08-23 起算） */
 var TASKS = [
-  {id:'h01', p:'p0', n:'向导社询价与定社', due:'本周', sub:'P0-1 · 帅',
-   desc:'Third Rock 与 Ace 英文询价邮件今天发出（草稿见 outreach/），48h 比价定社付定金。山屋没有远期预订，所以这一项就是房源保障本身：要电话网络强、执行力强的社。可靠性优先，语言不限，中文社与英文社同表对比，行前视频面试。'},
-  {id:'h02', p:'p0', n:'四人护照扫描件加白底照', due:'48h 内', sub:'P0-2 · 全员',
-   desc:'电子版收齐，35×45mm 白底。选定社后立即要用来办 ACAP。护照有效期自查 ≥2027-04。'},
-  {id:'h03', p:'p0', n:'国际段出票', due:'3 天内', sub:'P0-3 · 各自',
+  {id:'j01', p:'p0', n:'向导社三家同发与定社', due:'本周', sub:'P0-1 · 帅',
+   desc:'Third Rock、Nepal Hiking Team、Ace 三家同发英文询价（草稿见 outreach/），48h 比回信质量定社付定金。看两件事：是否回避外包问题、负重是否给单一数字。定金 10%，绝不私转个人账户。'},
+  {id:'j02', p:'p0', n:'四人护照扫描件加白底照', due:'48h 内', sub:'P0-2 · 全员',
+   desc:'电子版收齐，35×45mm 白底。定社后立即要用来办 ACAP。护照有效期 ≥6 个月且至少留 1 页空白，自查 ≥2027-04。'},
+  {id:'j03', p:'p0', n:'国际段出票', due:'3 天内', sub:'P0-3 · 各自',
    desc:'帅组 9/26 PVG–KMG–KTM（MU 三人合单，先电 95530 确认 MU9617 可售）+ 10/7 KTM–成都天府–PVG 国航一票，中转留 ≥3h。叶 9/25 00:30 3U3860 去程 + 回程 CX640 或 KE696，出票前二选一。'},
-  {id:'h04', p:'p0', n:'KTM–PKR 四座', due:'本周', sub:'P0-4 · 帅 / 向导社',
-   desc:'9/28 订 07:30 早班，10/6 订 13:00-14:00 午后班。早班最可靠，午后对流加 TIA 单跑道延误会累积。外国人 USD 120 每人每程，四人两程约 $960。Buddha 官网 Visa/MC 直订，付款页银行 logo 是收单商户勿误判，提交失败先查邮箱防重复出票。当下 36-44 天是价格与余量最优点。'},
-  {id:'h05', p:'p1', n:"Dwarika's 两房三夜", due:'本周', sub:'P1-1 · 帅',
-   desc:'9/26、9/27、10/6。会合提前一天，所以要加订 9/26 夜。Krishnarpan 传统尼餐多道制需预订，订在 9/27 晚。预算无上限按高档房型，确认可退政策。'},
-  {id:'h06', p:'p1', n:'保险出单', due:'9/10 前', sub:'P1-2 · 各自',
-   desc:'Global Rescue 标准会籍 ×4（约 $139 每人，ABC 4,130m 在其 4,600m 门槛内，事发当时联系才有效）加旅行医疗险，海拔上限白纸黑字 ≥4,600m 且明确含 helicopter evacuation。市面大量保单上限 4,000m。叶按加拿大居住地分轨。保单打印随身。'},
-  {id:'h07', p:'p1', n:'ACAP 四人，TIMS 若仍需', due:'定社后即办', sub:'P1-3 · 向导社',
-   desc:'ACAP NPR 3,000 每人，2024-10 起 e-permit 线上化，必须挂持证向导名下。TIMS 是否仍查验存疑，多个 2026 信源称 Annapurna 线只查 ACAP，由向导社书面确认。约 3 个工作日。收据别丢，出山要查。'},
-  {id:'h08', p:'p2', n:'出发前一周清单', due:'T-7d', sub:'P2 · 各自',
-   desc:'换 USD 2,500-2,700 现钞（每人 625-675，含约 $450 小费池）；博卡拉或加都换卢比，佣金 0.7-1.2%；NTC 实体卡加 20GB 包约 NPR 500 每人；每件行李过秤，红线 25kg 托运加 5kg 手提；Diamox 问诊；尼泊尔在线入境卡填好打印。'},
-  {id:'h09', p:'p2', n:'9/15 前后统一复查', due:'9/15 前后', sub:'复查 · Cha',
+  {id:'j04', p:'p0', n:'KTM–PKR 四座', due:'本周', sub:'P0-4 · 帅 / 向导社',
+   desc:'9/28 订 07:30 早班，10/6 订午后班。早班最可靠，午后对流加 TIA 单跑道延误会累积。外国人 USD 120 每人每程，四人两程约 $960。Buddha 官网 Visa/MC 直订，付款页银行 logo 是收单商户勿误判，提交失败先查邮箱防重复出票。当下 36-44 天是价格与余量最优点。'},
+  {id:'j05', p:'p1', n:'保险出单', due:'本周', sub:'P1-2 · 各自',
+   desc:'Global Rescue 标准会籍 ×4 尽早买（45 天既往症回溯从生效日起算）+ 国内三人苏黎世万国游踪全球版·完美档 ¥626 每人 + 叶 TuGo 或 GMS（待 MSP 确认）。五项书面确认后再出单：叶的 MSP 有效性、Global Rescue 中国卡结账测试、14 天档现价、苏黎世「空中救护机」含直升机、TuGo/GMS 认无绳索茶屋徒步不算 mountaineering。'},
+  {id:'j06', p:'p1', n:"Dwarika's 两房三夜直订", due:'本周', sub:'P1-1 · 帅',
+   desc:'9/26、9/27、10/6。10/6 那晚必须订可退价，当日 PKR→KTM 有天气滑动风险。订房时一并请酒店锁 9/27 的 Krishnarpan 晚餐桌，直订人均 NPR 8,000-12,000 另加 24.3% 税服，6 道或 9 道足够，转售渠道不要走。早餐不含，$30-34 每人每天；机场接送 $31 每人每程，自行叫车 NPR 800-1,500 省 $200 以上。直订 info@dwarikas.com。'},
+  {id:'j07', p:'p1', n:'ACAP 四人加团体 TIMS', due:'定社后即办', sub:'P1-3 · 向导社',
+   desc:'ACAP 是唯一强制许可，NPR 3,000 每人，无证被查双倍罚 NPR 6,000。TIMS 规则在册但 Annapurna 线执行已停，仍让旅行社一并办团体 TIMS（NPR 1,000-2,000 每人）防过渡期恢复，部分山屋与理赔也可能要求出示。约 3 个工作日。收据别丢。'},
+  {id:'j08', p:'p1', n:'尼泊尔入境在线预填 ×4', due:'9/11 至 9/15', sub:'P1-4 · 各自',
+   desc:'nepaliport.immigration.gov.np，只限抵达前 15 天窗口，9/26 抵达所以 9/11 起可填。条码 15 天失效，别过早提交。峰值季预填通道 12-18 分钟，普通通道 60-120 分钟，四人必填。'},
+  {id:'j09', p:'p2', n:'出发前一周清单', due:'T-7d', sub:'P2 · 各自',
+   desc:'换 USD 2,500-2,700 现钞（每人 625-675，含约 $450 小费池），在博卡拉 Lakeside 或加都 Thamel 换，佣金 0.7-1.2%；NTC 实体卡加 20GB 包约 NPR 500 每人；每件行李过秤，红线 25kg 托运加 5kg 手提；Diamox 问诊；加都或博卡拉租 -10 至 -15°C 睡袋。'},
+  {id:'j10', p:'p2', n:'国内三人 9/13 前完成打包', due:'9/13 前', sub:'补班 · 国内三人',
+   desc:'9/20 周日补班，行前 9/14 至 9/24 只有 9/19 一天休，等于连上 9 天班。装备采购与打包必须在 9/13 前的那个周末做完。回国后 10/8 至 10/10 也连上三天，10/10 周六补班。'},
+  {id:'j11', p:'p2', n:'9/15 前后统一复查', due:'9/15 前后', sub:'复查 · Cha',
    desc:'Birethanti 与 Ghurjung 吊桥通车状态、TIA 夜间关闭 NOTAM、MU 班期再确认，并开始每日盯气旋预报。9/20 是 E 转 D 的红线。'}
 ];
 
@@ -1254,7 +1420,7 @@ var spy=new IntersectionObserver(function(es){
     });
   });
 },{rootMargin:'-45% 0px -50% 0px'});
-['now','booking','route','sky','photo','risk'].forEach(function(id){
+['now','booking','agency','route','sky','photo','risk'].forEach(function(id){
   var el=document.getElementById(id); if(el) spy.observe(el);
 });
 
@@ -1303,7 +1469,7 @@ $$('[data-reveal]').forEach(function(el,i){ el.style.transitionDelay=(Math.min(i
 
 /* ---------------- checklist ---------------- */
 (function(){
-  var LS='abc2026-tasks-h6', state={};
+  var LS='abc2026-tasks-final', state={};
   try{ state=JSON.parse(localStorage.getItem(LS)||'{}')||{}; }catch(e){ state={}; }
 
   TASKS.forEach(function(t){
@@ -1326,7 +1492,7 @@ $$('[data-reveal]').forEach(function(el,i){ el.style.transitionDelay=(Math.min(i
   });
 
   /* optional cross-device sync via the per-slug KV API. fails soft. */
-  var API=location.pathname.replace(/\/index\.html$/,'/').replace(/\/?$/,'/')+'api/kv/tasks-h6';
+  var API=location.pathname.replace(/\/index\.html$/,'/').replace(/\/?$/,'/')+'api/kv/tasks-final';
   var etag=null, alive=false;
   function apply(v){
     if(!v||typeof v!=='object') return;
@@ -1363,8 +1529,10 @@ $$('[data-reveal]').forEach(function(el,i){ el.style.transitionDelay=(Math.min(i
 /* ---------------- altitude profile ---------------- */
 var svg=$('#profile'), NS='http://www.w3.org/2000/svg';
 var W=1000,H=340, PL=52,PR=52,PT=46,PB=52;
-var AMIN=600, AMAX=4400;
+var AMIN=600, AMAX=4900;
 var current=null, anim=null;
+
+function yFor(a){ return PT+(H-PT-PB)*(1-(a-AMIN)/(AMAX-AMIN)); }
 
 function pts(list){
   var v=list.filter(function(x){return x.alt!==null;});
@@ -1372,7 +1540,7 @@ function pts(list){
   return v.map(function(x,i){
     return {
       x: PL + (W-PL-PR) * (n===1?0.5:i/(n-1)),
-      y: PT + (H-PT-PB) * (1-(x.alt-AMIN)/(AMAX-AMIN)),
+      y: yFor(x.alt),
       alt:x.alt, place:x.place, d:x.d, abc:!!x.abc
     };
   });
@@ -1386,10 +1554,14 @@ function el(tag,attrs,text){
 function drawGrid(){
   var g=el('g',{});
   [1000,2000,3000,4000].forEach(function(a){
-    var y=PT+(H-PT-PB)*(1-(a-AMIN)/(AMAX-AMIN));
+    var y=yFor(a);
     g.appendChild(el('line',{class:'grid-line',x1:PL-12,x2:W-PR+12,y1:y,y2:y}));
     g.appendChild(el('text',{class:'grid-label',x:8,y:y+4}, (a/1000)+'k'));
   });
+  /* 4,600m Global Rescue red line */
+  var ry=yFor(4600);
+  g.appendChild(el('line',{class:'redline',x1:PL-12,x2:W-PR+12,y1:ry,y2:ry}));
+  g.appendChild(el('text',{class:'redlabel',x:PL-8,y:ry-6},'4,600m 保险红线'));
   return g;
 }
 function render(P){
@@ -1561,7 +1733,6 @@ setVersion('E');
       stars.push({x:Math.random()*w, y:Math.random()*h*0.92, r:0.35+m*1.5,
                   a:0.24+m*0.66, tw:Math.random()<0.14, ph:Math.random()*6.28});
     }
-    /* milky-way arch: dense cluster along a shallow arc */
     var bn=Math.round(w*2.8);
     for(var j=0;j<bn;j++){
       var t=Math.random();
@@ -1590,8 +1761,6 @@ setVersion('E');
     ctx.fillStyle=color; ctx.fill();
   }
 
-  /* airglow: a cool horizon lift so every ridge silhouettes, plus a warm pool
-     behind the main massif for the 点亮 to sit against */
   function drawAirglow(){
     var lin=ctx.createLinearGradient(0, 0.26*h, 0, h);
     lin.addColorStop(0,'rgba(0,0,0,0)');
