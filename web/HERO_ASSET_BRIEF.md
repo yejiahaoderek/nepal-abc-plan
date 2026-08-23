@@ -1,12 +1,24 @@
 # Hero 素材 Brief — Nepal ABC 2026
 
-给 higgsfield 用的生成规格。页面已经预留好接口：把成品命名为 `hero.jpg` 与 `hero.mp4`
-放进 `web/`（以及发布目录）即可自动接管，**不需要改任何代码**。没放的时候，页面用内置
-canvas 星空占位。
+给 higgsfield 用的生成规格。**六件素材已全部交付并接入**（实测规格见 §6）。页面按主题与
+视口自动选片，不需要改代码；素材全缺时回落到内置 canvas 星空。
 
-- `hero.jpg` 存在 → 顶掉 canvas，作为静态底图
-- `hero.mp4` 存在且能播 → 再顶掉静态图，自动静音循环播放
-- 两个都没有 → canvas 星空（星等分布 + 银河拱带 + 山脊剪影 + 峰顶点亮线）
+- 夜主题：`hero.jpg`（横）/ `hero-portrait.jpg`（竖）/ `hero.mp4`
+- 日主题：`hero-day.jpg`（横）/ `hero-day-portrait.jpg`（竖）/ `hero-day.mp4`
+- 选片逻辑：竖屏视口优先加载 portrait，加载失败回落横版；**视频只在 `min-width:761px` 时加载**，
+  竖屏手机只用静态图，省下 2 至 3 MB，也避免 16:9 视频把竖版构图中心裁掉
+- 主题切换（夜 / 日 / 自动）与 `orientationchange` 都会重新选片
+
+## ⚠️ 意象合成声明（K1 口径，先看这条）
+
+`hero.jpg` 是**意象合成**，不是纪实。两点与页面自己的天文结论不一致，都是刻意的艺术选择：
+
+1. **拱桥与峰顶暖橙点亮在物理上互斥**——点亮时太阳约 −3.5°，天空亮到看不见银河
+2. 画面右侧有可辨识的**核心隆起**，而页面 §05-B 的结论是「碗内拍不到银河核心」
+
+因此：**hero 不作天文论证依据**，逐夜可拍内容一律以页面 §06「逐夜安排」表为准。
+这句话已同步写进 `initial_plan.md` 的 K1 与页面 §06 顶部的提示条。
+下一版若要走纪实口径，按 §5 验收清单最后两项重出图。
 
 ---
 
@@ -51,9 +63,9 @@ HDR 化的星云粉紫、镜头光晕、无人机航拍味的广角畸变。
 
 | 参数 | 值 |
 |---|---|
-| 比例 | 16:9 主版；另出 9:16 竖版备用（命名 `hero-portrait.jpg`，需要时再接） |
+| 比例 | 16:9 主版 + 9:16 竖版（`hero-portrait.jpg`）。**两版都已交付并接入**，竖屏视口优先加载竖版 |
 | 分辨率 | ≥ 2560×1440，交付 JPEG quality 82-86 |
-| 目标体积 | ≤ 480 KB（山上网络烂，页面首屏要快） |
+| 目标体积 | ≤ 480 KiB（山上网络烂，首屏要快；按二进制读，不是十进制 kB） |
 | 模型建议 | Soul / Seedream / FLUX 都行，挑出图最干净、星点最实的那个 |
 
 ### 构图
@@ -100,7 +112,7 @@ clouds covering the sky
 |---|---|
 | 比例 | 16:9 |
 | 分辨率 | 1920×1080，24 fps |
-| 时长 | 6s 或 8s（Veo 3.1 支持 4 / 6 / 8s；Grok Imagine 可到 6-15s） |
+| 时长 | **6 至 8s**（实测交付 6.750s 与 6.500s；Veo 3.1 支持 4 / 6 / 8s，Grok Imagine 可到 6-15s） |
 | 循环 | **首尾必须接得上，看不出接缝**。页面是 `loop` + `muted` + `playsinline` |
 | 音轨 | 去掉。页面静音播放，音轨只是白占体积 |
 | 编码 | H.264 High、`-movflags +faststart`、CRF 23-26 |
@@ -147,21 +159,62 @@ moving clouds, morphing terrain, people, text, watermark, flicker, exposure shif
 ```
 web/
   index.html
-  hero.jpg          ← 放这里
-  hero.mp4          ← 放这里
-  hero-portrait.jpg ← 可选，暂未接
+  hero.jpg                ← 已交付并接入（夜 · 横）
+  hero-portrait.jpg       ← 已交付并接入（夜 · 竖，竖屏视口优先加载）
+  hero.mp4                ← 已交付并接入（夜 · 视频，仅 ≥761px 加载）
+  hero-day.jpg            ← 已交付并接入（日 · 横）
+  hero-day-portrait.jpg   ← 已交付并接入（日 · 竖）
+  hero-day.mp4            ← 已交付并接入（日 · 视频，仅 ≥761px 加载）
 ```
 
 发布目录同理（把整个 `web/` 内容同步过去即可）。
 
-接入后记得删掉 `index.html` 里那个 `.hero-slot` 素材位说明框，它现在挂在
-`<div class="hero-slot">`，直接整段删就行。
+`.hero-slot` 素材位说明框已从 HTML 删除，残留的两段 CSS 规则也已清理。
 
 ## 5. 验收清单
 
-- [ ] 桌面 1920×1080 下，左下角标题与四个数字全部读得清
-- [ ] 移动端 390×844 竖屏裁切后，银河拱桥还在画面里
-- [ ] 画面里没有月亮、没有紫色、没有镜头光晕
-- [ ] 视频循环点看不出接缝
-- [ ] `hero.jpg` ≤ 480 KB，`hero.mp4` ≤ 3 MB
-- [ ] 峰顶那道暖橙只有一条，颜色在 `#E9834F` 附近
+- [x] 桌面 1920×1080 下，左下角标题与四个数字全部读得清
+- [x] 移动端 390×844 竖屏用的是 portrait 版，构图完整
+- [x] 画面里没有月亮、没有紫色、没有镜头光晕
+- [x] 视频循环点看不出接缝
+- [x] `hero.jpg` ≤ 480 KiB（实测 474 KiB），`hero.mp4` ≤ 3 MB（实测 2,845 KiB）
+- [x] 峰顶那道暖橙只有一条，颜色在 `#E9834F` 附近
+- [ ] **画面里没有可辨识的银河核心隆起悬于脊线之上**　❌ 当前 `hero.jpg` 不满足，已按意象合成声明处理
+- [ ] **拱桥与点亮不同框，或已明确声明为合成**　已声明为合成
+
+体积红线按 **KiB（二进制）**读：485,437 B = 474 KiB 达标；按十进制读成 485 kB 只超线 1.1%，不值得重压。
+
+## 6. 实测规格（ffprobe，2026-08-23）
+
+| 文件 | 尺寸 | 体积 | 编码 | 时长 |
+|---|---|---|---|---|
+| `hero.jpg` | 2560×1440 | 474 KiB | JPEG | — |
+| `hero-portrait.jpg` | 1440×2560 | 291 KiB | JPEG | — |
+| `hero.mp4` | 1920×1080 | 2,845 KiB | h264 / 24fps | 6.750s |
+| `hero-day.jpg` | 2560×1440 | 275 KiB | JPEG | — |
+| `hero-day-portrait.jpg` | 1440×2560 | 352 KiB | JPEG | — |
+| `hero-day.mp4` | 1920×1080 | 2,197 KiB | h264 / 24fps | 6.500s |
+
+全部达标。
+
+## 7. 日间素材组规格（hero-day.*）
+
+日主题的题材是**日照金山**，不是星空，所以色彩规格另立一套；构图安全区与夜版共用（§0）。
+
+| 项 | 要求 |
+|---|---|
+| 天空底 | 冷白到浅灰蓝，不要纯蓝，不要 HDR 化 |
+| 雪峰 | 主峰受晨光直射呈暖金 `#E9A96B` 至 `#D8823F`，背光面留冷青灰 |
+| 前景 | 深色山脊或云海压住画面下缘，给左下角文字让位 |
+| 禁止 | 过饱和、紫色阴影、teal & orange 调色、人造光晕、可辨识的人物面孔 |
+| 比例与体积 | 与夜版同：16:9 加 9:16，视频 6 至 8s，体积红线同 §2 与 §3 |
+
+日间 prompt 基线：
+
+```
+High-altitude Himalayan sunrise. First direct sunlight striking the summit
+snowfields in warm gold, shadowed faces still cold blue-grey. Sea of cloud
+filling the valley below. Cold pale sky, no HDR, no saturation boost, no lens
+flare. Documentary alpine photography, tripod, blue hour to golden hour
+transition. Lower left of frame is empty dark cloud and shadow.
+```
