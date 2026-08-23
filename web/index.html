@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/900.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5/latin-400.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5/latin-500.css">
-<script>(function(){var t='night';try{t=localStorage.getItem('abc2026-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'day':'night');}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
+<script>(function(){var c='system',t;try{c=localStorage.getItem('abc2026-theme')||'system';}catch(e){}if(c!=='day'&&c!=='night')c='system';t=(c==='system')?(matchMedia('(prefers-color-scheme: light)').matches?'day':'night'):c;document.documentElement.setAttribute('data-theme',t);document.documentElement.setAttribute('data-choice',c);})();</script>
 <style>
 /* ============================================================
    Nepal ABC 2026 — visual system
@@ -294,11 +294,14 @@ section[id]{scroll-margin-top:104px;}
   border:1px solid var(--pill-line-2);border-radius:var(--r-full);}
 .theme-tgl span{font-family:var(--mono);font-size:12px;line-height:1;padding:6px 10px;
   border-radius:var(--r-full);color:var(--ink-3);transition:background .5s var(--ease),color .5s var(--ease);}
-html[data-theme="night"] .theme-tgl .t-n,
-html[data-theme="day"] .theme-tgl .t-d{background:var(--glow);color:var(--btn-ink);}
-.theme-tgl:hover span{color:var(--ink);}
-html[data-theme="night"] .theme-tgl:hover .t-n,
-html[data-theme="day"] .theme-tgl:hover .t-d{color:var(--btn-ink);}
+html[data-choice="night"] .theme-tgl .t-n,
+html[data-choice="day"] .theme-tgl .t-d,
+html[data-choice="system"] .theme-tgl .t-s{background:var(--glow);color:var(--btn-ink);}
+.theme-tgl span{cursor:pointer;}
+.theme-tgl span:hover{color:var(--ink);}
+html[data-choice="night"] .theme-tgl .t-n:hover,
+html[data-choice="day"] .theme-tgl .t-d:hover,
+html[data-choice="system"] .theme-tgl .t-s:hover{color:var(--btn-ink);}
 .sub-head{display:flex;align-items:baseline;gap:var(--s-200);margin:var(--s-700) 0 var(--s-300);flex-wrap:wrap;
   padding-top:var(--s-400);border-top:1px solid var(--line);}
 .sub-head h3{font-size:24px;line-height:32px;}
@@ -688,9 +691,9 @@ footer b{color:var(--ink-2);font-weight:400;}
       <a href="#ch3" data-ch="3">Ⅲ 保障与人</a>
       <a href="#faq" data-ch="faq">答疑</a>
     </div>
-    <button class="theme-tgl" id="themeTgl" type="button" aria-label="切换日夜主题">
-      <span class="t-n">夜</span><span class="t-d">日</span>
-    </button>
+    <div class="theme-tgl" id="themeTgl" role="group" aria-label="主题：夜 / 日 / 跟随系统">
+      <span class="t-n" data-mode="night" role="button" tabindex="0">夜</span><span class="t-d" data-mode="day" role="button" tabindex="0">日</span><span class="t-s" data-mode="system" role="button" tabindex="0">自动</span>
+    </div>
     <a class="nav-cta" href="#booking">本周待办</a>
     <button class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="overlay">
       <span></span><span></span>
@@ -711,9 +714,9 @@ footer b{color:var(--ink-2);font-weight:400;}
   <a href="#risk"><span>07</span>风险与保险</a>
   <a href="#crew"><span>08</span>人与山上物流</a>
   <a href="#faq"><span>09</span>常见问题</a>
-  <button class="theme-tgl ov-tgl" id="themeTglM" type="button" aria-label="切换日夜主题">
-    <span class="t-n">夜</span><span class="t-d">日</span>
-  </button>
+  <div class="theme-tgl ov-tgl" id="themeTglM" role="group" aria-label="主题：夜 / 日 / 跟随系统">
+    <span class="t-n" data-mode="night" role="button" tabindex="0">夜</span><span class="t-d" data-mode="day" role="button" tabindex="0">日</span><span class="t-s" data-mode="system" role="button" tabindex="0">自动</span>
+  </div>
 </div>
 
 <main id="main">
@@ -723,7 +726,7 @@ footer b{color:var(--ink-2);font-weight:400;}
   <div class="hero-media" id="heroMedia">
     <canvas id="sky-canvas" aria-hidden="true"></canvas>
     <img class="hero-img" id="heroImg" alt="" aria-hidden="true">
-    <video id="heroVideo" muted playsinline loop preload="none" aria-hidden="true"></video>
+    <video id="heroVideo" autoplay muted playsinline loop preload="auto" aria-hidden="true"></video>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
 
@@ -1564,27 +1567,36 @@ Object.keys(secToCh).forEach(function(id){
   var el=document.getElementById(id); if(el) spy.observe(el);
 });
 
-/* ---------------- theme: manual toggle + follow system by default ---------------- */
+/* ---------------- theme: 夜 / 日 / 自动(跟随系统) ---------------- */
 (function(){
   var KEY='abc2026-theme', mt=document.getElementById('metaTheme');
   var mq=matchMedia('(prefers-color-scheme: light)');
   function sysT(){ return mq.matches ? 'day' : 'night'; }
-  function paint(t){
-    document.documentElement.setAttribute('data-theme',t);
-    if(mt) mt.setAttribute('content', t==='day' ? '#F5F1E8' : '#000000');
-    try{ dispatchEvent(new CustomEvent('abc-theme',{detail:t})); }catch(e){}
+  function paint(choice){
+    var eff = (choice==='system') ? sysT() : choice;
+    document.documentElement.setAttribute('data-theme',eff);
+    document.documentElement.setAttribute('data-choice',choice);
+    if(mt) mt.setAttribute('content', eff==='day' ? '#F5F1E8' : '#000000');
+    try{ dispatchEvent(new CustomEvent('abc-theme',{detail:eff})); }catch(e){}
   }
-  function apply(t){ paint(t); try{ localStorage.setItem(KEY,t); }catch(e){} }
-  function flip(){ apply(document.documentElement.getAttribute('data-theme')==='day' ? 'night' : 'day'); }
+  function choose(c){ paint(c); try{ localStorage.setItem(KEY,c); }catch(e){} }
+  function onPick(e){
+    var m=e.target && e.target.getAttribute && e.target.getAttribute('data-mode');
+    if(m) choose(m);
+  }
   ['themeTgl','themeTglM'].forEach(function(id){
-    var b=document.getElementById(id); if(b) b.addEventListener('click',flip);
+    var b=document.getElementById(id); if(!b) return;
+    b.addEventListener('click',onPick);
+    b.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); onPick(e); }
+    });
   });
   var stored=null; try{ stored=localStorage.getItem(KEY); }catch(e){}
-  paint(stored || sysT());
+  if(stored!=='day'&&stored!=='night'&&stored!=='system') stored='system';
+  paint(stored);
   try{
     mq.addEventListener('change',function(){
-      var s=null; try{ s=localStorage.getItem(KEY); }catch(e){}
-      if(!s) paint(sysT());
+      if(document.documentElement.getAttribute('data-choice')==='system') paint('system');
     });
   }catch(e){}
 })();
@@ -2028,8 +2040,17 @@ setVersion('E');
 
   /* theme-aware hero media: night hero.* (starfield) / day hero-day.* (日照金山) */
   var v=$('#heroVideo');
-  v.addEventListener('canplay',function(){ host.classList.add('has-video'); v.play().catch(function(){}); });
+  v.preload='auto'; v.muted=true;
+  function tryPlay(){
+    if(!v.src) return;
+    var p=v.play();
+    if(p&&p.catch) p.catch(function(){});
+  }
+  v.addEventListener('canplay',function(){ host.classList.add('has-video'); tryPlay(); });
+  v.addEventListener('loadeddata',function(){ host.classList.add('has-video'); tryPlay(); });
   v.addEventListener('error',function(){ host.classList.remove('has-video'); });
+  document.addEventListener('pointerdown',function(){ if(v.paused&&v.src) tryPlay(); },{passive:true});
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden&&v.paused&&v.src) tryPlay(); });
   function heroAssets(t){
     var d = t==='day';
     return { img: d?'hero-day.jpg':'hero.jpg',
@@ -2046,7 +2067,7 @@ setVersion('E');
       else if(t==='day' && img.src.indexOf('hero-day')>-1){ img.src = wantP?'hero-portrait.jpg':'hero.jpg'; }
     };
     img.src = wantP ? a.pimg : a.img;
-    v.src=a.vid; v.load();
+    v.muted=true; v.src=a.vid; v.load(); tryPlay();
   }
   addEventListener('abc-theme',function(e){ loadHero(e.detail); });
   loadHero(document.documentElement.getAttribute('data-theme')==='day' ? 'day' : 'night');
