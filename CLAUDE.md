@@ -15,6 +15,7 @@
 
 - `initial_plan.md` — 计划本体（Part A-K + 附录），单一事实源
 - `CONTEXT.md` — 术语表
+- `AGENTS.md` — AI agent 协作规则（事实源裁决顺序、修改与发布流程、红线）
 - `webpage-extract-raw.txt` — Meta AI 原计划抽取存档，只读
 - `outreach/` — 向导社询价邮件草稿
 - `review/` — 对抗审查 findings 存档（只读，不作为事实源）
