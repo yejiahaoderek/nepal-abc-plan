@@ -342,6 +342,8 @@
 - **建议（待帅拍板，未改定稿）**：① 9/15 起的复查项把「Prithvi Krishnabhir 段通行」列为与 Birethanti 同级的硬项；② 若 9/20 闸门时 Prithvi 仍断，10/6 改订**最早可行班次（甲，13:00-14:00 或更早）**、温泉取消，把上午留给航班延误吸收；③ 直升机 KTM↔PKR 包机从「极端备用」升为该情景下的唯一陆路替代，预算 K3 预留
 - Prithvi 断路细节（尼媒口径，与美使馆通报互证）：08-30 Trishuli 侵蚀致 **Dhading Krishnabhir 段路基整体垮塌**、Muglin–KTM 断流；08-31 Krishnabhir 与 Parewa Bhir 再发滑坡全线封闭（美使馆同日通报写「开放但 Galchhi–Baireni 限行」，两源冲突，取更保守口径）；08-26 前 Tanahun 段已有单边通行滑坡。**结论：9 月中旬前 KTM↔PKR 陆路按不可用规划，复查项以 Krishnabhir 段为标志**
 - **进山口 Birethanti / Modi Khola：两轮冲毁，截至 2026-09-02 无通车通告（不确定，证据倾向仍在修复）**。第一轮 2026-07-12 Modi Khola / Kimrong Khola 洪水冲毁 Nayapul–Birethanti–Ghandruk 公路（Syauli Bazaar 附近）、Ghurjung 吊桥受损，约 300 名游客困 Ghandruk（onlinekhabar / setopati 2026-07-13）；第二轮 08-13 夜强降雨 Modi 河大洪水，Birethanti–Ghandruk 再断、Chimrung / Syauli Bazaar–Sardikhola 段被毁，**TAAN Gandaki 08-14 通告**要求改走替代路线（thetourismtimes 2026-08-16）。08-24 报道 Annapurna Rural Municipality 8-11 区仍在集资重建（hamropatro 转 ratopati）；08-27 博卡拉本地业者称步道「可通行但中断」、无官方恢复时间表（travelhimalayanepal 2026-08-27）；**未找到 9 月初 Nayapul–Ghandruk / Siwai 吉普恢复或 Ghurjung 桥修复的官方消息**。原 G1 首条「08-14 冲走约 100m 路面」对应第二轮，予以保留
+- **航班与许可（截至 2026-09-02，pr-facts 核查）**：TIA 与国内航班全程正常、无大面积取消（美使馆 08-26 至 09-01 通报一致；yatraforfun 09-02 称航司按计划执飞、无洪灾特殊退改政策）；公路断后 KTM-PKR 需求暴增、本地票价区间升至 NPR 5,000-12,000（ratopati 08-26）——外国人 USD 档虽固定，**座位压力上升，H6 P0-4 国内段出票不得再拖**。TIA 夜间关闭 NOTAM：2026 年只到 05-18（23:45-06:30，aviospace 04-21），**无覆盖 9-10 月的 NOTAM**，H3 的 9 月中旬复查保留。ACAP / NTNC / NTB 在 08-26 后**无 Annapurna 关闭或警示**；唯一相关提示是 TAAN Gandaki 08-14 行业通告；美使馆禁入范围仅 Rasuwa 的 Rasuwagadhi–Timure–Syafrubesi 走廊
+- **公共卫生**：无 WHO / 尼政府针对 Gandaki 或 Pokhara 的 outbreak alert（不确定项，持续关注）；CARE 08-30、Direct Relief 08-31 提示灾区供水卫生受损、水源性疾病风险上升。对本团的执行口径：K2 净水片 / 滤水器为必带，山上只喝煮沸或过滤水，Pokhara 段不喝生水
 - 事件本体与流域消歧见 G1b。伤亡数字迭代极快、只记区间与日期（核实中）：08-28 警方 / CNN 469 → 08-30 NDRRMA 734 死 / 约 2,500 失踪 → 09-01 官方初步情况报告约 1,050 死 / 3,916 失踪、涉 62 县、约 160 万人受影响（Kathmandu Post / Al Jazeera 转引）；西藏侧 08-30 报 16 死 / 546 失踪。与本计划路线无直接接口，不写入执行口径
 
 ### G1b 2026-08-26 Rasuwa / Bhote Koshi 事件（与 08-14 非同一事件，间接风险）
@@ -400,6 +402,7 @@ ABC→Bamboo 6-7h，Bamboo→经 Chhomrong→Jhinu 5-6h，合计 **11-13h**（�
 
 - NASA POWER 26 年再分析：**9/28-10/6 窗口内 43% 的日子有可测降水**（≥1mm），10/11 后降至 21%；季风撤退常年日 10/2，2023/2024 分别延后 13/10 天；年际离散极大，此窗口只有好年与坏年
 - 2026 有利信号：极强 El Niño（NOAA CPC 8/20：秋冬 >90% 概率，OND 或为 1950 以来最强），南亚季风受抑、偏干、撤退偏早的概率大；但 8 月下旬季风仍活跃（10 县道路受阻）。⚠️ **这是季节尺度倾向，对 9/28-10/6 任何一天没有预报能力**，不可读成对本窗口的预报
+- **季风撤退更新（2026-09-02，pr-facts 核查）**：DHM 2026-05-08 全国展望为雨量偏少、气温偏高，入梅偏晚（东部 06-19，常年 06-13），但「弱而突发」模式已致多次断路，08-26 为全年最严重后果。DHM 预报 09-03 前全国大部仍有雨、丘陵山区局地强雨。**撤退日期：常年 10/2；2022-2025 实际分别为 10/16、10/15、10/12、10/10，连续四年偏晚；2025 撤退始于 10/6；2026 撤退日 DHM 尚未公布（惯例撤退前数日才发）**，当地业者实务预期 10/8-10/16、称「10 月第二周才是可靠晴窗，第一周是掷硬币」（travelhimalayanepal 2026-08-31 更新）。**含义：9/28 进山大概率仍在雨季尾巴**，降水余量与 Modi Khola 边坡稳定性按雨季标准对待；El Niño 偏干只是季节尺度倾向，对任何一天无预报能力
 - 尾部风险：孟加拉湾气旋残余是 10 月最危险机制（2024-09-27 加都 1970 年以来最强暴雨、2014-10-14 Annapurna 暴雪 39 死）。**完整气旋监测协议（信息源 / 阈值 / 在途决策人 / 碗内分支）见 K4**。地理动作口径**替换原「Deurali 以上停步」的歧义写法**：收到气旋残余预警 → **不越过 Himalaya（2,920m）**，在 Himalaya 或退回 Chhomrong 等待；**已过 Himalaya 未到 MBC → 当日退回 Himalaya**；**已在 MBC/ABC → 次日天亮即撤，一口气下到 Bamboo 以下**。**明确不停留 Deurali**——B4 定义 Deurali 为「雪崩区前最后一站，风大墙薄」，G5 记载历史致死事故全在 Hinku Cave→Deurali→MBC 峡谷段，暴雪时滞留 Deurali 恰是最差选项
 - ABC 夜温：典型 **−2~+3°C**，晴朗无风极端约 −5°C（原 −5~0°C 偏保守可作装备边界）；拍星需静止 1-2h，羽绒裤 + 厚手套必带
 - 午后起云机制成立（Deurali 一带最明显），清晨拍摄原则不变
@@ -855,6 +858,7 @@ ABC→Bamboo 6-7h，Bamboo→经 Chhomrong→Jhinu 5-6h，合计 **11-13h**（�
 16. **应急协议补全（K4）**：气旋监测的源 / 人 / 分支、伤病两级分级与叫机决策人、VFR 窗口的地面过夜方案、通信卫星备份的权衡、连日阴雨的最低成功定义。
 17. **文档卫生**：Part D 作废口径精确化、Part E 逐条标状态、四处悬空引用修复、附录错误清单扩到并集、术语表与 CLAUDE.md 同步。
 18. **（v1.3.1，2026-09-02）合入叶的 PR #1**：新增 G1b（08-26 Rasuwa / Bhote Koshi 事件消歧，WHO/USGS 证实）与 `research/hatch-abc-reference.md` 桥接；CCCha 修订：Part B 来源链恢复为 v1.0 旧页（新页内容不同）、桥接文件补「与事实源冲突项」（页面的上海会合说法证伪）、移除公开 repo 内的真名清单、T-14/T-7 对齐 H6 日期、G1b 加核查状态与 Prithvi Highway 接口。
+19. **（v1.3.1，2026-09-02）最新情况核查并入**：G1「最新状态」（Prithvi 09-01 再断、Birethanti 两轮冲毁无通车通告、航班正常、NOTAM 证伪、ACAP 无关闭、无 outbreak alert）与 G4 季风撤退更新（连续四年 10/10-16，9/28 仍在雨季尾巴）。
 
 ---
 
