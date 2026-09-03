@@ -5,6 +5,8 @@
 ## 事实源与裁决顺序
 
 - `initial_plan.md` 是唯一事实源，当前 **v1.3**（Part A-K + 附录）。
+- **Research bridge（持续输入）**：`research/hatch-abc-reference.md` — 指向公开干净页 `https://agent.meta.ai/s/abc-2026-oxr60xzdxpxx1cq`（as of 2026-08-31），含路线/地图、风险 Q&A、guide/porter/jeep 候选、T-14/T-7/T-24–48h 触发器；**网页是 research input，不自动覆盖事实源**，需按 L0-L3 证据等级提 delta 后合入。
+- 路线 / 风险 / 交通 / 保险类任务的读取顺序：`initial_plan.md` → `research/hatch-abc-reference.md`（check As of 与「已知冲突项」）→ `CONTEXT.md` → 对比 last reviewed 时间再合入。该页的行程逻辑信息（会合地、班次、闸门日期）已知与事实源冲突，勿引用。
 - 冲突裁决顺序：**Part K > Part G / H / I / J > Part C > Part B**；Part D 已整体作废仅存档；Part E 为过期开放问题存档。
 - 术语一律用 `CONTEXT.md` 定义（E 版 / D 版 / 预案② / 降级形态 / 无月窗口 / 拱桥 / 核心机位 / 点亮 / 进山证 / 保险三轨 / 4,600m 红线）。
 - 任何数字、日期、价格带核查状态（证实 / 证伪 / 核实中）与来源日期，沿用 Part G-J / K 写法；未核实的写「核实中」，不得写成事实。
@@ -32,13 +34,16 @@
 ## 结构
 
 - `initial_plan.md` — 计划本体（Part A-K + 附录），单一事实源
+- `research/hatch-abc-reference.md` — Hatch ABC 研究稳定桥接（canonical: `https://agent.meta.ai/s/abc-2026-oxr60xzdxpxx1cq`，as of 2026-08-31），机器可读入口，L0-L3 证据等级与 merge 规则
 - `CONTEXT.md` — 术语表
-- `webpage-extract-raw.txt` — Meta AI 原计划抽取存档，只读
+- `webpage-extract-raw.txt` — Meta AI 原计划抽取存档，只读（旧链 `abc-2026-ye-and-shuai` 已废弃）
 - `outreach/` — 向导社询价邮件草稿（当前 v3，三家同发）
 - `review/` — 对抗审查 findings 存档（只读，不作为事实源）
 - `web/` — 计划网页（`index.html`）与 hero 素材（六件：夜/日 × 横/竖图 + 夜视频）、`HERO_ASSET_BRIEF.md`
 
-## 当前状态与关键节点（2026-09-01 口径）
+## 当前状态与关键节点（2026-09-02 口径）
+
+- **2026-09-02 路况**：KTM↔PKR 陆路（Prithvi Highway）09-01 在 Dhading Krishnabhir 完全断路（08-26 以来第二次），断路期间 10/6 航班取消的陆路兜底不存在；进山口 Birethanti / Modi Khola 两轮冲毁（07-12、08-13/14）后无通车通告，Ghurjung 桥修复无消息。详见 `initial_plan.md` G1「最新状态」与 G1b。
 
 - v1.3 完成：94 条对抗审查 findings 已采纳（89 workflow + 5 Codex，存档 `review/2026-08-23-findings.md`）。
 - 待 Jet 拍板：10/6 PKR→KTM 班次甲/乙（计划推荐乙 16:50/18:00）、摄影两人指名（8/26 已过，阻塞器材清单与专属背夫分配）、Dwarika's 房型（默认 Junior Suite ×2）、小费档（默认上调档 $550-700）、在途值守人。
@@ -51,3 +56,4 @@
 - 保险出单前 J5 八项书面确认逐轨闭合；叶 MSP 无效且无替代医疗层 = 出行阻断项。
 - 直升机应急只能由队员自己联系保险 / Global Rescue 发起；向导社、向导、山屋、医院无发起权（2026 年尼泊尔假救援骗保案背景）。
 - 被诉直升机公司避开：Mountain Helicopters、Manang Air（现名 Basecamp Helicopters）、Altitude Air。
+- **隐私**：本 repo 为 public。任何文件不得新增团员真名、可识别昵称、GitHub 用户名或护照 / 证件信息；既有化名（叶 / 帅 / Jet）不扩展。对外页面只用「四位团员」或 A/B/C/D 代号。

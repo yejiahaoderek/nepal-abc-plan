@@ -5,6 +5,7 @@
 ## 规则
 
 - `initial_plan.md` 是唯一事实源。改网页、简报等衍生物之前，先改它。
+- **持续研究输入**：`research/hatch-abc-reference.md` 是 Hatch ABC 研究的稳定桥接，canonical 公开页 `https://agent.meta.ai/s/abc-2026-oxr60xzdxpxx1cq`（as of 2026-08-31，干净版，无个人信息）。处理路线 / 风险 / 交通 / 保险类任务时按 `initial_plan.md` → `research/hatch-abc-reference.md` → `CONTEXT.md` 顺序读，对比 last reviewed 再按 L0-L3 合入。该页是 research input：其行程逻辑信息（会合地、班次、闸门日期）已知与事实源冲突，一律以 `initial_plan.md` 为准，只采纳其风险 / 触发器 / 询价字段。
 - 术语一律用 `CONTEXT.md` 的定义（点亮、拱桥、核心机位、无月窗口、E 版 / D 版、进山证、野奢、保险三轨 / 4,600m 红线 / 预案② / 降级形态）。
 - 任何数字、日期、价格必须带核查状态（证实 / 证伪 / 核实中，附来源与信息日期），沿用各核查组 Part（G / H / I / J / K）的写法。未核实的不得写成事实。
 - 日期用绝对表述（YYYY-MM-DD 或 M/D），禁止"下周"类相对日期。
@@ -14,9 +15,10 @@
 ## 结构
 
 - `initial_plan.md` — 计划本体（Part A-K + 附录），单一事实源
+- `research/hatch-abc-reference.md` — Hatch 研究桥接（`https://agent.meta.ai/s/abc-2026-oxr60xzdxpxx1cq`），持续输入入口
 - `CONTEXT.md` — 术语表
 - `AGENTS.md` — AI agent 协作规则（事实源裁决顺序、修改与发布流程、红线）
-- `webpage-extract-raw.txt` — Meta AI 原计划抽取存档，只读
+- `webpage-extract-raw.txt` — Meta AI 原计划抽取存档，只读（旧链已废弃）
 - `outreach/` — 向导社询价邮件草稿
 - `review/` — 对抗审查 findings 存档（只读，不作为事实源）
 - `web/` — 计划网页与 hero 素材：`index.html`（对外网页）、`HERO_ASSET_BRIEF.md`（hero 素材规格）、`hero.jpg` / `hero-portrait.jpg` / `hero.mp4` / `hero-day.jpg` / `hero-day-portrait.jpg` / `hero-day.mp4`（已交付素材，截至 2026-08-23）

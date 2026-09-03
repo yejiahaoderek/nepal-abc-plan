@@ -1,10 +1,10 @@
 # Nepal ABC 2026 — 中秋 + 国庆合并计划（initial_plan v1.3）
 
-- **编制**：Cha，2026-08-22；v1.2 四组核查并入 2026-08-23；**v1.3 全量对抗审查采纳 2026-08-23**
+- **编制**：Cha，2026-08-22；v1.2 四组核查并入 2026-08-23；**v1.3 全量对抗审查采纳 2026-08-23**；v1.3.1 = 2026-09-02 合入叶的 PR #1（G1b 08-26 事件 + `research/` 桥接），CCCha 核实修订
 - **行程人**：叶（YVR 出发，中国护照、常居加拿大）+ 帅 / Jet + 两位朋友（PVG 出发，中国护照），共 4 人
 - **窗口**：2026-09-25 ~ 10-07（中秋 9/25-27 + 年假 9/28-30 + 国庆 10/1-7，共 13 天；节假日与 9/20 补班已由 J1 官方证实）
 - **行程实际跨度**：**叶 2026-09-24 至 10-08**（9/24 晚 YVR 值机、3U3860 于 9/25 00:30 起飞，10/08 上午落地 YVR，含首尾 15 个日历日）；**国内三人 2026-09-25 至 10-07**。保险、救援会籍与信用卡额度一律按此跨度配置，**不得按 9/25-10/07 出单**（日期区间型保单再各留 1 天滑动余量：叶 9/24-10/09、国内三人 9/25-10/08）
-- **信息来源**：① Cha 2026-08-21 目的地 brainstorm 与 ABC/EBC/TMB 对比；② Meta AI（Hatch）分享页 "Abc 2026 Ye And Shuai" 完整存档（原始抽取文本见同目录 `webpage-extract-raw.txt`）；③ Cha 2026-08-22 事实核查 review（月相 / Dashain / 航线 / 行李 / 住宿）；④ 2026-08-23 weather / flights / lodging / rules 四组核查并入（Part G-J）；⑤ 2026-08-23 全量对抗审查 94 条 findings（存档 `review/2026-08-23-findings.md`，只读，不作为事实源），采纳结论见 **Part K**
+- **信息来源**：① Cha 2026-08-21 目的地 brainstorm 与 ABC/EBC/TMB 对比；② Meta AI（Hatch）v1.0 原计划分享页（旧链 `abc-2026-ye-and-shuai-…`，已下线不再引用；转录见 Part B，原始抽取文本见 `webpage-extract-raw.txt`）；③ Cha 2026-08-22 事实核查 review（月相 / Dashain / 航线 / 行李 / 住宿）；④ 2026-08-23 weather / flights / lodging / rules 四组核查并入（Part G-J）；⑤ 2026-08-23 全量对抗审查 94 条 findings（存档 `review/2026-08-23-findings.md`，只读，不作为事实源），采纳结论见 **Part K**；⑥ 叶侧 Hatch 持续研究页 `https://agent.meta.ai/s/abc-2026-oxr60xzdxpxx1cq`（as of 2026-08-31，**内容不同于 Part B 转录的 v1.0 页**；桥接与已知冲突项见 `research/hatch-abc-reference.md`；采纳结论见 G1b）
 - **本文档角色**：单一信息源。**冲突处以最新并入的结论为准：Part K > Part G / H / I / J > Part C > Part B；Part D 已整体作废，仅存档。**
 
 ---
@@ -40,7 +40,7 @@
 
 ## Part B — Meta AI（Hatch）计划完整存档
 
-> 分享页：`https://agent.meta.ai/s/abc-2026-ye-and-shuai-xzv5xtxmxvxvxtxrx0xf`（内容实际托管在 `*.cf.metaaiusercontent.com` iframe）。以下为全量结构化转录，保留原计划表述；**其中月相与 Dashain 两处经核查有误，见 Part C；执行以 Part G · G6 的「E 版」行程为准（不是 Part E），摄影执行定稿见 K1。B6 的四条操作参数仍有效，但其夜间几何前提（核心低悬西南 15-25°）已被 G3 证伪。**
+> 本 Part 转录的是 **v1.0 原计划页** `https://agent.meta.ai/s/abc-2026-ye-and-shuai-xzv5xtxmxvxvxtxrx0xf`（2026-08 生成；该链已废弃、勿再引用，原始抽取见 `webpage-extract-raw.txt`）。叶侧 2026-08-31 起另有一个**内容不同**的研究页 `https://agent.meta.ai/s/abc-2026-oxr60xzdxpxx1cq`（风险简报 / 触发器 / 询价字段），它不是本 Part 的来源，桥接见 `research/hatch-abc-reference.md`。以下为原计划结构化转录，保留原表述；**其中月相与 Dashain 两处经核查有误，见 Part C；执行以 Part G · G6 的「E 版」行程为准（不是 Part E），摄影执行定稿见 K1。B6 的四条操作参数仍有效，但其夜间几何前提（核心低悬西南 15-25°）已被 G3 证伪。**
 
 ### B1. 头部信息
 
@@ -335,6 +335,41 @@
   - **10/6 PKR→KTM 与 10/7 四张国际票购票时确认改期条件**：G4 的气旋残余 + H4 的 2025-10 Montha 先例（ABC 线关闭 4 天 + CAAN 全面禁飞）说明「路断 + 直升机同时不可用」是有先例的联合情景，此时国内段与国际段连锁失效
 - 来源：kathmandupost.com 2026-08-14/15、nepaljapan.com 2026-08-18、TAAN Gandaki 绕行通知
 
+**最新状态（截至 2026-09-02，CCCha 核查；进山口 Birethanti 见本段末条）**
+
+- **KTM↔PKR 陆路（Prithvi Highway）2026-08-26 起反复断通，2026-09-01 再次完全断路**。美国驻尼使馆逐日灾害通报（np.usembassy.gov，日期为通报日）：08-26 当局限制 Prithvi Highway 与 Mugling–Narayangadh 通行；08-27 Nagdhunga–Mugling 禁行、Prithvi 在 Dhading 多处阻断；08-28 断通交替；08-29 报告 Prithvi 重开；08-30 灾害管理局与洪水预报处对 Bhote Koshi / Trishuli 沿线发布新一轮洪水预警（上游来水增加，一处堰塞湖已大部分泄空、其余仍在监测）；08-31 Prithvi 开放但 Galchhi–Baireni 段限行；**09-01「Prithvi Highway 在 Dhading 县 Krishnabhir 被 Trishuli 河冲毁一段，完全阻断；往 Chitwan / Pokhara 的旅客不应假定可以通行」**。TIA 与国内航班全程正常运行（08-26 至 09-01 每份通报一致）
+- **对本计划的含义**：H4 的「16:30 前未登机即上路」陆路兜底与 D 版航班取消预案，在 Prithvi 断路期间**不存在**；KTM↔PKR 只剩航班与直升机包机（H4：实付约 $2,250-3,100）。Trishuli 走廊河床被泥石抬高，08-31 通报明言「更小的来水也可能再致洪」，**9 月中旬前该段公路按「不可靠」规划**
+- **建议（待帅拍板，未改定稿）**：① 9/15 起的复查项把「Prithvi Krishnabhir 段通行」列为与 Birethanti 同级的硬项；② 若 9/20 闸门时 Prithvi 仍断，10/6 改订**最早可行班次（甲，13:00-14:00 或更早）**、温泉取消，把上午留给航班延误吸收；③ 直升机 KTM↔PKR 包机从「极端备用」升为该情景下的唯一陆路替代，预算 K3 预留
+- Prithvi 断路细节（尼媒口径，与美使馆通报互证）：08-30 Trishuli 侵蚀致 **Dhading Krishnabhir 段路基整体垮塌**、Muglin–KTM 断流；08-31 Krishnabhir 与 Parewa Bhir 再发滑坡全线封闭（美使馆同日通报写「开放但 Galchhi–Baireni 限行」，两源冲突，取更保守口径）；08-26 前 Tanahun 段已有单边通行滑坡。**结论：9 月中旬前 KTM↔PKR 陆路按不可用规划，复查项以 Krishnabhir 段为标志**
+- **进山口 Birethanti / Modi Khola：两轮冲毁，截至 2026-09-02 无通车通告（不确定，证据倾向仍在修复）**。第一轮 2026-07-12 Modi Khola / Kimrong Khola 洪水冲毁 Nayapul–Birethanti–Ghandruk 公路（Syauli Bazaar 附近）、Ghurjung 吊桥受损，约 300 名游客困 Ghandruk（onlinekhabar / setopati 2026-07-13）；第二轮 08-13 夜强降雨 Modi 河大洪水，Birethanti–Ghandruk 再断、Chimrung / Syauli Bazaar–Sardikhola 段被毁，**TAAN Gandaki 08-14 通告**要求改走替代路线（thetourismtimes 2026-08-16）。08-24 报道 Annapurna Rural Municipality 8-11 区仍在集资重建（hamropatro 转 ratopati）；08-27 博卡拉本地业者称步道「可通行但中断」、无官方恢复时间表（travelhimalayanepal 2026-08-27）；**未找到 9 月初 Nayapul–Ghandruk / Siwai 吉普恢复或 Ghurjung 桥修复的官方消息**。原 G1 首条「08-14 冲走约 100m 路面」对应第二轮，予以保留
+- 事件本体与流域消歧见 G1b。伤亡数字迭代极快、只记区间与日期（核实中）：08-28 警方 / CNN 469 → 08-30 NDRRMA 734 死 / 约 2,500 失踪 → 09-01 官方初步情况报告约 1,050 死 / 3,916 失踪、涉 62 县、约 160 万人受影响（Kathmandu Post / Al Jazeera 转引）；西藏侧 08-30 报 16 死 / 546 失踪。与本计划路线无直接接口，不写入执行口径
+
+### G1b 2026-08-26 Rasuwa / Bhote Koshi 事件（与 08-14 非同一事件，间接风险）
+
+> **消歧**：08-14 Birethanti / Modi Khola 是 **ABC 进出走廊直接风险**；08-26 Rasuwa / Lhende Khola / Bhote Koshi / Trishuli 是 **另一流域系统的冰岩崩塌—堵河—溃决泥石流**，主体不在 ABC，对 ABC 为间接提醒。两者不得混为「尼泊尔全国同时失稳」。
+
+- **核查状态（CCCha 2026-09-02）**：事件**证实**。WHO Nepal 专页（who.int/nepal/emergencies/2026-rasuwa-flash-floods，2026-09-02 读取）：2026-08-26 中尼边境 Bhote Koshi / Trishuli 走廊暴洪，受灾区 Bagmati 省 Rasuwa / Nuwakot / Dhading / Chitwan + **Gandaki 省 Gorkha / Tanahun**；政府宣布 15 个市镇为灾害危机区（3 个月）；约 10,000 户需紧急救济；3 个卫生站全毁、1 家医院部分受损。USGS 页面存在但为**地图 / 媒体页**（usgs.gov/media/images/2026-nepal-debris-avalanche-and-flash-flood-map，2026-08-28；science 路径由 bx 检索命中，本机直连 usgs.gov 被阻未逐字读取）——PR 原文的「USGS 专页」不是完整事件报告。成因**仍在调查**：USGS 归类为 Langtang 国家公园内涉冰川的快速斜坡失稳（滑坡等效震级 5.2）；DHM 与 ICIMOD 基于卫星影像倾向西藏侧冰面湖 GLOF（Kathmandu Post 2026-08-28）；残余悬冰与中尼边境新堵河体为现存次生风险，**08-30 灾害部门已发新一轮洪水预警**（mid-day 2026-08-30），「事件已结束」不成立；机制经 Nature（d41586-026-02716-w）、Times of India、ThePrint 等转述一致：藏方约 5,200m 冰岩体崩落入 Lhende 河谷，地震仪初判 M4.4 地震后 USGS 更正为崩塌产生的震动信号（等效震级 5.2），临时堵河后溃决
+- 初步机制（USGS preliminary/provisional，截至 2026-08-31）：高海拔冰岩崩塌 → 临时堵河 → 溃决形成含大量泥石的山洪 → 沿 Lhende Khola、Bhote Koshi、Trishuli 系统传播
+- WHO 也列出 Gandaki Province 的 Gorkha、Tanahun 为受影响区之一，方向是按流域说关联，不写“完全隔壁省无关”，也不泛化成全国疫情
+- WHO 疾病风险来自灾区 displacement / overcrowding / WASH 与医疗设施受损，是**局部灾后公共卫生风险**，不是全国疫情证据
+- **截至 2026-08-31**：USGS/WHO 均为 preliminary，当前无证据需因 08-26 事件直接取消 10 月 ABC，按 T-14/T-7 再复核（来源：USGS https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood；WHO Nepal https://www.who.int/nepal/emergencies/2026-rasuwa-flash-floods）
+- ABC 更现实风险（08-26 带来的全国交通/WASH 提醒）：
+  1. 季风尾声新滑坡、道路或桥梁中断（尤其 Kathmandu–Pokhara 地面交通可能受更广泛季风灾害或修复工作间接影响）
+  2. 航班、物资、地面接驳延误
+  3. 沿线饮水与食物卫生
+  4. 后续官方 closure、持续强降雨预警或 outbreak alert
+- **与本计划的直接接口（补充，CCCha 2026-09-02）**：Trishuli 走廊即 **Prithvi Highway（Naubise–Muglin 段）沿线**，是 H4 的「KTM↔PKR 8h 陆路」备用线与 D 版 / 航班取消预案的地面通道。08-26 事件对 ABC 步道是间接风险，对**陆路备用线是直接风险**：9/15 复查项已含 Muglin 段，此处再明确「Prithvi Highway Trishuli 段通行状态」为 T-14 / T-7 必查项。截至 2026-09-02 的路况见 G1 末尾「最新状态」
+- 行动阈值（与 Hatch 公开页 T-14/T-7/T-24–48h 对齐；**日期以 H6 为准**：9/16 + 9/19 实地复查、9/20 闸门、9/25-9/27 抵尼复查）：
+  - 现在维持行程，不因社交媒体传言取消；最终 go/no-go 只看 ABC 沿线官方状态和当地书面确认
+  - T-14 / T-7 向 ACAP/NTNC、TAAN、当地向导、航司复核
+  - 官方关闭、连续 flash-flood warning、饮水系统中断或 outbreak alert 才触发 Plan B
+- 写作方向（不是硬封禁）：
+  - 不编概率：没有官方数字就不写“<5%”“10–15% 绕路”，写机制和触发器
+  - 不把地理切成两块：按流域和走廊说关联，08-14 在 Modi Khola 瓶颈，08-26 在 Lhende/Bhote Koshi/Trishuli，Gandaki 的 Gorkha/Tanahun 是 WHO 提到的间接点
+  - 不武断说路没事：Kathmandu–Pokhara 公路是否受损以当日复核为准
+  - 不拿“没通知”当证据：NTB/TAAN/ACAP 是否关闭要标复核日期，写“截至某日未见关闭公告，需 T-7 再查”
+  - 不把“照常”写成结论：写“现在维持，不因传言取消；最终看官方和当地书面确认”
+
 ### G2 ❌ ABC→Jhinu 单日下撤证伪
 
 ABC→Bamboo 6-7h，Bamboo→经 Chhomrong→Jhinu 5-6h，合计 **11-13h**（原计划 7-8h 低估约一半）。下撤必须拆两天，原 D1 的 10/5 不成立 → 行程重构见 G6。另：Tikhedhunga→Ghorepani 实为 6-7h（原 5-6h 为从 Ulleri 起算口径）。
@@ -532,7 +567,7 @@ ABC→Bamboo 6-7h，Bamboo→经 Chhomrong→Jhinu 5-6h，合计 **11-13h**（�
 ### H4 陆路与直升机备用（定稿参数）
 
 - 陆路 KTM↔PKR：旅游大巴 7-8h（Greenline 是否仍运营存疑，先电 +977 1 4412508，**已挂 H6，负责：帅，截止 9/15**）；包车 6-8h，4 人人均 $28-50；夜班车仅作航班取消当晚补救
-- ⚠️ **「8h 陆路当晚仍到」口径更正（v1.3）**：全文从未写起算时刻。按 10/6 的时间链，在机场获知取消后上路已 15:00-16:30，加包车 6-8h → 21:00-24:30。**正确口径：16:30 前未登机即上路，预计 21:00-24:00 到加都，非保证当晚。** 备用运力须预置：**10/6 由向导社在博卡拉预置一台待命包车（4 人 $28-50/人，已在预算内），无论飞不飞都待命**。共因风险：G4「8 月下旬季风仍活跃（10 县道路受阻）」，Prithvi 公路 Muglin 段状况与气旋预报每日同查
+- ⚠️ **「8h 陆路当晚仍到」口径更正（v1.3）**：全文从未写起算时刻。按 10/6 的时间链，在机场获知取消后上路已 15:00-16:30，加包车 6-8h → 21:00-24:30。**正确口径：16:30 前未登机即上路，预计 21:00-24:00 到加都，非保证当晚。** 备用运力须预置：**10/6 由向导社在博卡拉预置一台待命包车（4 人 $28-50/人，已在预算内），无论飞不飞都待命**。共因风险：G4「8 月下旬季风仍活跃（10 县道路受阻）」，Prithvi 公路 Muglin 段状况与气旋预报每日同查。**⚠️ 2026-09-01 美使馆通报：Prithvi 在 Dhading 县 Krishnabhir 被 Trishuli 河冲毁、完全断路（08-26 以来第二次），断路期间本条陆路兜底不存在，见 G1「最新状态」**
 - Pokhara→Ulleri：Nayapul 前柏油路，之后必须四驱；flights 组独立证实 **Ghurjung 吊桥同毁**，与 G1 同源风险，9 月中旬必查
 - KTM↔PKR 直升机包机实付约 $2,250-3,100（含 13% VAT + 10% 服务费）
 - **ABC→Pokhara 应急包机：报价 $2,000-2,600，实付约 $2,500-3,250（4 人人均 625-813）**；AS350/H125 限重 400-500kg 含行李（4 人 + 器材约 340-360kg 可行）；**仅早晨 VFR 窗口（06:00-07:15 起飞，约 10:00-11:00 截止），错过等次日**；拼座非常规产品，4 人直接包机；报价必问含不含 13% VAT
@@ -819,6 +854,7 @@ ABC→Bamboo 6-7h，Bamboo→经 Chhomrong→Jhinu 5-6h，合计 **11-13h**（�
 15. **新增 4 人总预算汇总表（K3）**与统一汇率口径（NPR 153 / USD）。
 16. **应急协议补全（K4）**：气旋监测的源 / 人 / 分支、伤病两级分级与叫机决策人、VFR 窗口的地面过夜方案、通信卫星备份的权衡、连日阴雨的最低成功定义。
 17. **文档卫生**：Part D 作废口径精确化、Part E 逐条标状态、四处悬空引用修复、附录错误清单扩到并集、术语表与 CLAUDE.md 同步。
+18. **（v1.3.1，2026-09-02）合入叶的 PR #1**：新增 G1b（08-26 Rasuwa / Bhote Koshi 事件消歧，WHO/USGS 证实）与 `research/hatch-abc-reference.md` 桥接；CCCha 修订：Part B 来源链恢复为 v1.0 旧页（新页内容不同）、桥接文件补「与事实源冲突项」（页面的上海会合说法证伪）、移除公开 repo 内的真名清单、T-14/T-7 对齐 H6 日期、G1b 加核查状态与 Prithvi Highway 接口。
 
 ---
 
@@ -828,6 +864,7 @@ ABC→Bamboo 6-7h，Bamboo→经 Chhomrong→Jhinu 5-6h，合计 **11-13h**（�
 - v1.1 = 2026-08-22，Cha 合并修订（Part A-F）
 - v1.2 = 2026-08-23，weather / flights / lodging / rules 四组核查并入（Part G-J）
 - **v1.3 = 本文档（2026-08-23，全量对抗审查 94 条 findings 采纳，新增 Part K）**
+- v1.3.1 = 2026-09-02，合入叶的 PR #1（G1b + `research/hatch-abc-reference.md`），CCCha 核实修订（见 K5 第 18 条）
 
 **核查来源（按并入批次）**
 
