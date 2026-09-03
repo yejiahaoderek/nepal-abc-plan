@@ -46,6 +46,7 @@
 - **2026-09-02 路况**：KTM↔PKR 陆路（Prithvi Highway）09-01 在 Dhading Krishnabhir 完全断路（08-26 以来第二次），断路期间 10/6 航班取消的陆路兜底不存在；进山口 Birethanti / Modi Khola 两轮冲毁（07-12、08-13/14）后无通车通告，Ghurjung 桥修复无消息。详见 `initial_plan.md` G1「最新状态」与 G1b。
 
 - v1.3 完成：94 条对抗审查 findings 已采纳（89 workflow + 5 Codex，存档 `review/2026-08-23-findings.md`）。
+- **2026-09-03 深度审计**：`review/2026-09-03-findings.md`（195 条 findings，存活 193：P0 5 / P1 23 / P2 111 / INFO 54；20 条更优方案候选；只读存档，**尚未采纳入 `initial_plan.md`**）。P0 全部是执行层逾期项（国际 / 国内机票未出票、定社逾期、叶证件与 MSP 未闭合、保险 J5 未闭合、摄影两人未指名、疫苗）；户外侧新增硬缺口：Kimrong（Ghurjung）吊桥 2026-07-12 冲毁压在 9/30 Tadapani→Chhomrong 徒步主线、Jhinu 温泉 2026-08-13 全毁、9/28 与 10/5 时间链算术证伪。采纳时按该文件「对 initial_plan.md 的修改清单」逐 Part 合入，DISPUTED 条目先裁决。
 - 待 Jet 拍板：10/6 PKR→KTM 班次甲/乙（计划推荐乙 16:50/18:00）、摄影两人指名（8/26 已过，阻塞器材清单与专属背夫分配）、Dwarika's 房型（默认 Junior Suite ×2）、小费档（默认上调档 $550-700）、在途值守人。
 - 关键日期：9/13 前国内三人装备采购打包；9/13-9/15 入境在线预填；9/16 + 9/19 Birethanti/Ghurjung 实地复查；**9/20 E/D 版闸门**（未通车切 D-Phedi 形态）；9/24 晚叶值机；9/26 四人加都会合。
 - Birethanti 是进出山共同瓶颈（2026-08-14 冲毁抢修中），出山侧对称预案与 D-Phedi 完整逐日表见 G1 / G6。
